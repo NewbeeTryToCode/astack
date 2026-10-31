@@ -1,0 +1,16 @@
+{
+  "name": "agent-stack",
+  "owner": {
+    "name": "NewbeeTryToCode"
+  },
+  "metadata": {
+    "description": "Personal agent stack: pstack's verification and judgment with ECC's planning and guardrails."
+  },
+  "plugins": [
+    {
+      "name": "stack",
+      "source": "./plugins/stack",
+      "description": "pstack judgment, verification and playbooks with ECC planning, specialists and guardrail hooks, in one plugin."
+    }
+  ]
+}

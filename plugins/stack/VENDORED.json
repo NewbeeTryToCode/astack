@@ -1,0 +1,3568 @@
+{
+  "sources": {
+    "cursor-plugins": "4dd1d05818d19792e7cd6e818f1667f95f7e1dbe",
+    "ecc": "b38be6a7f6350964d59328b52f0624e1d1d552d1"
+  },
+  "files": {
+    "README.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/README.md",
+      "sha256": "9b774ecfa5c74981d341968fb1ae0c7a4b4acb0ed4558875c5c152f5101a9284"
+    },
+    "agents/build-error-resolver.md": {
+      "source": "ecc",
+      "path": "agents/build-error-resolver.md",
+      "sha256": "acc9e14df59dd28d00f966b3a6cf0d9aeeda7e8a9ab7f1bc442466c0219c35ec"
+    },
+    "agents/ci-watcher.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/agents/ci-watcher.md",
+      "sha256": "8bc93b9ced5588f0ece54ce52690e9682ac49a7fd64be7124379b0e2e128556e"
+    },
+    "agents/code-architect.md": {
+      "source": "ecc",
+      "path": "agents/code-architect.md",
+      "sha256": "1a2ce1d231b7427ff863522f6f19e7738cd668279ac60af520aa0c45ac14772b"
+    },
+    "agents/code-explorer.md": {
+      "source": "ecc",
+      "path": "agents/code-explorer.md",
+      "sha256": "3dbb33769147f6c7ffb739c550b7b8867e1b8ea84f1179197fdbc3028dc34fb7"
+    },
+    "agents/comment-sicko.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/agents/comment-sicko.md",
+      "sha256": "3e239e40b7b4b9beb2cf7f3ccc57f2388eb8b69bd1ba8ae888ef87ef6e0e2116"
+    },
+    "agents/conversation-analyzer.md": {
+      "source": "ecc",
+      "path": "agents/conversation-analyzer.md",
+      "sha256": "f86fcf4317a41158dc55641f606c97a8d4d3ccacf7157ff70e0811ca7b42ba75"
+    },
+    "agents/database-reviewer.md": {
+      "source": "ecc",
+      "path": "agents/database-reviewer.md",
+      "sha256": "945c107dea01ca74e3e9bc3a5841e79e744673e8f14697e88cf1cfd9c01a1cc5"
+    },
+    "agents/doc-updater.md": {
+      "source": "ecc",
+      "path": "agents/doc-updater.md",
+      "sha256": "5018d3a0bf740d2263fd4b7a92412d53a62d4be151a71221d6549cacba62d72c"
+    },
+    "agents/docs-lookup.md": {
+      "source": "ecc",
+      "path": "agents/docs-lookup.md",
+      "sha256": "11560171e4535419e7917158d0de3bc7bbbf0408f83f61f0f3558b356802419e"
+    },
+    "agents/mle-reviewer.md": {
+      "source": "ecc",
+      "path": "agents/mle-reviewer.md",
+      "sha256": "c505be5fccea9d067775b86fed76bc4b84e63e17090855ac135694adbc83a7f8"
+    },
+    "agents/performance-optimizer.md": {
+      "source": "ecc",
+      "path": "agents/performance-optimizer.md",
+      "sha256": "76d00a70fcc07a0b207f6b517d54078fa7a59f29e157fea72bf5f1d9cab8f9b2"
+    },
+    "agents/planner.md": {
+      "source": "ecc",
+      "path": "agents/planner.md",
+      "sha256": "63aba865206bac9cb5887542fb01b97656e7701faff98e091aa77057ba9860bc"
+    },
+    "agents/poteto-agent.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/agents/poteto-agent.md",
+      "sha256": "979f18abd000d185a0b4c41a2a4111c0910596a7f5c81cbb571885bc721b2bf7"
+    },
+    "agents/python-reviewer.md": {
+      "source": "ecc",
+      "path": "agents/python-reviewer.md",
+      "sha256": "d2180b115f5840383268c13d5d075b0541fe7ef2a1ac8ecd5d835266ca1b27ce"
+    },
+    "agents/pytorch-build-resolver.md": {
+      "source": "ecc",
+      "path": "agents/pytorch-build-resolver.md",
+      "sha256": "5ec08de6c6b616b068e7075be4496edd3e4ef3b041f0095a2e073131a58a9f7c"
+    },
+    "agents/rag-pipeline-reviewer.md": {
+      "source": "ecc",
+      "path": "agents/rag-pipeline-reviewer.md",
+      "sha256": "793432a0c4e44aa4c640cb85ec24b47062ed044782852b0ba67323d860154fec"
+    },
+    "agents/rust-build-resolver.md": {
+      "source": "ecc",
+      "path": "agents/rust-build-resolver.md",
+      "sha256": "78c75c6be38ff376963b3c5b26d60dce0491064481d1a61e842a6d2879534e82"
+    },
+    "agents/rust-reviewer.md": {
+      "source": "ecc",
+      "path": "agents/rust-reviewer.md",
+      "sha256": "10af67c5764677596d43f32a952d8ec28662bb353fd986d726daefd3382ebeca"
+    },
+    "agents/security-reviewer.md": {
+      "source": "ecc",
+      "path": "agents/security-reviewer.md",
+      "sha256": "813e4062bed5f42ab25dd02a0070f682058ffe9508198fcfdbb2c31296f93b7b"
+    },
+    "agents/silent-failure-hunter.md": {
+      "source": "ecc",
+      "path": "agents/silent-failure-hunter.md",
+      "sha256": "e5e2094c6f50cc515a77376331c78e4955d5ff16c7a0e5d8f6edec692b7ebd8d"
+    },
+    "agents/thermo-nuclear-code-quality-review.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/agents/thermo-nuclear-code-quality-review.md",
+      "sha256": "4d15c05be503f9fdb795a292807334558e7619ffc2fd75ddbc9e97e0d6312234"
+    },
+    "agents/type-design-analyzer.md": {
+      "source": "ecc",
+      "path": "agents/type-design-analyzer.md",
+      "sha256": "753908aadd759d4710e07ac1a0ba8a6fbc0bc35fe369cadd3ede9655da5d1c49"
+    },
+    "agents/typescript-reviewer.md": {
+      "source": "ecc",
+      "path": "agents/typescript-reviewer.md",
+      "sha256": "15892a4be774a757442376c290dbd11586f4fab3b1e28a9d36f74c42a45e4eba"
+    },
+    "commands/build-fix.md": {
+      "source": "ecc",
+      "path": "commands/build-fix.md",
+      "sha256": "2620e3b8733d227205b0d48c3ac0b68db026c6bb97a3049bf927917d7eb51189"
+    },
+    "commands/hookify-configure.md": {
+      "source": "ecc",
+      "path": "commands/hookify-configure.md",
+      "sha256": "a059c23f885d36e3597daa03b7bf77cbb79a2a87e5856ca4bede4eb3b816082a"
+    },
+    "commands/hookify-help.md": {
+      "source": "ecc",
+      "path": "commands/hookify-help.md",
+      "sha256": "a115d001b3a338183791777acb3a40aae4ced5a8866134c076ef737942195300"
+    },
+    "commands/hookify-list.md": {
+      "source": "ecc",
+      "path": "commands/hookify-list.md",
+      "sha256": "e4866cef27364ed90ff90ca58cd1a485775ca05c159c11625f1140f12748a29c"
+    },
+    "commands/hookify.md": {
+      "source": "ecc",
+      "path": "commands/hookify.md",
+      "sha256": "170e5c3678e9db321c5233a0bce28f7cbf1ac3d16eea9c201233284755337257"
+    },
+    "commands/plan-prd.md": {
+      "source": "ecc",
+      "path": "commands/plan-prd.md",
+      "sha256": "9d3a9fa529fa77dc980d2e587ee76c243bfa5afae03bf9519210d49e761a9fa6"
+    },
+    "commands/plan.md": {
+      "source": "ecc",
+      "path": "commands/plan.md",
+      "sha256": "92a3f6aacd48f4d1e7a87692810bde28300a7e72fb99b9dfcdec048e7de95dc2"
+    },
+    "commands/python-review.md": {
+      "source": "ecc",
+      "path": "commands/python-review.md",
+      "sha256": "f0ad280ee033fea62f508c6dace1921dffb75467d30fd872dca9b2a54ab02f81"
+    },
+    "commands/rust-build.md": {
+      "source": "ecc",
+      "path": "commands/rust-build.md",
+      "sha256": "910e9e12b9657ab9e919b0a231f729cd24ba2a21e7e80634d043e39a68181a6d"
+    },
+    "commands/rust-review.md": {
+      "source": "ecc",
+      "path": "commands/rust-review.md",
+      "sha256": "d4a5415fd6de6fe27ae761f3906869cc8060836205aa1c4b80e5cfd175fd5252"
+    },
+    "commands/rust-test.md": {
+      "source": "ecc",
+      "path": "commands/rust-test.md",
+      "sha256": "03983eb5a48abc7f1b832945856cd92a4b5c1efaef414847269867ffbb380566"
+    },
+    "commands/update-codemaps.md": {
+      "source": "ecc",
+      "path": "commands/update-codemaps.md",
+      "sha256": "dee7709ae4044862fd947e17048f8af170145b70ac53dfe01caa672a903853ea"
+    },
+    "commands/update-docs.md": {
+      "source": "ecc",
+      "path": "commands/update-docs.md",
+      "sha256": "f0f4645d697c7c5874b79c64218cd2057a291cc6301f6a044cb2bac5ccc14f4a"
+    },
+    "docs/PLAN-PRD-PATTERN.md": {
+      "source": "ecc",
+      "path": "docs/PLAN-PRD-PATTERN.md",
+      "sha256": "bf0a9d4145f36ca5bd986ebd4fe1ee7886614405faf474ff5ab4f5bba0157e5a"
+    },
+    "docs/capability-surface-selection.md": {
+      "source": "ecc",
+      "path": "docs/capability-surface-selection.md",
+      "sha256": "1eedb96a9b406cf08397b113f5a77cf5c7fd0d64acabaaf29b3fdd3b334c2db8"
+    },
+    "docs/guide/01-setup.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/01-setup.md",
+      "sha256": "384655bdecc713122ca69a485723c58462002a1d512415e94e48597d0dce2fa5"
+    },
+    "docs/guide/02-poteto-mode.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/02-poteto-mode.md",
+      "sha256": "d168829def6c410b1afd87d1a6eb297df385f89faa9b31260684074e9e4eb52a"
+    },
+    "docs/guide/03-understand.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/03-understand.md",
+      "sha256": "1ac97cbad51c15c18b3aade8634d81c8bbe50d2b3135c75c113ddb2a6dcb7af0"
+    },
+    "docs/guide/04-design.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/04-design.md",
+      "sha256": "2421f2793303a2cb02aabac5ecdc4bfafb5e68024a28123f4f134cc7df4a5211"
+    },
+    "docs/guide/05-build-and-clean.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/05-build-and-clean.md",
+      "sha256": "1284e80595ae4f214dfa7c5c5f7758ff90a47b3273aa7b8142e51e574f5c5290"
+    },
+    "docs/guide/06-verify-and-ship.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/06-verify-and-ship.md",
+      "sha256": "3f761af6629969d1d7d957c6a2cdadb41f1c098c14d6bbe8c2a5d3855a4b4409"
+    },
+    "docs/guide/07-overnight.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/07-overnight.md",
+      "sha256": "04a1709d62ad9b6f2423a8c19138c28769bc431db03893b24b887d298fe6f2e3"
+    },
+    "docs/guide/08-principles.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/08-principles.md",
+      "sha256": "0b26b85292f0c09768abe727c9e92987dbf81f5b439a4871034c2fd1c4cb1723"
+    },
+    "docs/guide/09-make-it-yours.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/09-make-it-yours.md",
+      "sha256": "50642f7f894988f7c263700f46478e7aed7eb94a257683350d91a9a0d70dc141"
+    },
+    "docs/guide/10-recipes-and-pitfalls.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/10-recipes-and-pitfalls.md",
+      "sha256": "784da0a2373e58123c4591b778909efc8d01b2b1f820b6029fa85a3fe2491fb4"
+    },
+    "docs/guide/README.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/README.md",
+      "sha256": "5c888d034d38f380789fad57c2c6fa7307ace803a0622cdde9e57fa2afe182de"
+    },
+    "docs/guide/images/design.jpg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/images/design.jpg",
+      "sha256": "b8ed07427f6a0c37dd8ba97961fc0eb5071efeee6c4a230648bdb7547f6f2a8f"
+    },
+    "docs/guide/images/overnight.jpg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/images/overnight.jpg",
+      "sha256": "4b4405e4df8925c5b3abbe702f681af0f3b1f5f32271b599f95717f578f1a0c8"
+    },
+    "docs/guide/images/recipes.jpg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/images/recipes.jpg",
+      "sha256": "9fa2d51b476635712737795ddef81806efaa0086bb3bfa9f9f45695d9ab0f8e8"
+    },
+    "docs/guide/images/router.jpg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/images/router.jpg",
+      "sha256": "525843055a4efd2b10acc50a8652fd02b0834ea733a8a2f895c1eb89036017da"
+    },
+    "docs/guide/images/understanding.jpg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/images/understanding.jpg",
+      "sha256": "b60587e9a9bbe2550e93be9819cf0cd4acf77d90fac769a0c43d82bd8e34e279"
+    },
+    "docs/guide/images/verification.jpg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/guide/images/verification.jpg",
+      "sha256": "2a76b52007a1cd2866ba67fd47d7d9ef3e1118bb5a09c4665eee8c3f161bd09a"
+    },
+    "docs/harness/claude-code.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/docs/harness/claude-code.md",
+      "sha256": "667c8634fa6e58d874ba7b63424b6b8f2b952ee77d86db8df5669ad98059448d"
+    },
+    "rules/common/coding-style.md": {
+      "source": "ecc",
+      "path": "rules/common/coding-style.md",
+      "sha256": "3c069a2460702e1715e6b21408287401f1faa8d343045c98534d59fbd22a0e56"
+    },
+    "rules/common/hooks.md": {
+      "source": "ecc",
+      "path": "rules/common/hooks.md",
+      "sha256": "915c6e9c05eae855ced408a3c1f7823135e84021639f8670929339834b92d59a"
+    },
+    "rules/common/patterns.md": {
+      "source": "ecc",
+      "path": "rules/common/patterns.md",
+      "sha256": "8a32c0552c8b309e961ef3f68a56ae84b0b1d411c17f23675ec26b685dea5e9a"
+    },
+    "rules/common/security.md": {
+      "source": "ecc",
+      "path": "rules/common/security.md",
+      "sha256": "58f0acc56331b8d554dd036b8a1d5b2305a908e3960ff1e2d7e55223d5918bc3"
+    },
+    "rules/common/testing.md": {
+      "source": "ecc",
+      "path": "rules/common/testing.md",
+      "sha256": "304939bca551d1c540e59c3389d9cb9d670d314c9eb1b5feca777ef80bd88467"
+    },
+    "rules/python/coding-style.md": {
+      "source": "ecc",
+      "path": "rules/python/coding-style.md",
+      "sha256": "f9d6d7a39c5f5ea809579fecac591f390fa9264c088c7e209d464d5244747003"
+    },
+    "rules/python/fastapi.md": {
+      "source": "ecc",
+      "path": "rules/python/fastapi.md",
+      "sha256": "e796ecbe93c4d50de6ab34ab1d8fc35db5e6bac03144cbaef09939ae5c3b6e2a"
+    },
+    "rules/python/hooks.md": {
+      "source": "ecc",
+      "path": "rules/python/hooks.md",
+      "sha256": "7ebd12233f6917905d5653a63afe2361450ed732fd965de55055ed5ffd3c14a7"
+    },
+    "rules/python/patterns.md": {
+      "source": "ecc",
+      "path": "rules/python/patterns.md",
+      "sha256": "d9cab9b536321ea7efc6180668fd48820deaf571400db732f0ca17bdda92b7d0"
+    },
+    "rules/python/security.md": {
+      "source": "ecc",
+      "path": "rules/python/security.md",
+      "sha256": "6bbbb6c800cdfef23c3f9a5055ce31096a7724b51f0d528935f6c32970639453"
+    },
+    "rules/python/testing.md": {
+      "source": "ecc",
+      "path": "rules/python/testing.md",
+      "sha256": "92655aa5047ee456501ad6605c428680bac6433965f89ce531fe79627004e8c6"
+    },
+    "rules/rust/coding-style.md": {
+      "source": "ecc",
+      "path": "rules/rust/coding-style.md",
+      "sha256": "01c056bef1bf3b7ca7cfc516986c1d05bcd341c620d2a09ce75acdc2ed539f5f"
+    },
+    "rules/rust/hooks.md": {
+      "source": "ecc",
+      "path": "rules/rust/hooks.md",
+      "sha256": "a7494896f1c8838f31cd72846f435e6388f91bf94e0d91eb226dd9b5b684ca55"
+    },
+    "rules/rust/patterns.md": {
+      "source": "ecc",
+      "path": "rules/rust/patterns.md",
+      "sha256": "08a09f7cf61991f4bdb69e388a9df546ea490c5c822aebcdd066e227cb06e16b"
+    },
+    "rules/rust/security.md": {
+      "source": "ecc",
+      "path": "rules/rust/security.md",
+      "sha256": "09c5225869c09fc605f8495ae2c3728093e3b652dcc0ab55a9186946f5c67995"
+    },
+    "rules/rust/testing.md": {
+      "source": "ecc",
+      "path": "rules/rust/testing.md",
+      "sha256": "eff6d418ceb9ec5a3ea566b8a3b8470f1879f1d5af5bb6c8a84ac1719232c478"
+    },
+    "rules/typescript/coding-style.md": {
+      "source": "ecc",
+      "path": "rules/typescript/coding-style.md",
+      "sha256": "cb6fbe555d700a65d466fc27377fbb66d6da0e2bcf4411656918f6a45402af1a"
+    },
+    "rules/typescript/hooks.md": {
+      "source": "ecc",
+      "path": "rules/typescript/hooks.md",
+      "sha256": "930bbe5d5a66e0022a55c87d5a17765d1633669620f9a3be6815f3ab4ddcd6b4"
+    },
+    "rules/typescript/patterns.md": {
+      "source": "ecc",
+      "path": "rules/typescript/patterns.md",
+      "sha256": "20870f78aa32429fe13f35b415e9f6f8f7809e39c460cf8146d181b7306159fd"
+    },
+    "rules/typescript/security.md": {
+      "source": "ecc",
+      "path": "rules/typescript/security.md",
+      "sha256": "86b14a5a56f4e61750ab30ca50bd264f52f90f5358303f3028d41030a4c50f18"
+    },
+    "rules/typescript/testing.md": {
+      "source": "ecc",
+      "path": "rules/typescript/testing.md",
+      "sha256": "e6654d15a64f34781b0b0d035a0c2d3620ee39c68eef6753292594fdd0ad28b1"
+    },
+    "scripts/hooks/auto-tmux-dev.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/auto-tmux-dev.js",
+      "sha256": "b9bba06d2b73495601a04a69ba1b907271220d967794eed613b0b3924a91ffd9"
+    },
+    "scripts/hooks/bash-hook-dispatcher.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/bash-hook-dispatcher.js",
+      "sha256": "56ca90abedb4a5879d525f64887aafc06b802fa16788a532ae6e074812152ab6"
+    },
+    "scripts/hooks/block-no-verify.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/block-no-verify.js",
+      "sha256": "4eb3a82ae874b137e1d8dffb23122005bb4fc46aca4bcc34b84e3c82d4dd4d55"
+    },
+    "scripts/hooks/check-console-log.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/check-console-log.js",
+      "sha256": "909b2a1fb102142a445a88f67a51fa29192655438f79f0a972bcc73f1656c891"
+    },
+    "scripts/hooks/config-protection.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/config-protection.js",
+      "sha256": "bc51422b6be2ebe442d3dd4b692a10013defcb27e17d364fab75b5b7a8a24e15"
+    },
+    "scripts/hooks/design-quality-check.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/design-quality-check.js",
+      "sha256": "ffac3f7c2b226e68c808b7e23d515727e0db32e166ed14d25674dfa9a407be33"
+    },
+    "scripts/hooks/ecc-context-monitor.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/ecc-context-monitor.js",
+      "sha256": "6c9399ca4e1bd0162cf824fd4c94f5c05e580bb3146e6e365f38b6f7bd14e5ec"
+    },
+    "scripts/hooks/ecc-metrics-bridge.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/ecc-metrics-bridge.js",
+      "sha256": "c78b8ba985fefbca95db970da8da50465f634895e0ea688b45d688f70d4abfdd"
+    },
+    "scripts/hooks/gateguard-fact-force.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/gateguard-fact-force.js",
+      "sha256": "034f023e8670594a600f3dc07204aac83323fb18e4e3181d2f4b4a76d251eb5a"
+    },
+    "scripts/hooks/gateguard-heredoc.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/gateguard-heredoc.js",
+      "sha256": "1482549cd44a02251d1b468afe79fc931fe1113fbcf7d08f3f7e3fc98d89171e"
+    },
+    "scripts/hooks/governance-capture.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/governance-capture.js",
+      "sha256": "8001160e9bc469dd57aa000ff483962c00841701973e9d1cf122105b88a839d8"
+    },
+    "scripts/hooks/hook-input-limits.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/hook-input-limits.js",
+      "sha256": "abca331bfe8e4059dc54f9dfcf09bd6a68d023a9d807b7b4a6e96e505842e066"
+    },
+    "scripts/hooks/hook-input.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/hook-input.js",
+      "sha256": "ecab006d8901c566a6bb12b92837852ab8d7f334b871770560d0ba91dcfffc28"
+    },
+    "scripts/hooks/hookify-frontmatter.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/hookify-frontmatter.js",
+      "sha256": "68a0b35ca141842b114143f205634b87e514e1380a1cc1cc63b4f1a969c9f95d"
+    },
+    "scripts/hooks/hookify-runtime.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/hookify-runtime.js",
+      "sha256": "ded7fc64176617ebf548af5191551ee16a4b99623ca1351624f614e5a0ddacec"
+    },
+    "scripts/hooks/lib/shell-scan.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/lib/shell-scan.js",
+      "sha256": "564a3584019e67609368bbcab27c5907f42064e55a5c301eb0022e1ca3c4dd3f"
+    },
+    "scripts/hooks/lifecycle-hook-bootstrap.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/lifecycle-hook-bootstrap.js",
+      "sha256": "9d3e2312749c2bbf7298118cd7682639c7e5c63c0687eaa45480677d73050ef8"
+    },
+    "scripts/hooks/observe-runner.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/observe-runner.js",
+      "sha256": "12a6cc569047400fa22f664df77a0eb97d5a4b873aa743119919fb7bdfda9e16"
+    },
+    "scripts/hooks/plugin-hook-bootstrap.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/plugin-hook-bootstrap.js",
+      "sha256": "b1c3fd5fbdd95d59ad540227ca8198baff976238f405b0a117301eda459a0529"
+    },
+    "scripts/hooks/post-bash-build-complete.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/post-bash-build-complete.js",
+      "sha256": "f47e296e4536ba71572c27b6611919d1b350bc1f2d293b1c1ddb2c7662e506b4"
+    },
+    "scripts/hooks/post-bash-command-log.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/post-bash-command-log.js",
+      "sha256": "57c757ccf5f886fdb80d74cb66e678254fb571b47cd29d879c277b353262b12f"
+    },
+    "scripts/hooks/post-bash-pr-created.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/post-bash-pr-created.js",
+      "sha256": "360a4d5428801786fda5c03ebfa065033aa6382448d0035bd7c44904ee686e6a"
+    },
+    "scripts/hooks/post-edit-accumulator.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/post-edit-accumulator.js",
+      "sha256": "50695e6418ab6b54ff7981496ed10cd146b75c70caee6e5ba755b923aad50b3c"
+    },
+    "scripts/hooks/post-edit-console-warn.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/post-edit-console-warn.js",
+      "sha256": "de72d89dc4cedb4ba0ba799edacad79b69165ec9aac5be6d65950cd0cd3b5c2d"
+    },
+    "scripts/hooks/posttooluse-dispatcher.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/posttooluse-dispatcher.js",
+      "sha256": "79ffb7ed00db3db17e835eb5a9a74579e2ebda1367815018b6684d668763cdbc"
+    },
+    "scripts/hooks/pre-bash-commit-quality.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/pre-bash-commit-quality.js",
+      "sha256": "129d0954a3a94ceb6196effb3b52f1d2bfde9e70f8c6d52056558ba7c27e9391"
+    },
+    "scripts/hooks/pre-bash-dispatcher.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/pre-bash-dispatcher.js",
+      "sha256": "5ddf5ec18c25272b5874f5fa5a19243ceb6fdf978b3c81fa04e337c59ed25716"
+    },
+    "scripts/hooks/pre-bash-git-push-reminder.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/pre-bash-git-push-reminder.js",
+      "sha256": "171a7b03e588059aabab78cf64e10fa8170af112b1ceb6fa3d749df503c7fa72"
+    },
+    "scripts/hooks/pre-bash-tmux-reminder.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/pre-bash-tmux-reminder.js",
+      "sha256": "df1d631016eb98d0fd53787572d76ecc65be180f91e38f05adb76a964e824a4c"
+    },
+    "scripts/hooks/pretooluse-visible-output.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/pretooluse-visible-output.js",
+      "sha256": "0508766aad2ff7540a717bacacc6e23e2452c65d75d0485039ec1a3eae7e6018"
+    },
+    "scripts/hooks/quality-gate.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/quality-gate.js",
+      "sha256": "939bb07cf4f0ad3b04ed2bf14473328de4445022426404ecae421e4c3662bb42"
+    },
+    "scripts/hooks/run-with-flags.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/run-with-flags.js",
+      "sha256": "4d83adc3ea8234f865ed169209e61164b3190faaf9299de55ad0341fcd471b6a"
+    },
+    "scripts/hooks/session-activity-tracker.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/session-activity-tracker.js",
+      "sha256": "834bcbaca04012439887e863f88ab3c0af5a04ccb0bfbf0a30a9321dd16e8726"
+    },
+    "scripts/hooks/skill-run-tracker.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/skill-run-tracker.js",
+      "sha256": "863ae2ba593332657d237bc23bba7ec1de4bcd56353176c82954eedcacb644e5"
+    },
+    "scripts/hooks/stop-format-typecheck.js": {
+      "source": "ecc",
+      "path": "scripts/hooks/stop-format-typecheck.js",
+      "sha256": "8b886a5e220f6902b06e1245401478aa889d9ed287129e9051d1b5ed0a6ea53f"
+    },
+    "scripts/lib/agent-data-home.js": {
+      "source": "ecc",
+      "path": "scripts/lib/agent-data-home.js",
+      "sha256": "afc7d0ebe7b747345063f716c18816d6351e94cc1641303a4568fe70858e5710"
+    },
+    "scripts/lib/atomic-write.js": {
+      "source": "ecc",
+      "path": "scripts/lib/atomic-write.js",
+      "sha256": "654bd6ce9ab07ec2093d74be96c51bdde1e446a43092e4383eddc7765904cf93"
+    },
+    "scripts/lib/file-tail.js": {
+      "source": "ecc",
+      "path": "scripts/lib/file-tail.js",
+      "sha256": "ba0afacb4d6e289e79afeb1e6fce36422b4b7134e524bbef17f1452da8f89106"
+    },
+    "scripts/lib/gateguard-change-profile.js": {
+      "source": "ecc",
+      "path": "scripts/lib/gateguard-change-profile.js",
+      "sha256": "bb08029f429ea945d38536c813f0133afde089e303d50f52e8618fd0bff5b1b7"
+    },
+    "scripts/lib/gateguard-code-lexer.js": {
+      "source": "ecc",
+      "path": "scripts/lib/gateguard-code-lexer.js",
+      "sha256": "4f73194d078b9ac7cc310dd623f1b09620072d80298e817d98caa421217cf7c2"
+    },
+    "scripts/lib/gateguard-file-context.js": {
+      "source": "ecc",
+      "path": "scripts/lib/gateguard-file-context.js",
+      "sha256": "4d53348cf80f1b8b6b12856d8c2c53f26911f8859bf4ad77a81f31886851e45f"
+    },
+    "scripts/lib/gateguard-metrics.js": {
+      "source": "ecc",
+      "path": "scripts/lib/gateguard-metrics.js",
+      "sha256": "8b8998bf0cb5b4879d5130fb9a63ddbb194001b7a04bc4e4ebe37040bc5e3814"
+    },
+    "scripts/lib/gateguard-readonly-shell.js": {
+      "source": "ecc",
+      "path": "scripts/lib/gateguard-readonly-shell.js",
+      "sha256": "8e3e1530b069827e5d8e73a2810ff30fbb655a13b296e19cfddf8065265fba11"
+    },
+    "scripts/lib/gateguard-search-evidence.js": {
+      "source": "ecc",
+      "path": "scripts/lib/gateguard-search-evidence.js",
+      "sha256": "8272c5994146fcf278d567b75140121bedf999746b17322922d078068f87872b"
+    },
+    "scripts/lib/gateguard-search-filters.js": {
+      "source": "ecc",
+      "path": "scripts/lib/gateguard-search-filters.js",
+      "sha256": "11a3a346589c8540d40cbe19c92d0ed8e31a5a05afa869f2d9b31e3735653e6d"
+    },
+    "scripts/lib/gateguard-state.js": {
+      "source": "ecc",
+      "path": "scripts/lib/gateguard-state.js",
+      "sha256": "c0520978f3b18a4c47fb9139a492c6c499762e0e78c50bd29595e2dccdfd02cc"
+    },
+    "scripts/lib/gateguard-target-class.js": {
+      "source": "ecc",
+      "path": "scripts/lib/gateguard-target-class.js",
+      "sha256": "3b750f1f680bc605c3d9648d32ec6257d33ef7ca2212e8190e6f7c03cd272cbb"
+    },
+    "scripts/lib/gateguard-turn-scan.js": {
+      "source": "ecc",
+      "path": "scripts/lib/gateguard-turn-scan.js",
+      "sha256": "d5ba520b33e3d7a6909853fa0a99d6482da2601b613447720891f29b463de41f"
+    },
+    "scripts/lib/hook-flags.js": {
+      "source": "ecc",
+      "path": "scripts/lib/hook-flags.js",
+      "sha256": "f5e79b210531a1f3e2a476be4a421a9ee398e91f2d2991b52e8047db260b6b8c"
+    },
+    "scripts/lib/hook-session.js": {
+      "source": "ecc",
+      "path": "scripts/lib/hook-session.js",
+      "sha256": "618b970935fc37a31d01fde8b7c5b10bf5d4766b8d1c9b278a2e0b0eb2f246dd"
+    },
+    "scripts/lib/hooks-config.js": {
+      "source": "ecc",
+      "path": "scripts/lib/hooks-config.js",
+      "sha256": "1f956ee3f98c43213b247d347389fb202c40bbab9e908a3fdc78b760f2891808"
+    },
+    "scripts/lib/install-targets/helpers.js": {
+      "source": "ecc",
+      "path": "scripts/lib/install-targets/helpers.js",
+      "sha256": "580ed110201112079f2af63e377f90c32fea6f6426acf830a2cbe30771ec6515"
+    },
+    "scripts/lib/install/claude-settings-lock.js": {
+      "source": "ecc",
+      "path": "scripts/lib/install/claude-settings-lock.js",
+      "sha256": "5ba37d8f2aa122b61b41083553884a9c06af2872c850527006920e57b7444f3a"
+    },
+    "scripts/lib/install/claude-settings.js": {
+      "source": "ecc",
+      "path": "scripts/lib/install/claude-settings.js",
+      "sha256": "cfa6e372a507a3b95f1dd58a0b5cc6c7d4e6b99b16baf8284918511807e89fad"
+    },
+    "scripts/lib/package-manager.js": {
+      "source": "ecc",
+      "path": "scripts/lib/package-manager.js",
+      "sha256": "636f8bc8379ae0c26be1f7c5b61555cf2a274698a4f9fbd34e9eced9eacb3662"
+    },
+    "scripts/lib/path-safety.js": {
+      "source": "ecc",
+      "path": "scripts/lib/path-safety.js",
+      "sha256": "542126cf47247161dd26713a1f33d34af2881db46435ac8ecef76a8be31c062c"
+    },
+    "scripts/lib/powershell-destructive-command.js": {
+      "source": "ecc",
+      "path": "scripts/lib/powershell-destructive-command.js",
+      "sha256": "2eb97e1bae2933b4c0cc3346578f87360a176c56a39ba0b5b3dbff0172b25b2c"
+    },
+    "scripts/lib/resolve-ecc-root.js": {
+      "source": "ecc",
+      "path": "scripts/lib/resolve-ecc-root.js",
+      "sha256": "f2f0206760c30a3923c30efdc2cb19ad4e740860afea7c642b7e2481f8952809"
+    },
+    "scripts/lib/resolve-formatter.js": {
+      "source": "ecc",
+      "path": "scripts/lib/resolve-formatter.js",
+      "sha256": "b6ba23ace4362e51e985b3bd8ac499a82c711558a2b55eb6754b107f3b06ad32"
+    },
+    "scripts/lib/session-bridge.js": {
+      "source": "ecc",
+      "path": "scripts/lib/session-bridge.js",
+      "sha256": "9ad9c91f1ad63c04ab3bbefba28608403ff9e0b60744ac3f18eea9478e0d040d"
+    },
+    "scripts/lib/session-cost-snapshot.js": {
+      "source": "ecc",
+      "path": "scripts/lib/session-cost-snapshot.js",
+      "sha256": "a9573841c8862bb274e46bc73708d9077865750820c36df569def539a90630c4"
+    },
+    "scripts/lib/shell-substitution.js": {
+      "source": "ecc",
+      "path": "scripts/lib/shell-substitution.js",
+      "sha256": "ee657802275623cd17f6c0c4e11f699c79153a8daeba93e5b21e0b88bc23ae7a"
+    },
+    "scripts/lib/skill-evolution/tracker.js": {
+      "source": "ecc",
+      "path": "scripts/lib/skill-evolution/tracker.js",
+      "sha256": "ce1fee846af0eff454d4010e00730d747c07b881e336dc49818c673f5abf2f89"
+    },
+    "scripts/lib/utils.js": {
+      "source": "ecc",
+      "path": "scripts/lib/utils.js",
+      "sha256": "9cd46ca7d5695a9f8be5afc8da618c29b58e65f4be1411531a64485684592710"
+    },
+    "scripts/lib/windows-bash.js": {
+      "source": "ecc",
+      "path": "scripts/lib/windows-bash.js",
+      "sha256": "669238ae3f7265411622b83b0b9034489f862de5358ebe35d118c8fd60d0b39a"
+    },
+    "skills/api-design/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/api-design/SKILL.md",
+      "sha256": "250e464413a13c0eb93cc73447b423df1f9aa8e4f80e5e68c41f895b2c33e352"
+    },
+    "skills/architect/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/architect/SKILL.md",
+      "sha256": "dc74c4810a53a4ee25812278280f2580c00fb06408890e993be0623722a07aaa"
+    },
+    "skills/architect/references/design-red-flags.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/architect/references/design-red-flags.md",
+      "sha256": "d0e639e4cc588ec865f930d3a4111faad60987ae36925917e319d7ceca7c69ce"
+    },
+    "skills/architect/references/rationale-template.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/architect/references/rationale-template.md",
+      "sha256": "0cedfccdc7b47fc881febd5a8293eecbc542c20f8df825639904a8102d2eb5d3"
+    },
+    "skills/architect/references/runner-prompt.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/architect/references/runner-prompt.md",
+      "sha256": "21dd5314aab778c5007228027a4591d97693fbec6ab86524037772b63f40948e"
+    },
+    "skills/architecture-decision-records/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/architecture-decision-records/SKILL.md",
+      "sha256": "263b20e81801aa5fa7e75eaec6c38345c0ac028ca0edbd67b1b9071c5fcbe11f"
+    },
+    "skills/arena/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/arena/SKILL.md",
+      "sha256": "a70df68e26420f783b09ac10b1ce6951b1438fa2233d5a0a5ad789720ba9c7b5"
+    },
+    "skills/automate-me/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/automate-me/SKILL.md",
+      "sha256": "0849f9835a8a66bb4e1ef510eabe480562319f94bd89264d67dcf20133f4c73d"
+    },
+    "skills/backend-patterns/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/backend-patterns/SKILL.md",
+      "sha256": "9b983d0297a983110fdfda8dce55d19b750ca3e53ef155d75a3eff740d3874b8"
+    },
+    "skills/benchmark-checklist/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/benchmark-checklist/SKILL.md",
+      "sha256": "ba109e96c8f6c1c391baccf19e5d11e14370df7b3f2605e1572cd565a6c0fca0"
+    },
+    "skills/blast-radius/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/blast-radius/SKILL.md",
+      "sha256": "2e10745b97f5862323dcda3b29ca60d56b5c3c98e37020085d26b48efbe0a436"
+    },
+    "skills/bro/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/bro/SKILL.md",
+      "sha256": "aa329d0ceeeecb6822a7174ad76bb07a7826a3c52ceb6a588dec4138815084bb"
+    },
+    "skills/check-compiler-errors/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/skills/check-compiler-errors/SKILL.md",
+      "sha256": "4b1e8d700256ac108abc583869622daa800033bddb2f49ef6ac0699b2600d754"
+    },
+    "skills/control-cli/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/skills/control-cli/SKILL.md",
+      "sha256": "dd3b4195ee2b8619121c746f051f9e3be268fc3209ccc08ac4d8fe120b7d8e5a"
+    },
+    "skills/control-ui/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/skills/control-ui/SKILL.md",
+      "sha256": "a95dfd3053f4a2e77a48a39482c8fb1a7b78a2d1b8471834e20e91dedc8c4397"
+    },
+    "skills/correct/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/correct/SKILL.md",
+      "sha256": "e347045d00c967a0b831ef883cc6ac79d21329aa10b5968637df95de7febf0ba"
+    },
+    "skills/create-formal-verification-skill/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/create-formal-verification-skill/SKILL.md",
+      "sha256": "78efd7c0e472f11d25399cd337fb3036b48411da75f426c22c363fe1048cd8bb"
+    },
+    "skills/create-verification-skill/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/create-verification-skill/SKILL.md",
+      "sha256": "b63d3cfb6d41725bd187d1df6085ba54a88391d5c25ca51fca8f2625a2de2288"
+    },
+    "skills/create-verification-skill/references/feature-map-example/README.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/create-verification-skill/references/feature-map-example/README.md",
+      "sha256": "cb7bd782cf89968a4ba3d58a5151db837430db92d19a6f52a906973b77b516ba"
+    },
+    "skills/create-verification-skill/references/feature-map-example/create-note.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/create-verification-skill/references/feature-map-example/create-note.md",
+      "sha256": "644a44c74f35d38c2feb7cd05a0121fdebbb623e8dc376c185b565a581d1ccf7"
+    },
+    "skills/create-verification-skill/references/feature-map-example/search.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/create-verification-skill/references/feature-map-example/search.md",
+      "sha256": "6e87b9e7f2791a7776ba1bb83f371cd285c306c67f19d245cc4dd6ca3015c823"
+    },
+    "skills/database-migrations/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/database-migrations/SKILL.md",
+      "sha256": "dad2f1964295eee14a96e06213ce3f60992bbcdc1f37a50c828bbc2e1abd79dd"
+    },
+    "skills/deployment-patterns/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/deployment-patterns/SKILL.md",
+      "sha256": "b864abd1954570c4a469b7e1deb897e57858d25db2fd98d035ff7bca4a15b9b6"
+    },
+    "skills/deslop/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/skills/deslop/SKILL.md",
+      "sha256": "ff8760fc285ba7c1da216879a4d2ce391df4d75bd321b349d689ef3818f03c97"
+    },
+    "skills/docker-patterns/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/docker-patterns/SKILL.md",
+      "sha256": "c0cedeb9b64d4468f5af3bb0a97659c654f0ceb916acbec867a29dc682dd633f"
+    },
+    "skills/documentation-lookup/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/documentation-lookup/SKILL.md",
+      "sha256": "81ad2b5b4acbe02259f4b6cbfd9111d81d5cfe51025051b6048959c45f6516c1"
+    },
+    "skills/error-handling/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/error-handling/SKILL.md",
+      "sha256": "e8eec6756c950b570486493e64e3bf14c12baf6bf0858bf3928097fe2bfeaf79"
+    },
+    "skills/eval-harness/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/eval-harness/SKILL.md",
+      "sha256": "3a5339a5a80099a5c9d55da9b6c8e05a690f5befc6f78d779c75dd79d818ca07"
+    },
+    "skills/figure-it-out/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/figure-it-out/SKILL.md",
+      "sha256": "1c0167ba3c88aef79118e90357e465960fea09af291a3c815abfd2dfe6c75126"
+    },
+    "skills/fix-ci/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/skills/fix-ci/SKILL.md",
+      "sha256": "6af3694f959517fa542616ffca460c9759fe48c2b80437e8aab4cab59fdac562"
+    },
+    "skills/fix-merge-conflicts/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/skills/fix-merge-conflicts/SKILL.md",
+      "sha256": "783773c43e3b864d4083d8c2072743a823ffa0111782530cd269aba0d1b1c4e5"
+    },
+    "skills/hexagonal-architecture/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/hexagonal-architecture/SKILL.md",
+      "sha256": "1579f70e4cd5a2dde39d29a2055d18b39f06b063a308d3b43a498900c99495b7"
+    },
+    "skills/hookify-rules/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/hookify-rules/SKILL.md",
+      "sha256": "506cbcfc0c599efb397a5c7dbb9dab516b0f394d81d9ea7da0048e2f02cf543e"
+    },
+    "skills/how/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/how/SKILL.md",
+      "sha256": "f2aad836aa83cac7385e734ab888d573e1736def5b061aa8a72b1717f085606c"
+    },
+    "skills/how/references/explainer-prompt.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/how/references/explainer-prompt.md",
+      "sha256": "ddb89cebefc24e2b54517a331aedfe045b6971e101f45c71b8cef4cccff45bff"
+    },
+    "skills/how/references/explorer-prompt.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/how/references/explorer-prompt.md",
+      "sha256": "6300128385ee940fd42ecb84b0e623435440a2dc283eae54ee4a52ba56947ba1"
+    },
+    "skills/in-your-own-words/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/in-your-own-words/SKILL.md",
+      "sha256": "fa8ba74e27d7be371dc270ec78bbf816411477d0dfab185356c861ac8dd413ad"
+    },
+    "skills/interrogate/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/interrogate/SKILL.md",
+      "sha256": "56b09968e91d6b09e58046e097ac56edc56f2e18f9c0d1033777978d8038e847"
+    },
+    "skills/ketchup-video/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/ketchup-video/SKILL.md",
+      "sha256": "027aed9a01adf208aeac3a134f47d12f7c1e42d6fea03095aedc2bae58cdcfd1"
+    },
+    "skills/ketchup/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/ketchup/SKILL.md",
+      "sha256": "f2923ffd14f6fc778f75a47aaed1f317fb5fd00b5701ca769d6446c74106dead"
+    },
+    "skills/loop-on-ci/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/skills/loop-on-ci/SKILL.md",
+      "sha256": "f972223ae80a21ff2c0dc4d8268dc71b0eae3b650c1927791d43fb027e0b3287"
+    },
+    "skills/maintain-formal-verification-skill/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/maintain-formal-verification-skill/SKILL.md",
+      "sha256": "adea4eb5afe20fd07bb90e675ab6c0c6232e5447e29faa3ebf58049c57cdc060"
+    },
+    "skills/maintain-verification-skill/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/maintain-verification-skill/SKILL.md",
+      "sha256": "8eb22afe29058a689ab542dbd729b953cb1fe0d21f0214e54270477a1751b032"
+    },
+    "skills/make-bot-ui/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/make-bot-ui/SKILL.md",
+      "sha256": "160a4847d7666130507fa8591feab07b684974fc07ebd0b79a33f70d5deef7ff"
+    },
+    "skills/mcp-server-patterns/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/mcp-server-patterns/SKILL.md",
+      "sha256": "eacb07c953e0440c758e3ee7d92984d2c9128e3444005ea7ad5da7bc0201d43d"
+    },
+    "skills/mle-workflow/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/mle-workflow/SKILL.md",
+      "sha256": "2497888dd543ca7bdf5d0cb4d90fce023eb2c1c14f860f0af8e8be42423131b4"
+    },
+    "skills/no-comments/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/no-comments/SKILL.md",
+      "sha256": "52e05eb2578f7316421be8174430c1fd2c17bf5d6ac57d9e6a1c452b98d3a570"
+    },
+    "skills/postgres-patterns/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/postgres-patterns/SKILL.md",
+      "sha256": "9c8c391ae9e9aa87faa7ca091e1d395c97766df14080d0bfbea8a97721776163"
+    },
+    "skills/poteto-help/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-help/SKILL.md",
+      "sha256": "8ebc580b6970b7baac8da07fb03e1fe201a50d519cd3004073e73ff49f189352"
+    },
+    "skills/poteto-help/references/prompting.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-help/references/prompting.md",
+      "sha256": "463f450c44a60afd001a2f69fdf8a5dea174351f339369b12ec3c41515e564d3"
+    },
+    "skills/poteto-help/references/recipes.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-help/references/recipes.md",
+      "sha256": "5323aca73a39a3b607c2bb22cd33551fe893563dfd4b104df838da010e9fc702"
+    },
+    "skills/poteto-mode/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/SKILL.md",
+      "sha256": "3b16e72dec45c0508e31e2ccc8b8d6af4076668becf1d2082d3c543fad06c08a"
+    },
+    "skills/poteto-mode/playbooks/authoring-a-skill.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/authoring-a-skill.md",
+      "sha256": "f6a13a445c360b48d6cd72780ac01955f45b82826476efe0e67c7559329407aa"
+    },
+    "skills/poteto-mode/playbooks/autonomous-run.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/autonomous-run.md",
+      "sha256": "e74323411b5a760ffa7393d908d07fed420c68f8dc2aed1267505eaeadf130f2"
+    },
+    "skills/poteto-mode/playbooks/autopilot-full.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/autopilot-full.md",
+      "sha256": "2da35982565c6cf1dbe25f7a05ccae28f7729389aefc6dbb3e010eb883abdd19"
+    },
+    "skills/poteto-mode/playbooks/autopilot-stack.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/autopilot-stack.md",
+      "sha256": "34de4bb101dd56524d8067c73bba5988ead6f93d3ab8f96ac13a6adcb43696cb"
+    },
+    "skills/poteto-mode/playbooks/babysit.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/babysit.md",
+      "sha256": "d546a937ed800abe1d29aae8a689fb57212280fdde62fae1fc1dc7f2efd9d904"
+    },
+    "skills/poteto-mode/playbooks/bug-fix.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/bug-fix.md",
+      "sha256": "66e26542dad131cfd7df80ac0cdf81ed4d85e7b5e3f0eb65b933888760c4831f"
+    },
+    "skills/poteto-mode/playbooks/eval.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/eval.md",
+      "sha256": "a93d449a908236afa6645179651844094b1547dbab4e484cffcdda630e4b90bf"
+    },
+    "skills/poteto-mode/playbooks/feature.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/feature.md",
+      "sha256": "af8ce700b99953741cb547e34308fde0cf6b98ce67e1652c800d0deedf53aba1"
+    },
+    "skills/poteto-mode/playbooks/hillclimb.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/hillclimb.md",
+      "sha256": "942c1565b75ad02a2cb6230dd7c1ebd87e19f59a00319ebac2b6616007bf018f"
+    },
+    "skills/poteto-mode/playbooks/investigation.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/investigation.md",
+      "sha256": "dc66bcf6af3a074fc7f67aa5e12b93ef571a4fb4d8e17f2f1af5ae5359f42e46"
+    },
+    "skills/poteto-mode/playbooks/multi-phase-plan.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/multi-phase-plan.md",
+      "sha256": "2b4fbb547e5ccfe46d1279d714eb0199d28e995f06bdc4eda4afbca9221fbbe6"
+    },
+    "skills/poteto-mode/playbooks/opening-a-pr.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/opening-a-pr.md",
+      "sha256": "b22b7ad7cd102b99d334f4399ae1dba78e0aaf4bee2d5241fda71753c7ce48f9"
+    },
+    "skills/poteto-mode/playbooks/orchestrate.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/orchestrate.md",
+      "sha256": "dfd7e53e7ef844ae11394672b2f8e22ced47b977ff6e947fef837953cc95bb86"
+    },
+    "skills/poteto-mode/playbooks/pause-safely.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/pause-safely.md",
+      "sha256": "77968cfe5f4a71a8cd33e0ae8ffcdbd88dd693a212c240457773e6c40c96c21d"
+    },
+    "skills/poteto-mode/playbooks/perf-issue.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/perf-issue.md",
+      "sha256": "c12aa2f82de7651a11676a3d5fea168f539b7f0faaa3a501d279255dd2a469c8"
+    },
+    "skills/poteto-mode/playbooks/prototype.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/prototype.md",
+      "sha256": "7aa1f52c691c3d46d5afc527b23f90977fce869ce33573c73c81a4c7f0cde962"
+    },
+    "skills/poteto-mode/playbooks/refactoring.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/refactoring.md",
+      "sha256": "0f5dd38113379ea8cf61e2182eca0a7478eea9a869eb40c2dddab3335aeca197"
+    },
+    "skills/poteto-mode/playbooks/runtime-forensics.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/runtime-forensics.md",
+      "sha256": "3463372b578c28f27c236f2627f09b5c5b1e85e86db7399fb984f3892fb450f5"
+    },
+    "skills/poteto-mode/playbooks/session-pickup.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/session-pickup.md",
+      "sha256": "d194f2a7ef392c1598ef3f0e3b561370ca25c2c7a78308007af4aa46ada8ee12"
+    },
+    "skills/poteto-mode/playbooks/shipping.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/shipping.md",
+      "sha256": "bf56339bdf7e0223bcff5abf4e8599e3f5b547b3fcc3b4ce9475e6e7dda14a9f"
+    },
+    "skills/poteto-mode/playbooks/trace-forensics.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/trace-forensics.md",
+      "sha256": "ef0bbf79856a4ae1a8993d54c1a1da159cb97623941b652c0069cf75a017e0f5"
+    },
+    "skills/poteto-mode/playbooks/visual-parity.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/visual-parity.md",
+      "sha256": "950ca51999a6454c98eee6bcbc3d1bbe501a4e3a5d5439b6f6ddc378991b256c"
+    },
+    "skills/poteto-mode/playbooks/worktree-cleanup.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/playbooks/worktree-cleanup.md",
+      "sha256": "be04ae0afe19d4a4da5bcc4e94455f68dbebd1cda6eb0f456ca0d358ecf76c00"
+    },
+    "skills/poteto-mode/references/bugbot-triage.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/references/bugbot-triage.md",
+      "sha256": "b2d146c770d8d3593e1ef3d77b668039b8e1f78093ea1a86f1d45d7f99614309"
+    },
+    "skills/poteto-mode/scripts/bootstrap.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/bootstrap.ts",
+      "sha256": "ccd2ed08fd9da9d0d942e5f2491cfc74bb92d8a08fa51755e0da1ac8de287361"
+    },
+    "skills/poteto-mode/scripts/bun.lock": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/bun.lock",
+      "sha256": "667d9cf7222e9aae3fa42a4be383e657784216e9df115da02227fbc5ac7bbe46"
+    },
+    "skills/poteto-mode/scripts/check-plan.mjs": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/check-plan.mjs",
+      "sha256": "e3d4e9ca638c6fb4a2b52c434c17c7af30da4fdd44605ccfe9906f82fe37b555"
+    },
+    "skills/poteto-mode/scripts/check-plan.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/check-plan.test.ts",
+      "sha256": "848d321f2b76299d1b2d7bb46c929dbaebef08ca4ba8669dbe09d1d5c86f96e2"
+    },
+    "skills/poteto-mode/scripts/package.json": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/package.json",
+      "sha256": "c9db6bb9362c6e319e395b358b113ebc72ab06b6c5e3a095093f6ebfdafe1c57"
+    },
+    "skills/poteto-mode/scripts/watch-pr/cli.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/cli.test.ts",
+      "sha256": "a35592b4c6da96caf8d47987e9cd503fab6c7774ab87d11a43f24b4b5df2a9d1"
+    },
+    "skills/poteto-mode/scripts/watch-pr/cli.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/cli.ts",
+      "sha256": "89c08863089181a232be782c4b2ed90a1552f44aeecb0dcb7aac2c623620e680"
+    },
+    "skills/poteto-mode/scripts/watch-pr/fakes.test-helper.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/fakes.test-helper.ts",
+      "sha256": "cf0c5ee61b4a73444c1b775cfb6c81a40d312e055dd21a1f5eae6276e54de13f"
+    },
+    "skills/poteto-mode/scripts/watch-pr/github.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/github.test.ts",
+      "sha256": "9d9f644388f3516364d47f5eb96c1f977dd6f560bd6005b660d90d3b367cf4b9"
+    },
+    "skills/poteto-mode/scripts/watch-pr/github.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/github.ts",
+      "sha256": "7ba193190d488c8ce0982c85234ebea026e9a595703e99a3c3df0fcd640ddd18"
+    },
+    "skills/poteto-mode/scripts/watch-pr/policy.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/policy.test.ts",
+      "sha256": "7ee38c20ed605f4a255f1f78e5a4be56b3563fcd8d3d65cfeea58d44c3f58d53"
+    },
+    "skills/poteto-mode/scripts/watch-pr/policy.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/policy.ts",
+      "sha256": "2d4823aeea788acab258ec60eb52e7b9e3a23a6649850af128d6ada5c33d7778"
+    },
+    "skills/poteto-mode/scripts/watch-pr/render.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/render.ts",
+      "sha256": "2b709e86628d5b8fdb61f860e60ababc342b0626c67576305442cf548283a604"
+    },
+    "skills/poteto-mode/scripts/watch-pr/tsconfig.json": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/tsconfig.json",
+      "sha256": "1ecccc72320b086c63ce3f73c959896fd747363e63553b3b1136296ea4069e45"
+    },
+    "skills/poteto-mode/scripts/watch-pr/types.compile.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/types.compile.ts",
+      "sha256": "621af4c9a664fbf699a9737efccdc248abb416df8819c9dc5f824beae2b9b1d6"
+    },
+    "skills/poteto-mode/scripts/watch-pr/types.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/types.ts",
+      "sha256": "daa66c56220bae084c18cc6d3b0a2c66c0e72206d298e40973b44ee085ce16d2"
+    },
+    "skills/poteto-mode/scripts/watch-pr/watch-pr": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/watch-pr/watch-pr",
+      "sha256": "d955603be6cc0e8b8ffcec722f635192b2261410b1f2929abea94480e47eb5d4"
+    },
+    "skills/poteto-mode/scripts/worktree-audit.sh": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/poteto-mode/scripts/worktree-audit.sh",
+      "sha256": "06be04b38346ded24ce761d373726f98cd9b9737f20ec98214e88b5f08f521b8"
+    },
+    "skills/principle-attack-the-premise/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-attack-the-premise/SKILL.md",
+      "sha256": "6a932884daad4aa189e9b5d1665226bbc75621d4d2a398fd4003bebd382f4599"
+    },
+    "skills/principle-boundary-discipline/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-boundary-discipline/SKILL.md",
+      "sha256": "62ac2862c2caa22dd14531f51c9c6bb445ceb198ca98a687e25b4d47c1f10a28"
+    },
+    "skills/principle-build-the-lever/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-build-the-lever/SKILL.md",
+      "sha256": "3434b0ad0c640c6f1d7960be7a8986c3bcdc14e26060360dec29903df60074ff"
+    },
+    "skills/principle-encode-lessons-in-structure/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-encode-lessons-in-structure/SKILL.md",
+      "sha256": "228963799189f481827d6f28065f278bc2008ffa37030b1234cbd5814d36b9e9"
+    },
+    "skills/principle-exhaust-the-design-space/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-exhaust-the-design-space/SKILL.md",
+      "sha256": "2de83d99f93f60ec6313455b0bc9aa9f0bfb93dd59f414f403691322db00d4db"
+    },
+    "skills/principle-experience-first/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-experience-first/SKILL.md",
+      "sha256": "58903529d733b1c1a7c9ccf127d45ef3c7d0d9f0b81164a4dc6b80efe6f2912b"
+    },
+    "skills/principle-explain-the-number/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-explain-the-number/SKILL.md",
+      "sha256": "3c84fbf9a7d9842abcfcd134010782b32092ac3d3fb4aaf9ed5732dca83aa58c"
+    },
+    "skills/principle-fix-root-causes/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-fix-root-causes/SKILL.md",
+      "sha256": "8df3c8c3fe57eb0055a5c8efab8ab144557fdf301da70b1cdc77a3a3ef3f3052"
+    },
+    "skills/principle-foundational-thinking/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-foundational-thinking/SKILL.md",
+      "sha256": "864b827e8199d946ce58beca0f89c4ed4099ed6e426fb698a3aaa45de2a9eea2"
+    },
+    "skills/principle-guard-the-context-window/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-guard-the-context-window/SKILL.md",
+      "sha256": "af0b9dd70b43628ce4a59a4d332e9d9ad055084e460f430e7a757495c627e81a"
+    },
+    "skills/principle-laziness-protocol/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-laziness-protocol/SKILL.md",
+      "sha256": "1be6e7a435f26a75a76eb848b9c3d611b9977d0f5822361753244da25ca3ca45"
+    },
+    "skills/principle-make-operations-idempotent/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-make-operations-idempotent/SKILL.md",
+      "sha256": "7aa9327cf1f1aa057e95d47a0a78bd88a8f9d556b608866fee939d455a53a019"
+    },
+    "skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
+      "sha256": "580ad9bb1a0994ecb924321ba49efc38a2f85c64e22c76fb133f57a78272a2e6"
+    },
+    "skills/principle-minimize-reader-load/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-minimize-reader-load/SKILL.md",
+      "sha256": "1ea2b7fef2391cae5844c4efdbd59031f775e8a52d06b7495d707229a200dcca"
+    },
+    "skills/principle-model-the-domain/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-model-the-domain/SKILL.md",
+      "sha256": "52c0d85e0c3827c41c18299b642657d7b47eaf77b7b31609e42e0df42b84c75f"
+    },
+    "skills/principle-never-block-on-the-human/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-never-block-on-the-human/SKILL.md",
+      "sha256": "05030a7a083c337676f793881b4e93cd218e8f1dd676529f56e6ac1d3efb8d1f"
+    },
+    "skills/principle-outcome-oriented-execution/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-outcome-oriented-execution/SKILL.md",
+      "sha256": "10eb91633aa570355ba4bb37088fcade2b22e498df7a58edc749e65bc5a78e2d"
+    },
+    "skills/principle-prove-it-works/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-prove-it-works/SKILL.md",
+      "sha256": "d3912cce868a276ce611eb08178311958e5df929b0a4e5340f1afa4774be81f2"
+    },
+    "skills/principle-redesign-from-first-principles/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-redesign-from-first-principles/SKILL.md",
+      "sha256": "170e0a658783e43fee8ec5a8c2422a4abb8f69cef621dd1819a95910b8207034"
+    },
+    "skills/principle-separate-before-serializing-shared-state/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-separate-before-serializing-shared-state/SKILL.md",
+      "sha256": "05294b40448e927c5da1c7b6f5c6b9fed3744637e3833d2d948b9154a9dd00bb"
+    },
+    "skills/principle-sequence-verifiable-units/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-sequence-verifiable-units/SKILL.md",
+      "sha256": "2ccbbacc56ace5afdfb8670cef19d7bd009fb2a0033b9a741cbdf2b6baf72187"
+    },
+    "skills/principle-subtract-before-you-add/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-subtract-before-you-add/SKILL.md",
+      "sha256": "8c93bb9d1a7f38e2ef37655d93f0e790fa59903105af3d500cc8a663ebe45f3f"
+    },
+    "skills/principle-test-behavior-not-implementation/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-test-behavior-not-implementation/SKILL.md",
+      "sha256": "f7223698623b6a26fea49c751e466b38e6691b1f32ce841d3983e7ffbe2b74a6"
+    },
+    "skills/principle-type-system-discipline/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/principle-type-system-discipline/SKILL.md",
+      "sha256": "5cdaf79785e3c12b2592b9469ee8c272143eb86ab7a18d8382197cea5fd30106"
+    },
+    "skills/python-patterns/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/python-patterns/SKILL.md",
+      "sha256": "103e0130dac33a49d26705fc5a2df804980fcab6a0138d65bc7f370a987d49f6"
+    },
+    "skills/python-testing/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/python-testing/SKILL.md",
+      "sha256": "8f8c24020abbf953727c5995abce8aabeb28d2a593cbc39b7e5de36cf5002abd"
+    },
+    "skills/pytorch-patterns/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/pytorch-patterns/SKILL.md",
+      "sha256": "168c8740f548414a75f576265ddb03329be98ed57f06c5edaf79c7cd4b6a9cf4"
+    },
+    "skills/recall/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/recall/SKILL.md",
+      "sha256": "5b8fa47d6929c60e0db6de9d4ce78f4d9c02b93f4242219eb0a60a052801d22e"
+    },
+    "skills/reflect/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/reflect/SKILL.md",
+      "sha256": "03d12ba1c5f9d85946aa6ce2ccf5de7acc9506657370300c5c6251f654501482"
+    },
+    "skills/reflect/references/divergent-reviewer.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/reflect/references/divergent-reviewer.md",
+      "sha256": "f6030d88e20e906ef5e2d9ba44cb013ce610c49c2fe2ef74c377d32e0dc9e939"
+    },
+    "skills/reflect/references/judgment-reviewer.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/reflect/references/judgment-reviewer.md",
+      "sha256": "38f917619fbf346062d643e0ad6b12fc952d58678dfcbbf42ffcf6d8b9c08307"
+    },
+    "skills/reflect/references/synthesizer.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/reflect/references/synthesizer.md",
+      "sha256": "6af816963de74d1a1aef4070273c1ff533d2072732e488e159ddc0b299fec3cd"
+    },
+    "skills/reflect/references/tooling-reviewer.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/reflect/references/tooling-reviewer.md",
+      "sha256": "f81b8697e7366fbbc18feba52c6e3253a101f751091364ebc4396a1d9b5753b4"
+    },
+    "skills/run-smoke-tests/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/skills/run-smoke-tests/SKILL.md",
+      "sha256": "21e4ff1b9cc6a8e43959f5611acb1419e69ddb24d50b6f8d220bdf0826c9f38e"
+    },
+    "skills/rust-patterns/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/rust-patterns/SKILL.md",
+      "sha256": "51379df2bd92a482309e109e5a210210842594f660cceeb2d68d18e995108edf"
+    },
+    "skills/rust-testing/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/rust-testing/SKILL.md",
+      "sha256": "02a9a40dcc42dd21d14730d29b13ee0a8b274694360585dc0fadb2602eb56ddf"
+    },
+    "skills/search-first/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/search-first/SKILL.md",
+      "sha256": "76835db48dd910061d2e4271b1151793d2fddbabeb2d2866eed068b3580c55d5"
+    },
+    "skills/security-review/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/security-review/SKILL.md",
+      "sha256": "b9eb6416eebc8dda046674f0a2dbb3be88aff526d182b60a0f55998d3d6d0d8d"
+    },
+    "skills/security-review/cloud-infrastructure-security.md": {
+      "source": "ecc",
+      "path": "skills/security-review/cloud-infrastructure-security.md",
+      "sha256": "7d9a83852475a9396e04c59c73df84ac24ee0f41322016de7c11c62138c2a8ca"
+    },
+    "skills/security-scan/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/security-scan/SKILL.md",
+      "sha256": "74bc3006fb15eef9cea6bf70a4e9cc45ec118ef00733d1c8226c9dc428f8d658"
+    },
+    "skills/setup-pstack/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/setup-pstack/SKILL.md",
+      "sha256": "97e90db5a6ab33cc609bd0f2f05e2a2707ea8d337d1375935fd2c8da21f8b4d4"
+    },
+    "skills/sharpen/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/sharpen/SKILL.md",
+      "sha256": "563dfc460c605d311e650726288e2f1cbd61eab817db178d6e7e29643e07e7a2"
+    },
+    "skills/show-me-your-work/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/show-me-your-work/SKILL.md",
+      "sha256": "4936325425064cbbbd1e82a7813cef5593ed8a273671d43ac5b1360de93f880a"
+    },
+    "skills/show-me-your-work/references/decision-log-template.tsv": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/show-me-your-work/references/decision-log-template.tsv",
+      "sha256": "6779378006a2f5225e8c06deb84f1d913fb532041ebbb6e50d94600bfe3f4b76"
+    },
+    "skills/show-me-your-work/scripts/log.sh": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/show-me-your-work/scripts/log.sh",
+      "sha256": "a65a4bc5fb7cdeadbdb7b7ff1ca4682f4d9c42420942b2977cd17b46c4ac338e"
+    },
+    "skills/statechart/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/SKILL.md",
+      "sha256": "010b7b4532406739b1c3a426d1a45f02bb618a42561fc96b3976e064a7f8384d"
+    },
+    "skills/statechart/references/render.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/references/render.md",
+      "sha256": "8cca446eb0c8f87f2ef7b97c4b149f59aacdc153134b4217c4bcde09b10ac3c4"
+    },
+    "skills/statechart/scripts/backends/cfg.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/backends/cfg.ts",
+      "sha256": "aea4d8766d214e7fa08f4881f1037319655e75eb56652e1b6d5d4f13a162e3e1"
+    },
+    "skills/statechart/scripts/backends/mermaid.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/backends/mermaid.ts",
+      "sha256": "75704b2704a9399a39479ff704a580d5b9a1d0fede01fe771df28bf799b434b6"
+    },
+    "skills/statechart/scripts/backends/plain-text.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/backends/plain-text.ts",
+      "sha256": "e2bedb855eb3806ec3fe7a7bfa49baa309fb4cf0da425b5fe1e0686268ce255a"
+    },
+    "skills/statechart/scripts/backends/report.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/backends/report.ts",
+      "sha256": "730b4048578ab0468e1581f16fec60b246e321161effb68e481efb373f0f2501"
+    },
+    "skills/statechart/scripts/frontends/config.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/frontends/config.ts",
+      "sha256": "5eeab1e755f20a2c83b408c6503fdc9c6b10c971d8dedad3f912bd15f9763daf"
+    },
+    "skills/statechart/scripts/frontends/dot.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/frontends/dot.ts",
+      "sha256": "4eef9ec848557dcd01ca8dbbec75b71c0653c1b73583108bafbb6f559f6d677b"
+    },
+    "skills/statechart/scripts/frontends/marks.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/frontends/marks.ts",
+      "sha256": "eb0120e61a4004a435c7b7c46916da9dc8b2fa8696ed0d3eb64dc953fed3ab11"
+    },
+    "skills/statechart/scripts/frontends/messages.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/frontends/messages.ts",
+      "sha256": "36bfc6fb3ffa86897661efb2aa67bd95b55a4da9a3e952831f6e0668826b4b92"
+    },
+    "skills/statechart/scripts/frontends/spec.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/frontends/spec.ts",
+      "sha256": "450cdfc8d0577a96818ca3697efebbbf70b530a4ba7e3eee03cf1ba8d3f1a0fd"
+    },
+    "skills/statechart/scripts/frontends/trace.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/frontends/trace.ts",
+      "sha256": "7d083cf89b81c41556fc3fd5f07019886e0f6783c632475e7181ac4b81887367"
+    },
+    "skills/statechart/scripts/frontends/value.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/frontends/value.ts",
+      "sha256": "7c54be394b7a10f60591858a0f08fb1e8dc0941df1f38ede07fbe7719ff56da0"
+    },
+    "skills/statechart/scripts/frontends/verdict.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/frontends/verdict.ts",
+      "sha256": "0d0a9d6b6d6da5a7c48851b86d9d041f22982404dda6288795a1715138d7008b"
+    },
+    "skills/statechart/scripts/frontends/view.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/frontends/view.ts",
+      "sha256": "2c0af8939321c5aaed4b6ecac8ce6a98d0e6774d8bd15d4b02fe4f406b8c9620"
+    },
+    "skills/statechart/scripts/ir.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/ir.ts",
+      "sha256": "5602beca4e4ac08421cfa07e4da989f0e75439f1d136cc923226909e771dc7ff"
+    },
+    "skills/statechart/scripts/package.json": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/package.json",
+      "sha256": "2c36842f391275b0f343a38947560adee155fab4a744eacef1e595e9f07c4e3d"
+    },
+    "skills/statechart/scripts/passes/annotate.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/passes/annotate.ts",
+      "sha256": "dc8eeee09c3a9a0c060f32fb1d554e01bd80e5265751cdeb041ef3e19561b92a"
+    },
+    "skills/statechart/scripts/passes/label.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/passes/label.ts",
+      "sha256": "b5ef402369c5e7846be1fd39165e95cbfe715fc36eb9331a0401b26523c539c9"
+    },
+    "skills/statechart/scripts/passes/lift.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/passes/lift.ts",
+      "sha256": "8977dddc6c93bb2e3914d5b50760eb66876107ba51e2b8cf9e18611b4c40c89c"
+    },
+    "skills/statechart/scripts/passes/loop-check.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/passes/loop-check.ts",
+      "sha256": "07d459385849aa35834040bf34e279c39baba68244ec9da17c57703a6ee8e2d4"
+    },
+    "skills/statechart/scripts/passes/paths.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/passes/paths.ts",
+      "sha256": "9af1066b007ef86cb05c5e278eef09f090f1e46eb91d356e5146edbd4fee4ec7"
+    },
+    "skills/statechart/scripts/passes/reach.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/passes/reach.ts",
+      "sha256": "b52b38f926814937b733221b40bd31075a69a2fb91ecbce2164752a8684bc5d6"
+    },
+    "skills/statechart/scripts/passes/region-check.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/passes/region-check.ts",
+      "sha256": "8a6e0618740a14bb7048f6563b4324958177f4685d4d6d90364cc6245b1498b4"
+    },
+    "skills/statechart/scripts/passes/regions.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/passes/regions.ts",
+      "sha256": "d740ebfdbb5ec7b4984412a635a596b43af7a77b8bcb49a1463c8afa75299f72"
+    },
+    "skills/statechart/scripts/pipeline.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/pipeline.ts",
+      "sha256": "8aa8d9295ab6762f7f2ffae91a0aee98b1a1314747c875edba4598fdab8ed543"
+    },
+    "skills/statechart/scripts/run.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/run.ts",
+      "sha256": "f330e0a3b0a9f8181c2e52252c4a47db3f0a64f79a7cca5490263e33a5f13c72"
+    },
+    "skills/statechart/scripts/statechart": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/statechart",
+      "sha256": "aeffb7077850fd4c225e3d18049ca6ed7b988cf48e88cd8463526a7feaa74d13"
+    },
+    "skills/statechart/scripts/statechart.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/statechart.ts",
+      "sha256": "1c653f05d0cd0f3298455701f36e3d7d1f837f93e6e642f7c20afb5d613c2d12"
+    },
+    "skills/statechart/scripts/test/ConfigOracle.java": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/ConfigOracle.java",
+      "sha256": "4f3367314f0fc34e39777d40dd31f96451985b77834fd0e925716aa3b169a021"
+    },
+    "skills/statechart/scripts/test/chart.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/chart.test.ts",
+      "sha256": "3f9022fcc981d17f58b5e7a9302e766241f81a477bda70c3e621d7a1d95f19c1"
+    },
+    "skills/statechart/scripts/test/charts/Braces.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/charts/Braces.mmd",
+      "sha256": "dad412ccff506f4ace1b40617bcc2f103ad0372ddc0135ab26535fc488fef8d3"
+    },
+    "skills/statechart/scripts/test/charts/Escapes.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/charts/Escapes.mmd",
+      "sha256": "211adde39edbb349e2d8acc2f95762bfb7da1fb030e5dc815a8982775e1cd372"
+    },
+    "skills/statechart/scripts/test/charts/Phases.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/charts/Phases.mmd",
+      "sha256": "bf6062f6a0ee7b8d487882a1810d17951606fd536b2ee370aecc3d3914da0339"
+    },
+    "skills/statechart/scripts/test/cli.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/cli.test.ts",
+      "sha256": "8a3b028dafe2065029a66242f7a3832d18058e772a0dfc1b2c170511ffee8e07"
+    },
+    "skills/statechart/scripts/test/config-fuzz.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/config-fuzz.test.ts",
+      "sha256": "a258744d47529418d32de0fd47aa2d013298581b73064f7ba4d628e4d5471321"
+    },
+    "skills/statechart/scripts/test/corpus.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus.test.ts",
+      "sha256": "5686aa487dfec3e0a06b3c15390dbc3ab5953ced532c5eee7d5c5e2f54f492c7"
+    },
+    "skills/statechart/scripts/test/corpus/Counter/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Counter/ChartRun.out",
+      "sha256": "05cf40936af6590878a1bbe8290b9fdebe7d33503331105be352b1901584200e"
+    },
+    "skills/statechart/scripts/test/corpus/Counter/Counter.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Counter/Counter.cfg",
+      "sha256": "ee4c110b174a3bd2cc54226420ba2c979682be57c7964273b8a30d6395dc2c3f"
+    },
+    "skills/statechart/scripts/test/corpus/Counter/Counter.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Counter/Counter.tla",
+      "sha256": "a277dd9ba29b50b21d87d5ebbbaff3ed87949e427ce563ddb37ede7ba728da05"
+    },
+    "skills/statechart/scripts/test/corpus/Counter/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Counter/chart.mmd",
+      "sha256": "bcdc46dccfa6172fa9e36c3236fb1cb9221d0648534499d5fe0c51ebd13d22b0"
+    },
+    "skills/statechart/scripts/test/corpus/Counter/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Counter/graph.dot",
+      "sha256": "4c12b6f39274a6227df5837a066430cc2ce5b928d0c8cf63269bd428367c7026"
+    },
+    "skills/statechart/scripts/test/corpus/Counter/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Counter/report.md",
+      "sha256": "e52a2affff3ca2d85c6ee87a4543ca99024fa0db8a3d48070a6752520121a413"
+    },
+    "skills/statechart/scripts/test/corpus/Counter/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Counter/sany.out",
+      "sha256": "9041a7726d3e497fb10c5d67293d76f3318d448ce08c371a90454c43c65722c1"
+    },
+    "skills/statechart/scripts/test/corpus/Counter/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Counter/verdict-1.out",
+      "sha256": "ce981c26c48bba282ebc9794a473575f3981909c4ec47bd9df9327316eae71e4"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/ChartRun.out",
+      "sha256": "ea9ceacfd5ea703bf19893d82f7e790f3b39441b3588c7248286710cf472495d"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/CounterAction.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/CounterAction.cfg",
+      "sha256": "4666d0659cf69047aa41e64a48f307cff103a6b0815d85ead5bd4c0386a0f5b7"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/CounterAction.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/CounterAction.tla",
+      "sha256": "895ed84802b88a6deb9653e7baf36b1eb67b848592c91d168d84db03b73c74f5"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/chart.mmd",
+      "sha256": "d35190a320e1b9e5cb35ae583b8367d2d10bf4cc17b1f7e94e4edf0613d01730"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/graph.dot",
+      "sha256": "906fdbce95c4d0628441a231d9d9124d506d34f95ba08f653f3db084d13c5c1d"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/report.md",
+      "sha256": "36d49034aab3b675026e717c876ad5da5f74468338295b399da3fd4c3b0e8d6a"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/sany.out",
+      "sha256": "e529b1c17203bbc05da9d74a48adb9ac4f06cff3f33df94ba215daa8b315dc9a"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/verdict-1.out",
+      "sha256": "a5e7c90e12c0f9b3b7420db90c06a8277369a4757c7b20ece83689ac577129ce"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/verdict-2.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/verdict-2.out",
+      "sha256": "ad46743f4fbbd0557be8cdbec10e127bd90e3fd9c88c50f3338f95118d9d5b49"
+    },
+    "skills/statechart/scripts/test/corpus/CounterAction/verdict-3.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterAction/verdict-3.out",
+      "sha256": "9b6d49a17a5371709ee942785acf8c8742fdddaed7723d1cb3ade58686732301"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/ChartRun.out",
+      "sha256": "c3ac24eafc6f680c59b976e6ddd4ec6272623e1a3641fe43707abbf208c9d9d3"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/CounterDeadlock.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/CounterDeadlock.cfg",
+      "sha256": "394991fa4d162ed8ea74e6e5b5473af8c246ec3db12da3737fce046c41e78692"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/CounterDeadlock.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/CounterDeadlock.tla",
+      "sha256": "d6af2fc22ab5fbe8d64ae6202187ce807e53189a43eef1af860db55db933b132"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/chart.mmd",
+      "sha256": "928b930e2d28f94e083183cc064f1dde292a5f65fcc0dfec013b04c234e6254b"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/graph.dot",
+      "sha256": "4c12b6f39274a6227df5837a066430cc2ce5b928d0c8cf63269bd428367c7026"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/report.md",
+      "sha256": "b4e4365f95f4b34abea8ffb1fde1bd39b8e8eb6f30e839d75332c6c834460c25"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/sany.out",
+      "sha256": "7a8d40cbae42b10eaea8e6dc42f28ce31892e22c77d521e2cb8d8a6d3d0f0c33"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/verdict-1.out",
+      "sha256": "ae615936a1dde25fd76c7cd7a98891c2e8e8a363ea3457bf8e51b9412f0b050b"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/verdict-2.exit",
+      "sha256": "25d4f2a86deb5e2574bb3210b67bb24fcc4afb19f93a7b65a057daa874a9d18e"
+    },
+    "skills/statechart/scripts/test/corpus/CounterDeadlock/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterDeadlock/verdict-2.out",
+      "sha256": "94f71505e927d30483f539ca838f6661df4488332075f1dfec5eabe188f3f855"
+    },
+    "skills/statechart/scripts/test/corpus/CounterFan/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterFan/ChartRun.out",
+      "sha256": "819af259403aab9b4eb407b8a6f04e088d9a428d8fbf6fa871c2380d44de8d21"
+    },
+    "skills/statechart/scripts/test/corpus/CounterFan/CounterFan.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterFan/CounterFan.cfg",
+      "sha256": "e2de6875a48efd06a1db4aae4d7cc5b86ff9a0b4698074049c7ee52bfb49d3f7"
+    },
+    "skills/statechart/scripts/test/corpus/CounterFan/CounterFan.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterFan/CounterFan.tla",
+      "sha256": "1fddc670bda9ad7a900d29891aca1329a9e9f932d353ea944379f6f45bc50a5e"
+    },
+    "skills/statechart/scripts/test/corpus/CounterFan/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterFan/chart.mmd",
+      "sha256": "2f59dcc1236cc70d4e6609139237e07b7e6645f63129b8722ef6e1d44030b0fd"
+    },
+    "skills/statechart/scripts/test/corpus/CounterFan/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterFan/graph.dot",
+      "sha256": "ee3e20bd9b56b5dc2cc21b653719a588c9dbe08855e0493c262e3c673cea2805"
+    },
+    "skills/statechart/scripts/test/corpus/CounterFan/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterFan/report.md",
+      "sha256": "016771561b9b5b0a45c0d8c805723a6b8bc39396281dba6d4f6c7b3f1e151612"
+    },
+    "skills/statechart/scripts/test/corpus/CounterFan/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterFan/sany.out",
+      "sha256": "5a58a05867b5cb952d4b1de562190e85b8dc1485a7201385e622a2af27519c96"
+    },
+    "skills/statechart/scripts/test/corpus/CounterFan/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterFan/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterFan/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterFan/verdict-1.out",
+      "sha256": "546e81530ae614ae7264ae857b00e677cb01211a0194cd88583b0d80794fc260"
+    },
+    "skills/statechart/scripts/test/corpus/CounterFan/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterFan/verdict-2.out",
+      "sha256": "8e6dc10d24a0ac3ddb86afd8674310c44a8d20488d38346dc8ee896807fc3320"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/ChartRun.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/ChartRun.exit",
+      "sha256": "84b9bb077be0d8a29d0d01ef350d718b77c2ec5f40c3ab90502b1b4b5016c550"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/ChartRun.out",
+      "sha256": "78a0d2a62cbb70c1f182a994f1661db2596115b5e53210a2f0125b1390129c29"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/CounterGuard.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/CounterGuard.cfg",
+      "sha256": "3239ec0757c48dfbf02f914005fd2c9d114e9f2989d42e15184df887e322a301"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/CounterGuard.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/CounterGuard.tla",
+      "sha256": "c2d7ed7d7bd4b317764d590dbd9bb6cbe7819500c7e6707787fe3065460c99a7"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/chart.mmd",
+      "sha256": "8baa9330755dd4217aadd731b77fde833f747d09998944ada660b2708cc7d313"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/graph.dot",
+      "sha256": "7b0b58221d3980d6d64cb979c22523fbfe5796e465bae79e6d19fdd9c607e547"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/report.md",
+      "sha256": "454b4672f07c18e52827e9906fea37c6e701c5d87eea7ca3675163375c02b64f"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/sany.out",
+      "sha256": "8d331316b1be40a834e166268f8abe94f884bfcfe35135b6492eacb1ee825788"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/verdict-1.out",
+      "sha256": "580ce25bf18afc8bd1b9df54f4053b719acce5ca10c2794475a8fba249417eb6"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/verdict-2.exit",
+      "sha256": "84b9bb077be0d8a29d0d01ef350d718b77c2ec5f40c3ab90502b1b4b5016c550"
+    },
+    "skills/statechart/scripts/test/corpus/CounterGuard/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterGuard/verdict-2.out",
+      "sha256": "3828a6b606057844dedf464e94374092293787b0f4be8b9950931de7d70946da"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPast/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPast/ChartRun.out",
+      "sha256": "9323d9f012374d2392fd4f7fbe655e1ed6fce04160270c11ceada536c51ce677"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPast/CounterInitPast.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPast/CounterInitPast.cfg",
+      "sha256": "f42b6456243b9a8f39599597bb630b68b02b0e66683e96896cb06d2b81af94d9"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPast/CounterInitPast.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPast/CounterInitPast.tla",
+      "sha256": "745a6e54d0b9c285d797481a09d4a531004f46b04fb5ef0b7c35194fa4d6a137"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPast/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPast/chart.mmd",
+      "sha256": "28797d6572aa78a9f49f04a3247b62a7047e660af586d8717877164f3bda73e2"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPast/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPast/graph.dot",
+      "sha256": "372ed91b09c1602514668fe24101315737f060e607fb959af0b55dde9efc4ed1"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPast/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPast/report.md",
+      "sha256": "757128a547d5de236c96e47780e5ce8852d1b5873912f31fd4a964222b986295"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPast/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPast/sany.out",
+      "sha256": "74535350e20489c088c310d49ac2abab35c0bd3dcd7b9a500b351846da01f62f"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPast/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPast/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPast/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPast/verdict-1.out",
+      "sha256": "a10d803555dbc95cdeae0850097f60e04ed20e467760270c8c58400b0629b6d8"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPast/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPast/verdict-2.out",
+      "sha256": "9133f74a060cd7b2ff3364ca90bbcec4596c6fee035468e49e0ad1209260899c"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPastHolds/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPastHolds/ChartRun.out",
+      "sha256": "a1bf4035560dba1b655bb1577caf63df9f3dd9444380e42c9cffc721c1f6e019"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPastHolds/CounterInitPastHolds.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPastHolds/CounterInitPastHolds.cfg",
+      "sha256": "b1ca71d25dbb08c93b0ebaf628eb536ef6c98e3e599d8146e0a0c43f5eeb800d"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPastHolds/CounterInitPastHolds.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPastHolds/CounterInitPastHolds.tla",
+      "sha256": "97bafdcba8976d26069b89c31a549d3d7d992cf9cde10d654133d55f2ce604e7"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPastHolds/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPastHolds/chart.mmd",
+      "sha256": "f74c6486f80c1e9820a901a730eecb3d6f9aa88076f704b87a60bb02b8b24d01"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPastHolds/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPastHolds/graph.dot",
+      "sha256": "372ed91b09c1602514668fe24101315737f060e607fb959af0b55dde9efc4ed1"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPastHolds/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPastHolds/report.md",
+      "sha256": "60a12f6918ea21e77def19b66ff94ff47ce834f7ddbfef4c246570d02a0c6e78"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPastHolds/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPastHolds/sany.out",
+      "sha256": "91f7850c1fe9fd4507f457dea2a047abd4013182f56cda2e7aa587b7b4edaf77"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInitPastHolds/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInitPastHolds/verdict-1.out",
+      "sha256": "ff6df0e311060e629b11d3f5939ef4e9efb23beafb3d8db9facca963a3a86acd"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInstance/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInstance/ChartRun.out",
+      "sha256": "12e78945b0e37f41b86705b53c09c044a06427265e23613908052a0c7661c5f6"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInstance/CounterInstance.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInstance/CounterInstance.cfg",
+      "sha256": "f0d016dfb57a8661eac65d738ca9b797242c486e4fe5a0d7379e9424c7de3cc8"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInstance/CounterInstance.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInstance/CounterInstance.tla",
+      "sha256": "cbee0c802f8984ef74bb2d85e7d75635522755540e0175c51ba1cb0a099a9345"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInstance/CounterSteps.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInstance/CounterSteps.tla",
+      "sha256": "ec27748a316d01d7384a402166ff3fe36c7364511fd1681797832f2a1777e8ac"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInstance/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInstance/chart.mmd",
+      "sha256": "649d905eb59e1a2972e56396f4aeaff6cafb40c6733c55b5829d36cb4986eb8e"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInstance/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInstance/graph.dot",
+      "sha256": "ca06f91bdafb423be1fac388ab5b90d8f78ff96148c2120a61e085f0dc4c108b"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInstance/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInstance/report.md",
+      "sha256": "2d6a8b73b1a6f4003bd5c3c669191ab08d04cb03fe441fad8f892b4e8d581569"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInstance/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInstance/sany.out",
+      "sha256": "5b8a514e26f02cf174138ba433a2a3d792c1822011e2c69907ef18f2ba5a27d8"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInstance/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInstance/verdict-1.exit",
+      "sha256": "1a252402972f6057fa53cc172b52b9ffca698e18311facd0f3b06ecaaef79e17"
+    },
+    "skills/statechart/scripts/test/corpus/CounterInstance/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterInstance/verdict-1.out",
+      "sha256": "79dd3301ed8763da38d13e871e333e1f739ef985b43d586f70c7e45c93a7157f"
+    },
+    "skills/statechart/scripts/test/corpus/CounterJump/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterJump/ChartRun.out",
+      "sha256": "e5a45da16ae7638b1bf30fd72cb482ed4b97183262ee130a73337a2fa4f28a0d"
+    },
+    "skills/statechart/scripts/test/corpus/CounterJump/CounterJump.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterJump/CounterJump.cfg",
+      "sha256": "a94be2a46d740142d19cf03c288547c03cb0fa7d8ab9590a78eb0de7b99ba235"
+    },
+    "skills/statechart/scripts/test/corpus/CounterJump/CounterJump.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterJump/CounterJump.tla",
+      "sha256": "62e09e72adfdc0bda81d4e4d26c3c8c56641589258b6308d4c3c0e62c882f035"
+    },
+    "skills/statechart/scripts/test/corpus/CounterJump/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterJump/chart.mmd",
+      "sha256": "b9829b90a85d056c88c8742e17caf5058941048dc411a48524115481a29be92f"
+    },
+    "skills/statechart/scripts/test/corpus/CounterJump/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterJump/graph.dot",
+      "sha256": "f829d5cb1d9027aed499564e5574c8955d91a9b3decb32179000de757c9817a1"
+    },
+    "skills/statechart/scripts/test/corpus/CounterJump/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterJump/report.md",
+      "sha256": "b459f42807ac3dc2d0ac0f26aa13b549525e0b946871e787ca07e58f6c8ade98"
+    },
+    "skills/statechart/scripts/test/corpus/CounterJump/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterJump/sany.out",
+      "sha256": "68b6e92c3232530a43b49e8292eb0a6e2e8e2c8e04a7e0932e59e7d38f8d4527"
+    },
+    "skills/statechart/scripts/test/corpus/CounterJump/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterJump/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterJump/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterJump/verdict-1.out",
+      "sha256": "9ceb7d389d7cd13f894db85dc00f0b1f0aaccfe7931804202ad6ab770e284461"
+    },
+    "skills/statechart/scripts/test/corpus/CounterJump/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterJump/verdict-2.out",
+      "sha256": "7e52bb5a6f8ddb55669eb03ea5dd360ba4bf7f5c3155a1078f1ba152805038d9"
+    },
+    "skills/statechart/scripts/test/corpus/CounterLoop/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterLoop/ChartRun.out",
+      "sha256": "8e7aaaa8f605109e5dff38439ec5a9ff4d3b94d02612a4b1ce2763754a66cb54"
+    },
+    "skills/statechart/scripts/test/corpus/CounterLoop/CounterLoop.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterLoop/CounterLoop.cfg",
+      "sha256": "f0d016dfb57a8661eac65d738ca9b797242c486e4fe5a0d7379e9424c7de3cc8"
+    },
+    "skills/statechart/scripts/test/corpus/CounterLoop/CounterLoop.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterLoop/CounterLoop.tla",
+      "sha256": "84449896e318fd129b82f574b644ea16a73c1f23e9331cdb9361d5a284e17cdc"
+    },
+    "skills/statechart/scripts/test/corpus/CounterLoop/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterLoop/chart.mmd",
+      "sha256": "0157bf074e7aa642a0819cd6eb2352fc57c21866962f2944bf71e2c028c9bff9"
+    },
+    "skills/statechart/scripts/test/corpus/CounterLoop/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterLoop/graph.dot",
+      "sha256": "6558ade4931cfbe5c28ed713504072976d401072dad6acc4506c84afb3169b99"
+    },
+    "skills/statechart/scripts/test/corpus/CounterLoop/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterLoop/report.md",
+      "sha256": "fb9d5d76f6c1c00746f9fdc211ee26eb82c5649ed212c2fdf9e9810a4a33ab10"
+    },
+    "skills/statechart/scripts/test/corpus/CounterLoop/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterLoop/sany.out",
+      "sha256": "2a3cb63115eaaf7e19557949fc97785d112b2dcfec55dcb00583daa8926d19f7"
+    },
+    "skills/statechart/scripts/test/corpus/CounterLoop/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterLoop/verdict-1.exit",
+      "sha256": "1a252402972f6057fa53cc172b52b9ffca698e18311facd0f3b06ecaaef79e17"
+    },
+    "skills/statechart/scripts/test/corpus/CounterLoop/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterLoop/verdict-1.out",
+      "sha256": "33158ae03c65371f4b028818420652deaee879b77f4e6b8da688038079e98511"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/ChartRun.out",
+      "sha256": "07e4fc2dca6afe0d621dd26603330c59a6052d1bebb19f395ff8e30c3772e667"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/CounterOrder.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/CounterOrder.cfg",
+      "sha256": "6f321b62ecd415eda4363ce98e05b470d277f8b169dee8658a267668e7f3fb5b"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/CounterOrder.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/CounterOrder.tla",
+      "sha256": "173e3ba50a4b662464e1188d31d5c306c0202a03385978a8aa841cf0c2f5e8a0"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/chart.mmd",
+      "sha256": "8259183f842918dfaa6f70fb805db9db5a61f3db0af13c2cf09e9e131136d8d1"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/graph.dot",
+      "sha256": "7a5d0a1efcf36b579f640e283c38a2054c8740cf96bb2b332bb42e2aaff8481c"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/report.md",
+      "sha256": "a37510137bc3d2c9bdf2be48a40aca3f36b44aa5b9be1f4f2f6cfbacfbbd2693"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/sany.out",
+      "sha256": "e4d8472643a723ed5b3cc8772af07d24d534edcc1a6d36b2690de2d395906ed5"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/verdict-1.out",
+      "sha256": "a9d4f6b1b08b5ee7505e20d9a0f90a88cf533a1a4737fd71ae70a162e520af6c"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/verdict-2.exit",
+      "sha256": "25d4f2a86deb5e2574bb3210b67bb24fcc4afb19f93a7b65a057daa874a9d18e"
+    },
+    "skills/statechart/scripts/test/corpus/CounterOrder/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterOrder/verdict-2.out",
+      "sha256": "57fba1d11f08153f7598c7a6843c557d4804d7ab57b59cf68eafd22116267de3"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/ChartRun.out",
+      "sha256": "c6a688529dfb153ca9206928f04563b2c0f2cb448bf1cf6cfabfeb94981f9d72"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/CounterRules.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/CounterRules.cfg",
+      "sha256": "931efa110d01b684843f905cae87fb2308b70b324ca9f51ab1bb6617595047c2"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/CounterRules.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/CounterRules.tla",
+      "sha256": "57f1be6cc35c3f8252aacc2916975045d1932fab868d961d9c461e23f666eb86"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/Moves.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/Moves.tla",
+      "sha256": "3c58aaa6098d94f727d427d7ce65ebbc79d684c5a6d7b8e18ccdf2b9222a0a56"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/chart.mmd",
+      "sha256": "a8349b6203985b4cf3f10d581d7a15a312c19262ee7a8de8b73ba62311a817ea"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/graph.dot",
+      "sha256": "80b70738200d8b16e52b598fd6ddffb607f672550168cc8756c8605180210fce"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/report.md",
+      "sha256": "6db41c347e7d680d126168093dcce483e5406c5ea4728b32149f3d8c104b1259"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/sany.out",
+      "sha256": "6c96b7563f60ca3b1860627a5588093b401d30c13724ccb2c77cee6238c69667"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/verdict-1.out",
+      "sha256": "47b09992efa66d8a3ed65f24d25f5227dbfb48fe2b46b1803ef07ac461122073"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/verdict-2.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/verdict-2.out",
+      "sha256": "fb0503db6628e034c70ee48dc402bc79514564a438ff2c61d02f7533faf7d64c"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/verdict-3.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/verdict-3.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/verdict-3.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/verdict-3.out",
+      "sha256": "8cd2712e7ec2f9f4941e1ae12c9476126f19c1a1a11d2a20291ec131e2f63819"
+    },
+    "skills/statechart/scripts/test/corpus/CounterRules/verdict-4.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterRules/verdict-4.out",
+      "sha256": "b776bfd4513942329b885fdd7fce1bde2d25c063ef81ec382eba7769555a53eb"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStart/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStart/ChartRun.out",
+      "sha256": "0cc81c2f968b23b4c8c1fd8e1c2032991a8d2d6137ab267958aeb7aee478b240"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStart/CounterStart.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStart/CounterStart.cfg",
+      "sha256": "eff943bab49dc0cad0567a0d4456671724b778d7913a2ba38de16a12386b7a58"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStart/CounterStart.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStart/CounterStart.tla",
+      "sha256": "dbbb6c141d88a7bc4dc354c89d85ce9623871070b0dc93ca7ba6c0ece2043b28"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStart/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStart/chart.mmd",
+      "sha256": "fca72ed62e89b903e63a7f2a646a29cee33f72b1b60a6c96793bbcc807e09f74"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStart/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStart/graph.dot",
+      "sha256": "1c259eb08cedb809a62f24d59232f229d2cc0df8f6bd97285946ce2d586daaef"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStart/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStart/report.md",
+      "sha256": "01444b757bca7435af323af5a6a31caff91388bb84ab48948b2660a80d78b8e4"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStart/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStart/sany.out",
+      "sha256": "61a0c605d5ab3806d5ea8779ac00d344e4b19a2c423288b48fb893037de63425"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStart/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStart/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStart/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStart/verdict-1.out",
+      "sha256": "152cbd7654bbe39c550b3122009fecfa07dabed3e658ac4845b5f5f60dc309de"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStart/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStart/verdict-2.out",
+      "sha256": "e4d43ce2f301d2ac1c03693981dc6a7b3c84c7af671f9b0d6bff1c4b287c6876"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStop/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStop/ChartRun.out",
+      "sha256": "11bcbb21c9a5b3c5491e436c8fc61d339a7c27593fced2199132ab6cf8e4d489"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStop/CounterStop.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStop/CounterStop.cfg",
+      "sha256": "eff943bab49dc0cad0567a0d4456671724b778d7913a2ba38de16a12386b7a58"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStop/CounterStop.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStop/CounterStop.tla",
+      "sha256": "e4486923b563ac7fb028e8513e79e3caa5e0905579d423569e9c918938e0f12c"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStop/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStop/chart.mmd",
+      "sha256": "0ddf7a93d1317fa0414c0c5b05dba856c268a2124c4e06caebc3f5b4ad6f393c"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStop/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStop/graph.dot",
+      "sha256": "1c259eb08cedb809a62f24d59232f229d2cc0df8f6bd97285946ce2d586daaef"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStop/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStop/report.md",
+      "sha256": "5d0e28ce1ceefb740ecc85076c8be6a5a5bf00d00a8bc3a0a00b5494dfbf025d"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStop/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStop/sany.out",
+      "sha256": "933921ca1dcf5b7e089d2aca59ac79a50e521f22c60cebd5812be4e3e67ec58c"
+    },
+    "skills/statechart/scripts/test/corpus/CounterStop/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterStop/verdict-1.out",
+      "sha256": "9d4714340d24c6d5a1a22ed36b6bce0943c8eeff28fc32bd0b54fc1aba2b9331"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/ChartRun.out",
+      "sha256": "bce917da55d7f549b2902c3ebbf2a7bfc7da9d7de8e3e099a9dc6c7fa815fc37"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/CounterTie.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/CounterTie.cfg",
+      "sha256": "b3d7d0ae1bba01c98903b54cefb4ba76afbb3ce07957431a03e53505ffe95510"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/CounterTie.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/CounterTie.tla",
+      "sha256": "e668ff93e2213651d6bb14e14255814cb37ab61062466384b953563b2d844daa"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/chart.mmd",
+      "sha256": "0fcc808934cbf91f592eda060de978064e4854c704d1c861332f875cf7415543"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/graph.dot",
+      "sha256": "906fdbce95c4d0628441a231d9d9124d506d34f95ba08f653f3db084d13c5c1d"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/report.md",
+      "sha256": "9649f57adfbd71a5f4430bcde0d95234883b1daf80eff2d91a0dbd1ddf6d3739"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/sany.out",
+      "sha256": "4ce39c0150c1cc1c9d657b927f22103fc8ecf1d0f0678137970ac98fe2a8d355"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/verdict-1.out",
+      "sha256": "62f4153c4a5e690d868b0e623c83c272a1a15ea3b9fde47f5e4ebafb6f3766d7"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/verdict-2.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/verdict-2.out",
+      "sha256": "bccbbf5d54a039d540712a11047e6a8d4ae168c1294e15de4f78e12e678ac7cd"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/verdict-3.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/verdict-3.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/verdict-3.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/verdict-3.out",
+      "sha256": "f832750ac5552dbcc3515ec93ff959fd6f70e6462f590d7c1cd3493440f8c6f4"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTie/verdict-4.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTie/verdict-4.out",
+      "sha256": "7589bdcdaf666e3b8f1df98ddd47034fe44450e0f9c00ea552c749c7544465a6"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTieInGraph/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTieInGraph/ChartRun.out",
+      "sha256": "4f0a042594b6b512195658761c84bf0054fa14fc6d52e72a78113a8230a28d93"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTieInGraph/CounterTieInGraph.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTieInGraph/CounterTieInGraph.cfg",
+      "sha256": "4a48e4418169113fdd2abb891981d4917fca6b76915e38f6bcddbc5596786195"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTieInGraph/CounterTieInGraph.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTieInGraph/CounterTieInGraph.tla",
+      "sha256": "cf1818fc7d96bd4082f9260a42b7e792d5e6494ce7ae6c97730b63e8085e0ac0"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTieInGraph/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTieInGraph/chart.mmd",
+      "sha256": "2c3fb00ad851c1bab2516ce25838209c342cbc8c5d3d795a54bb6eac3ad5d0d0"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTieInGraph/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTieInGraph/graph.dot",
+      "sha256": "ec76c05526f13d71d561cd67118da823cb0337af4f4d7b011d84f420aa8663ed"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTieInGraph/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTieInGraph/report.md",
+      "sha256": "efb16c681db5ffef7312d550393bc62e1b3682615b06d8f2991fea29ba3938a8"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTieInGraph/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTieInGraph/sany.out",
+      "sha256": "eb1991c5d584f35db0bcdb3ad4ab5444be5c84f324f177e51b95bb8b46f75324"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTieInGraph/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTieInGraph/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTieInGraph/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTieInGraph/verdict-1.out",
+      "sha256": "2cdd96422ac6aff9f266db7c2b644b02c047ce23ca85486cd5c62cb7b4f9253b"
+    },
+    "skills/statechart/scripts/test/corpus/CounterTieInGraph/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterTieInGraph/verdict-2.out",
+      "sha256": "cc159ae8b3034dea7f055fe6290c0becfc8da8d879459b7ba0421fd57b750e53"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/ChartRun.out",
+      "sha256": "1763153dd2d92f64250e983f283e622a7c7519aa21b5357c07f5931225039314"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/CounterView.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/CounterView.cfg",
+      "sha256": "f7f1939032d3fb09af0d2e38907b2f8e3da73cd6f90769a801638c4c50f9ccdc"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/CounterView.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/CounterView.tla",
+      "sha256": "273e549d576351809a2220003ae1b3c8cd2e687499be05fb21b3ce461d1b5162"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/chart.mmd",
+      "sha256": "e6e0208a45a15a8af7be73b8e89ee665117414c3fc082679f35b250f2643cd05"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/graph.dot",
+      "sha256": "906fdbce95c4d0628441a231d9d9124d506d34f95ba08f653f3db084d13c5c1d"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/report.md",
+      "sha256": "2a64bbb36844f44e97626e6c0579ba1aaa6fdaea99216b7322642ab07d1cbbb5"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/sany.out",
+      "sha256": "a1cd34d2d89ca38c44999e7376075047947927899d406c401c87308fd5ab203a"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/verdict-1.out",
+      "sha256": "5981442a7a969e88a98934eb3244542f9c8ec99f73de9050280103f12cb0c4a2"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/verdict-2.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/verdict-2.out",
+      "sha256": "6237dc3d67262ecfac29bd09515e9fd81eb4c7b0340cf944fb841864c50687f0"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/verdict-3.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/verdict-3.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/verdict-3.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/verdict-3.out",
+      "sha256": "c72cdc09ad69e03d04f4ee840659aee046e0e6af39a9c839e6d8d20e3dd9762a"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/verdict-4.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/verdict-4.out",
+      "sha256": "27f4981b9ba54df20bc33114fea2e521cd5a476173eb307a7cf5ff4c8b3f2c91"
+    },
+    "skills/statechart/scripts/test/corpus/CounterView/view.mjs": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/CounterView/view.mjs",
+      "sha256": "5f6114fd8ca165604456048f2d7e2c29f667eb4537076647aaf3bb856f1c826e"
+    },
+    "skills/statechart/scripts/test/corpus/DieHard/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/DieHard/ChartRun.out",
+      "sha256": "dfd5fadfb9ea0030ecdf82c184268d09ce877336f19e3b9f2f3b95866099538a"
+    },
+    "skills/statechart/scripts/test/corpus/DieHard/DieHard.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/DieHard/DieHard.cfg",
+      "sha256": "d75cf14954dfc65a36abbbbde7b6d52b77c4df36a4fdf64974acd51adfdd13f8"
+    },
+    "skills/statechart/scripts/test/corpus/DieHard/DieHard.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/DieHard/DieHard.tla",
+      "sha256": "8a63111dc1aea97f4b32cc6fb7f36112775ef65b5a8a8603fbd35c493eba306d"
+    },
+    "skills/statechart/scripts/test/corpus/DieHard/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/DieHard/chart.mmd",
+      "sha256": "89057b576e59f437dd8c96a25edfd6891512d9b5788c5883e7d1affb6b5a9681"
+    },
+    "skills/statechart/scripts/test/corpus/DieHard/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/DieHard/graph.dot",
+      "sha256": "6cf64ad56b08000c6a3f05aecd54331b71192aca1de3d737afe24b157a06ee84"
+    },
+    "skills/statechart/scripts/test/corpus/DieHard/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/DieHard/report.md",
+      "sha256": "044c2a2b41ffe7f522af78b33f1c0fa09f822b42ae0913560db355e88b9cdb4d"
+    },
+    "skills/statechart/scripts/test/corpus/DieHard/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/DieHard/sany.out",
+      "sha256": "818c71c8a84a41a626740fcc61608ad77d45d8cea2175690163da289f1eda4bd"
+    },
+    "skills/statechart/scripts/test/corpus/DieHard/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/DieHard/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/DieHard/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/DieHard/verdict-1.out",
+      "sha256": "24363932a41b49f302c1dd934c36d583e443850e3c34677a423aecf49fc9081e"
+    },
+    "skills/statechart/scripts/test/corpus/DieHard/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/DieHard/verdict-2.out",
+      "sha256": "86b8e78b53127ebbfc013ad1423d4ca66c92d118685508dbf57307076d7cf9b5"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/ChartRun.out",
+      "sha256": "6514873d106dda3ed051e38f2e7df8932c597c3d27e68538899ee9c2f70a9405"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/FirstRule.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/FirstRule.cfg",
+      "sha256": "422dbc8bd263458fb1706fdaa4888ca3375ca5db1394dcf6b5aaa6ad0645fede"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/FirstRule.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/FirstRule.tla",
+      "sha256": "9f1b2ddb4a573c4612cee6657f728117656a2dd1ab9e8e800e171ee1f3cbb1f4"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/chart.mmd",
+      "sha256": "60b3c9d31e74b633d5d97a2847aab3bd3fb4f63813e8e0d8a3a493ff5dde1bc3"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/graph.dot",
+      "sha256": "a1b348348bf032ff81cfd796ae19f8cdcf491d5af18eab73ebfca3058a15691b"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/report.md",
+      "sha256": "2323122a1509c6c554a18da72a549922e364d2e89f0e5d274f1fa4b89f14c6e1"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/sany.out",
+      "sha256": "94176927597f47550c6ca1cd91807367a1e2ce968c1eceae20256d96cfba1139"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/verdict-1.out",
+      "sha256": "f444852a2c5f029b3d76a3d1365763435e8cfeaeedab4769bf0d580dfd8a5f70"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/verdict-2.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/verdict-2.out",
+      "sha256": "1c7209d668eeb0afccaed1e7a7dff0b4d813d4dca12a440e657a1cbf895a90cc"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/verdict-3.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/verdict-3.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/verdict-3.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/verdict-3.out",
+      "sha256": "3dd39a3d8eacf4e1770b22fd55bed88d03a01b44d7f592981e66279707bff3ee"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/verdict-4.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/verdict-4.exit",
+      "sha256": "25d4f2a86deb5e2574bb3210b67bb24fcc4afb19f93a7b65a057daa874a9d18e"
+    },
+    "skills/statechart/scripts/test/corpus/FirstRule/verdict-4.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/FirstRule/verdict-4.out",
+      "sha256": "6a6efbdf26c39e43588e2c4662cefea87a869d3700096347e2064ff9db439002"
+    },
+    "skills/statechart/scripts/test/corpus/HiddenClock/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/HiddenClock/ChartRun.out",
+      "sha256": "263a6666f3bd0a91020bdc2e674285889db6160e62aeeabf81d3fd6c80ad5898"
+    },
+    "skills/statechart/scripts/test/corpus/HiddenClock/HiddenClock.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/HiddenClock/HiddenClock.cfg",
+      "sha256": "1ff2a58417639cdb8fd7fe134d9acc49badc7ddefae309e8a49343550bb37dc7"
+    },
+    "skills/statechart/scripts/test/corpus/HiddenClock/HiddenClock.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/HiddenClock/HiddenClock.tla",
+      "sha256": "1cdb3a20c553557f60fddc93d0c2a57dcd815f0028020a58110ff92ae5e6ef1b"
+    },
+    "skills/statechart/scripts/test/corpus/HiddenClock/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/HiddenClock/chart.mmd",
+      "sha256": "7d29b01c2bc123ec82c9ccf12a082b2bd700afa6ae5f5e4451c08fba553b317f"
+    },
+    "skills/statechart/scripts/test/corpus/HiddenClock/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/HiddenClock/graph.dot",
+      "sha256": "abfe48a392e3f5217684882942261deb1a117e63e3e3836f037a551019fff710"
+    },
+    "skills/statechart/scripts/test/corpus/HiddenClock/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/HiddenClock/report.md",
+      "sha256": "bb7e070ee6e8b332ab4a4166c33989a5aa38bc0e0ecf75a93c8935d0680c8b82"
+    },
+    "skills/statechart/scripts/test/corpus/HiddenClock/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/HiddenClock/sany.out",
+      "sha256": "86bc954e5dffa1c9516ccb8064610f66668db25a34be69cc03bb4a5736c2a566"
+    },
+    "skills/statechart/scripts/test/corpus/HiddenClock/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/HiddenClock/verdict-1.exit",
+      "sha256": "1a252402972f6057fa53cc172b52b9ffca698e18311facd0f3b06ecaaef79e17"
+    },
+    "skills/statechart/scripts/test/corpus/HiddenClock/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/HiddenClock/verdict-1.out",
+      "sha256": "3719bbe9a22627acc9684a503de82250dba80ed9ce0859b1fb09b6d30db2553e"
+    },
+    "skills/statechart/scripts/test/corpus/Login/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Login/ChartRun.out",
+      "sha256": "69e092decc546972f84ff731b24cb5d2f4d75eb373dbedde38b8aa136f2bfdb8"
+    },
+    "skills/statechart/scripts/test/corpus/Login/Login.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Login/Login.cfg",
+      "sha256": "97707bb4e8fb4a42465bade63b9be92dae0ebcc877530d588e5bdefb3687655e"
+    },
+    "skills/statechart/scripts/test/corpus/Login/Login.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Login/Login.tla",
+      "sha256": "25aa3c50791c7f24fe96243baeef4cc4281d9fa37f29abb78533862bd6b6e9de"
+    },
+    "skills/statechart/scripts/test/corpus/Login/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Login/chart.mmd",
+      "sha256": "6cfda25977c467c106f9fb7f5602960bdd40919ac9294994ccd3bb33346faf35"
+    },
+    "skills/statechart/scripts/test/corpus/Login/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Login/graph.dot",
+      "sha256": "f120b5583e931755578032d87cedf5bcadc4cb4c4ef497605b4290e1de704673"
+    },
+    "skills/statechart/scripts/test/corpus/Login/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Login/report.md",
+      "sha256": "e0132cf83d5637c96747873fa6ecdea23961b6b3b818e6db65748013580fe87d"
+    },
+    "skills/statechart/scripts/test/corpus/Login/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Login/sany.out",
+      "sha256": "e102731bbbf16d04bce331007e37f29c9f90e0f1371eb5a9cc88f65bc7d56979"
+    },
+    "skills/statechart/scripts/test/corpus/Login/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Login/verdict-1.out",
+      "sha256": "92ff242b55fc6763a13988a98481a54a1ab19eb3f0a4514d30efe3a48e45b581"
+    },
+    "skills/statechart/scripts/test/corpus/Login/view.mjs": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Login/view.mjs",
+      "sha256": "f59cef65025cb9aacade3fa5027c5cba15a44cabbfe64084f6dedcb173cf93e7"
+    },
+    "skills/statechart/scripts/test/corpus/LoginGuarded/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginGuarded/ChartRun.out",
+      "sha256": "b9578b274bf3458ac3b721eca7638f48e97874a32765e0db95807cbb7f9609aa"
+    },
+    "skills/statechart/scripts/test/corpus/LoginGuarded/LoginGuarded.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginGuarded/LoginGuarded.cfg",
+      "sha256": "7877ce4ca1c561150cf6a447f61f273742f4b7112ed84f10e827b38f032ec6cd"
+    },
+    "skills/statechart/scripts/test/corpus/LoginGuarded/LoginGuarded.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginGuarded/LoginGuarded.tla",
+      "sha256": "c62583af14b40df94a4276438edecfdf482d2b185eb6b302c3db2dfe71c129e1"
+    },
+    "skills/statechart/scripts/test/corpus/LoginGuarded/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginGuarded/chart.mmd",
+      "sha256": "298760e9f3334c9807f2c3698c1f487981e9cb67c2688e6d910a2904321383f8"
+    },
+    "skills/statechart/scripts/test/corpus/LoginGuarded/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginGuarded/graph.dot",
+      "sha256": "3e2ffcda3ccb6fa266b13f6f19d18d81d819f9e0e9809e91868edf77d9663237"
+    },
+    "skills/statechart/scripts/test/corpus/LoginGuarded/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginGuarded/report.md",
+      "sha256": "6476c58f4938e059179774f90a7cd1829b2c7c38903223c81a193034ebae83db"
+    },
+    "skills/statechart/scripts/test/corpus/LoginGuarded/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginGuarded/sany.out",
+      "sha256": "e8e73f621775ea526e48dc565b3cc0010a22a90ca075e0fb0ca2f73c0522840f"
+    },
+    "skills/statechart/scripts/test/corpus/LoginGuarded/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginGuarded/verdict-1.out",
+      "sha256": "46b5c3b2cdbf05571417d8aff407d103d0d4755e8e8c0ba46186391a611a6364"
+    },
+    "skills/statechart/scripts/test/corpus/LoginGuarded/view.mjs": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginGuarded/view.mjs",
+      "sha256": "9a45c5718c3eb1171b0a2271e79612e6af833038f13ab8e16b37f15947d53cca"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/ChartRun.out",
+      "sha256": "2dda75ca79ff432a8f74fa504c8876f01441f8196b274f4f834959c49576c87b"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/LoginParallel.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/LoginParallel.cfg",
+      "sha256": "ab2bc033be4345d363d5845fb6bf573c4b79b477bdee965625e2a4af44fd9c44"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/LoginParallel.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/LoginParallel.tla",
+      "sha256": "8f93509fca05425c054e7ec518e9653097ac9464c98fbf426fee551f940b2e51"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/chart.mmd",
+      "sha256": "d00f84c57486de54bde56ee75ad223e6936bd1b0334319cef60ebbee899a2480"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/graph.dot",
+      "sha256": "8f4d20009e23824b0bfbeddd2ca9d1c12e764599a7e179018c98d432d091ab86"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/report.md",
+      "sha256": "ed54afd8a979fb2c7eedf28b0bbdd1bfc91b360d883eacd8254483f1db5155d0"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/sany.out",
+      "sha256": "9906450ef11cc5c94325cef0b648736135708d37ee3a41841b55035f41e43309"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/verdict-1.out",
+      "sha256": "dcfd62876aa6e62fd08d8dad9b38a5f54ec86725f92c48e8328ac0461dd4be67"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/verdict-2.out",
+      "sha256": "bad6cc9bf2bce357642aba04e7fd952800b718e7a518b9679764a4058465d1d0"
+    },
+    "skills/statechart/scripts/test/corpus/LoginParallel/view.mjs": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/LoginParallel/view.mjs",
+      "sha256": "9a45c5718c3eb1171b0a2271e79612e6af833038f13ab8e16b37f15947d53cca"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/ChartRun.out",
+      "sha256": "2460f0f517117836b5a02e70e4ef2f9889061f1b2cb83ac4bf8fc41532fa2b1d"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/MediaPlayer.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/MediaPlayer.cfg",
+      "sha256": "0f1a86e105cf1c303cedc510b4fe080175fc77eb88fe98c1eba163d04436ffad"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/MediaPlayer.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/MediaPlayer.tla",
+      "sha256": "ace4961900ceb44281c94879c05550123a74c5427e9fcfaf3dfb134f51c38390"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/chart.mmd",
+      "sha256": "e3a6e6987bd8c6aa9fcc480a5f19e1c8c954804935f2d5f938279e6e7c2f6ceb"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/graph.dot",
+      "sha256": "881d999fa6e60ba7698ea8633f16a315be97a370aa300cdea885d04333028534"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/report.md",
+      "sha256": "ef407dcd4e536034ec7512076364831c7f904912cba5ed6f53659db02e13d82a"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/sany.out",
+      "sha256": "6385013e3e792b0404acc8ae8c42718fba4a626ff83590bb680318c08d497e88"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/verdict-1.out",
+      "sha256": "b6f6af48489b17cc9d21ccaf851a555ec8e51d29bc76486b11801b4ae1c11b86"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/verdict-2.out",
+      "sha256": "d9eaa58bbc7364560b1365ef1fe74454ab97ca093cbf05a9bb14d530145165cf"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayer/view.mjs": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayer/view.mjs",
+      "sha256": "019383f6b4f753b5721485f3cff9b3762e046f4cea134f26a709e9ce4c43dde9"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerFixed/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerFixed/ChartRun.out",
+      "sha256": "1050612e030b11a1f6e1942880bfcfb634913e0123fe04133e38554553cb79f6"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerFixed/MediaPlayerFixed.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerFixed/MediaPlayerFixed.cfg",
+      "sha256": "2d6715915152436fc1016313ef8dd55251c0f712417226c47345228527acff83"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerFixed/MediaPlayerFixed.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerFixed/MediaPlayerFixed.tla",
+      "sha256": "59c4c86bfa1f38e0a01e8675d9936558d9a3899c3de8243483e633674a6bccfc"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerFixed/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerFixed/chart.mmd",
+      "sha256": "1a77aeca211f5469041f03c6d149beec17f300d6cb5e5386e5f73d6a214f73ae"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerFixed/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerFixed/graph.dot",
+      "sha256": "cb6b2d85fb70cfa6aefe16e3fdcb686b60f6593ec755e04ed5c4ec15867766f7"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerFixed/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerFixed/report.md",
+      "sha256": "ea569763d18889ff07c5be90ac6fb74ca83f4a19f1ba79000fa151c692d38d54"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerFixed/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerFixed/sany.out",
+      "sha256": "22f3486dbbfc11c5ae0f62e25aab9742b0875285c5de8e490f5cd84b1b948bf0"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerFixed/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerFixed/verdict-1.out",
+      "sha256": "442c9923009f88f8f462a2bb4533987b6797495bdfee359a74c49b1a360fe386"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerFixed/view.mjs": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerFixed/view.mjs",
+      "sha256": "019383f6b4f753b5721485f3cff9b3762e046f4cea134f26a709e9ce4c43dde9"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/ChartRun.out",
+      "sha256": "4a67e04e5c801f92ce4a9fe7bf48fdc3a800abe6754d75c0df2ac0f7fa85af68"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/MediaPlayer.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/MediaPlayer.tla",
+      "sha256": "ace4961900ceb44281c94879c05550123a74c5427e9fcfaf3dfb134f51c38390"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/MediaPlayerProps.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/MediaPlayerProps.cfg",
+      "sha256": "d9995ff6b04506d0531f7264a85c932fe0e4ea2017608952d6908ef9ed31f828"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/MediaPlayerProps.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/MediaPlayerProps.tla",
+      "sha256": "31f510c61062eaede29be56efd920aa0cfdb9851e09cdbb0c971468c48e54985"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/chart.mmd",
+      "sha256": "40e8330310aa4ec838ad4bf99b12e5eb0ddc7b6ec99bf21d764c05ab05217d9b"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/graph.dot",
+      "sha256": "881d999fa6e60ba7698ea8633f16a315be97a370aa300cdea885d04333028534"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/report.md",
+      "sha256": "5a68beff9cbd182489e784b065f588a48ec61c60f87ed70dafe80ee0fde56ef3"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/sany.out",
+      "sha256": "dc86d7c73175b68cf92d65d35758da6836a38e0ef3d5dba209c80b90df6a53d4"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-1.out",
+      "sha256": "364c7dfbf9cabaea6f15e96811df209ee272800f5d5b671ce27532346dc3215d"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-2.out",
+      "sha256": "e01f79327c1e8a2978629ad8e5486baf95dfb0dd4ffd44152b159b8d35fb0bc9"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-3.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-3.out",
+      "sha256": "8f9d8deff62a9625782caff95aa89f03607aa50bd31f31b5d26f459c04757f09"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-4.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-4.exit",
+      "sha256": "1a252402972f6057fa53cc172b52b9ffca698e18311facd0f3b06ecaaef79e17"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-4.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-4.out",
+      "sha256": "04579153733514c4c7bb351a04764e1a9dc5f6815b7dc056fb51ee0dec5ef48a"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-5.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-5.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-5.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-5.out",
+      "sha256": "274b0b70a9e7cf8d6c140a968b8674be5fe8073252db78ec6b823cc7f40f7538"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-6.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/verdict-6.out",
+      "sha256": "8f03e3f3afb0378a13715c9f90a3b59c1f46a53f295f8eb74f1b61c62d832a43"
+    },
+    "skills/statechart/scripts/test/corpus/MediaPlayerProps/view.mjs": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/MediaPlayerProps/view.mjs",
+      "sha256": "019383f6b4f753b5721485f3cff9b3762e046f4cea134f26a709e9ce4c43dde9"
+    },
+    "skills/statechart/scripts/test/corpus/PickWorker/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/PickWorker/ChartRun.out",
+      "sha256": "caeb61ac10b01bf2e6044cebd316b599793eb075fb0256aa81c696e4e5c7a7ce"
+    },
+    "skills/statechart/scripts/test/corpus/PickWorker/PickWorker.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/PickWorker/PickWorker.cfg",
+      "sha256": "0da0617d4459668020b0bf88a29b1eee01882c88f204728eb9a38493b60bd4b3"
+    },
+    "skills/statechart/scripts/test/corpus/PickWorker/PickWorker.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/PickWorker/PickWorker.tla",
+      "sha256": "8cd92057affd06b367a85c1d87c81b827cfdfd41a2bea10989ce911ed2fd3124"
+    },
+    "skills/statechart/scripts/test/corpus/PickWorker/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/PickWorker/chart.mmd",
+      "sha256": "5fff795e5d0da737cdf1fef95c993ea6ca45fd9f5fb61e163d2e292c40186a64"
+    },
+    "skills/statechart/scripts/test/corpus/PickWorker/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/PickWorker/graph.dot",
+      "sha256": "1d60f0497f939134c6cb91f5e869445aa7da04ba8caad5128f1509a28c31f245"
+    },
+    "skills/statechart/scripts/test/corpus/PickWorker/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/PickWorker/report.md",
+      "sha256": "87546454dfa4b96d15c53dbdc6eef469e0390f14b4ff1eb370d4437508f90da8"
+    },
+    "skills/statechart/scripts/test/corpus/PickWorker/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/PickWorker/sany.out",
+      "sha256": "866b218db376118471b5635ad1b050c14552c1cc7df37d65f9a5ce5b4734dbaf"
+    },
+    "skills/statechart/scripts/test/corpus/PickWorker/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/PickWorker/verdict-1.out",
+      "sha256": "e994e9457f86627fe3db72c80f63513931b75d192b3387b2ef6132c398780b55"
+    },
+    "skills/statechart/scripts/test/corpus/Shadow/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Shadow/ChartRun.out",
+      "sha256": "e01704359d955974f20afee7ea1d5f4f120a5319c219929d747c9e9bc2c9b36d"
+    },
+    "skills/statechart/scripts/test/corpus/Shadow/Shadow.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Shadow/Shadow.cfg",
+      "sha256": "4f0262dfe7368f4c8df45c47e912fca78885a24053b31cd67c3b33f49e61f7a1"
+    },
+    "skills/statechart/scripts/test/corpus/Shadow/Shadow.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Shadow/Shadow.tla",
+      "sha256": "c7ed4c7ab82d7ed8515621d4ff88d349920cd1a4783a2ee47a71278af9dfe148"
+    },
+    "skills/statechart/scripts/test/corpus/Shadow/ShadowLib.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Shadow/ShadowLib.tla",
+      "sha256": "3590a4185a432b4fbaa867d7d717482a0d57e2374711bf3bb65244cc936bc666"
+    },
+    "skills/statechart/scripts/test/corpus/Shadow/ShadowSub.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Shadow/ShadowSub.tla",
+      "sha256": "b84408d4b14dc56402b7cc8e0e11589f8b0f7bb3dc3f1408afcc7518f3fb7f1f"
+    },
+    "skills/statechart/scripts/test/corpus/Shadow/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Shadow/chart.mmd",
+      "sha256": "386fbbc905c7c89c4457a3d48f4b76bdf42861093188dc7369c32aef7b48658c"
+    },
+    "skills/statechart/scripts/test/corpus/Shadow/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Shadow/graph.dot",
+      "sha256": "a1b348348bf032ff81cfd796ae19f8cdcf491d5af18eab73ebfca3058a15691b"
+    },
+    "skills/statechart/scripts/test/corpus/Shadow/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Shadow/report.md",
+      "sha256": "16788146e79b669a06152e69fbb0b3ef738bab2bd37c6c278137e7b96373dd97"
+    },
+    "skills/statechart/scripts/test/corpus/Shadow/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Shadow/sany.out",
+      "sha256": "e7396792c0a425651e9765498b6922a95fa63c37d3fa9927137b3c35596eb310"
+    },
+    "skills/statechart/scripts/test/corpus/Shadow/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/Shadow/verdict-1.out",
+      "sha256": "b6df6a9904d6b1fbe9fb20ae1d7f2e52aded6a7884e6e2514db4e984d6d2c4b9"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/ChartRun.out",
+      "sha256": "68bb08c06e2c22ec57dd84e595c2895f01bf6c7be3cadb8ae3a942c662888f0c"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/SpacedNames.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/SpacedNames.cfg",
+      "sha256": "e32044a2d32c9e2c9c9459b257ff062bd33028914d392b0ec1d25815772dfbfa"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/SpacedNames.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/SpacedNames.tla",
+      "sha256": "0685a3f78ae2d30bc883201b3c9fc16f9f590b15d02a62295da3cc48566d777b"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/chart.mmd",
+      "sha256": "de161c72bdfa1feff2ccbebbc39db5fee3bd4b1d789945802b310838875a2bf1"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/graph.dot",
+      "sha256": "1f9e6cbdfd8b30ca4ec376261e8fb6114a7efe4ef1a5ec01ebeeaaddcabce211"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/report.md",
+      "sha256": "62126c7b8928173a53952a5372c703b6c6af5155331f6b8547b21e957319540d"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/sany.out",
+      "sha256": "415faa44484371020747737d57b69bec28640dce60adf5cbeac26d0a79f89953"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/verdict-1.out",
+      "sha256": "05335eac8e0ae5eeda209c59bf7b000c411592022f9afd452847b1d6688319d6"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/verdict-2.exit",
+      "sha256": "25d4f2a86deb5e2574bb3210b67bb24fcc4afb19f93a7b65a057daa874a9d18e"
+    },
+    "skills/statechart/scripts/test/corpus/SpacedNames/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/SpacedNames/verdict-2.out",
+      "sha256": "abf2a12c671af7ef26fb4a0a0f59accff35b36251c278bdde7067f00558f7e5c"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/ChartRun.out",
+      "sha256": "aed20dee26285d007a0529727c67ff86d52c1eaa3e1ea4c56472df4f2c5b1b92"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/TwoPhase.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/TwoPhase.cfg",
+      "sha256": "a4e4546592e8e5d361ccbeb4808338e15fb61338fdbc84c358e9b0a41a58a704"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/TwoPhase.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/TwoPhase.tla",
+      "sha256": "c27868893c2f4de82a0c561af6fc65d2abe233e840d9a2d830920d1487ab793d"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/chart.mmd",
+      "sha256": "e8761c527163b1d15d699da7f7e026337c939e51b2f82feea82a93ce1d67482c"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/graph.dot",
+      "sha256": "0276d507b1457de02d25cacced67c19b3442764225bc183e90c8c6745ba5f680"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/report.md",
+      "sha256": "6b847fe8dc3e043d17c1ec3df7b18c7d618a1b7a351eb8f1943fa5d70a1b640b"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/sany.out",
+      "sha256": "3944566b6d4e0b3457c9b30320041e19e97d45f40a01b9a868ddeb9d7ad6304e"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/verdict-1.out",
+      "sha256": "f22ad5c0f211bf7ad01aa04bd2f461c9e48ed394d1814a7445b990c0f91eec75"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/verdict-2.out",
+      "sha256": "bd8a217318a09cd985601e9483dcc061d502348cfc3e33a684ed35240b7cb5ba"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhase/view.mjs": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhase/view.mjs",
+      "sha256": "25bc78b0ee8c7ab24ed1f0dbe78ed60adce0f086579c03bf8c97d02c448c7f26"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhaseFixed/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhaseFixed/ChartRun.out",
+      "sha256": "73094c6a6b78588569eef707f88ce7d6f7da4505a4882a2ff0cc1dcffc72b0f0"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhaseFixed/TwoPhaseFixed.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhaseFixed/TwoPhaseFixed.cfg",
+      "sha256": "a4e4546592e8e5d361ccbeb4808338e15fb61338fdbc84c358e9b0a41a58a704"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhaseFixed/TwoPhaseFixed.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhaseFixed/TwoPhaseFixed.tla",
+      "sha256": "9d9459496de208594596804e0a70faad6390286c7b3fc2b9ae173e61d25ade57"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhaseFixed/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhaseFixed/chart.mmd",
+      "sha256": "d7a0b12bfc62b60507334c045369ef53bbeba7e432f0c335a5c0a72e0b667fe7"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhaseFixed/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhaseFixed/graph.dot",
+      "sha256": "2a9a55c417ecf703035dce21c7ba347ad6cb3dc50a0a634a6b60f4bfb727a773"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhaseFixed/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhaseFixed/report.md",
+      "sha256": "598a1594b7768b770d1c4df3b304ac26c2890bbf5bc9610541c5dcbd26c12d9f"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhaseFixed/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhaseFixed/sany.out",
+      "sha256": "2eb698b9b60b3ec587f382e5a6398b32da62e08e9803e1121e627a697bfaf061"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhaseFixed/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhaseFixed/verdict-1.out",
+      "sha256": "a85d46fa117924eec003fe28749f71bee520016d65e3d4cad671768635157600"
+    },
+    "skills/statechart/scripts/test/corpus/TwoPhaseFixed/view.mjs": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TwoPhaseFixed/view.mjs",
+      "sha256": "25bc78b0ee8c7ab24ed1f0dbe78ed60adce0f086579c03bf8c97d02c448c7f26"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/ChartRun.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/ChartRun.exit",
+      "sha256": "461144ccfd56ee3cf0f9a9d80e520c5b872166b23092d5fd838ecbdb46d64dab"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/ChartRun.out",
+      "sha256": "d3a2f8df56c31c081e5c0b27da754180cdb5b2a62073467421a90fc8514c4a08"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/TypeGuard.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/TypeGuard.cfg",
+      "sha256": "ddd3b43e9455ebfe7ed7c487867352b9466bf60fb35900b84ad5281fe6763766"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/TypeGuard.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/TypeGuard.tla",
+      "sha256": "ccda004cd0e3c40a7c39c200095a12eb3e0cc7c40f9ecabff24026c1cdfc53b4"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/chart.mmd",
+      "sha256": "e180050487251de907e1a25c34a3acf28159d28a3166afd0786c7f8bd1bb52d5"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/graph.dot",
+      "sha256": "a35107023f5a7a2e9833c3c0f67b69e163a7331038510b3dafcd4f4092db7251"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/report.md",
+      "sha256": "4c954c446383fcaad78deb5ac19f70fa74fc028f90b576f1d91b2c45e09e0108"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/sany.out",
+      "sha256": "cf58712d31a0daab97eb960e7820c7b0c4326dfe785937eef9f7ed2476347ee3"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/verdict-1.out",
+      "sha256": "3e60feb2884f636dd1ea5cd1459fcef8a1db34e5f9f801ccfe6735203969ec84"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/verdict-2.exit",
+      "sha256": "461144ccfd56ee3cf0f9a9d80e520c5b872166b23092d5fd838ecbdb46d64dab"
+    },
+    "skills/statechart/scripts/test/corpus/TypeGuard/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/TypeGuard/verdict-2.out",
+      "sha256": "4ff80d714ae9e9ac57e54645b92aaac286ded5b5ce119b8d25c54ec53856bbc4"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/ChartRun.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/ChartRun.out",
+      "sha256": "acd62745ae91ce9250ed32bb84a084f7a7327232f0e96a599eb49ed4f74c2388"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/UserNoDeadlock.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/UserNoDeadlock.cfg",
+      "sha256": "2cf30ce46c41f9d6978b8080f2e0cdd627e0b034e367f98b351882fb0277b748"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/UserNoDeadlock.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/UserNoDeadlock.tla",
+      "sha256": "b4ebd22cce4480f25812ea31f67447df520fb554ed9bd0114641c261f4e2b804"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/chart.mmd": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/chart.mmd",
+      "sha256": "730f79185a86f0345440cfbbcd05eb4b6b9b6e4653e00073708432e341c5fea7"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/graph.dot": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/graph.dot",
+      "sha256": "a1b348348bf032ff81cfd796ae19f8cdcf491d5af18eab73ebfca3058a15691b"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/report.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/report.md",
+      "sha256": "53433b379971530176a5e150a14c466c4452d07c523b3207e8b6c2b55c68b0cf"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/sany.out",
+      "sha256": "b11bbc9d4985f64b11b09f48029c1c6a84089835cebf4211a56ee6e70e4c226c"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/verdict-1.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/verdict-1.exit",
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/verdict-1.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/verdict-1.out",
+      "sha256": "f014279be781ee6e9daebaccdea137b13b21f563b1ca5107bd1172d29c3a0884"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/verdict-2.exit": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/verdict-2.exit",
+      "sha256": "25d4f2a86deb5e2574bb3210b67bb24fcc4afb19f93a7b65a057daa874a9d18e"
+    },
+    "skills/statechart/scripts/test/corpus/UserNoDeadlock/verdict-2.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/corpus/UserNoDeadlock/verdict-2.out",
+      "sha256": "cd7c28af45d5bc12ba9e0f148e25b5234b781bbb21ddb0194d5cd1b661c7b800"
+    },
+    "skills/statechart/scripts/test/differential.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/differential.test.ts",
+      "sha256": "d4d64a7d17b4630616e797f1b184848c2a8b7712777d9982cafee81dc6046a9f"
+    },
+    "skills/statechart/scripts/test/grid/Grid.cfg": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/grid/Grid.cfg",
+      "sha256": "41d15a4d5bef6385c00b30f2126204e74a779d835d37f1ea73669afcfb579ef5"
+    },
+    "skills/statechart/scripts/test/grid/Grid.tla": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/grid/Grid.tla",
+      "sha256": "e52e75d6fccff01cfe385140cbac3339b5820faeb1e567c7edc1267fa99f989e"
+    },
+    "skills/statechart/scripts/test/grid/sany.out": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/grid/sany.out",
+      "sha256": "e42a575f90275de315767d9f46ab0881349ebc53206e191aee57501494a5aba9"
+    },
+    "skills/statechart/scripts/test/java.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/java.ts",
+      "sha256": "4fef906fe1dcfdb98dafbd3ecdae1e82589908529ffc11b6bbdcfb8aef505932"
+    },
+    "skills/statechart/scripts/test/labels.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/labels.ts",
+      "sha256": "5a884161428fc00229d9a0e896001df4b262b56a441b6b3d66d1b59b06050650"
+    },
+    "skills/statechart/scripts/test/messages.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/messages.test.ts",
+      "sha256": "e7ca0ea446907074452df5388719598bb297d7f8ee50145b8b8f2a41c0c4c92f"
+    },
+    "skills/statechart/scripts/test/pipeline.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/pipeline.test.ts",
+      "sha256": "0f091c3e6e104fd545e113ad437df8d4856618a775073a37d41050ebf663e479"
+    },
+    "skills/statechart/scripts/test/plain-tlc.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/plain-tlc.test.ts",
+      "sha256": "f6b042300e66840809e26ba8fef0c7e2bc8bb6b59f3b910ea65dea176e97bf1c"
+    },
+    "skills/statechart/scripts/test/render.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/render.test.ts",
+      "sha256": "9cb369e5f4c464ca540ccc3de4fdd76670b84e54f06955ccb46908826579ac23"
+    },
+    "skills/statechart/scripts/test/tlc-out.test.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/tlc-out.test.ts",
+      "sha256": "8a87d6cf32e7225aa0c8031e61b8a2912d8fbb3847a7ec2cd76e26c14e931478"
+    },
+    "skills/statechart/scripts/test/tlc.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/test/tlc.ts",
+      "sha256": "73f5cf9dca5ca55aa65d5b342405e31f6eff858ed2bc2124c3e3fbb328259cca"
+    },
+    "skills/statechart/scripts/tsconfig.json": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/tsconfig.json",
+      "sha256": "6bb2af53f7b251328e6117cd4fb761468dc4d4b96085d31a19304ccb73c32cc1"
+    },
+    "skills/statechart/scripts/worker.ts": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/statechart/scripts/worker.ts",
+      "sha256": "1f18ed5ef806982e05e8a40fc217e88257700b28b63cb4acbd647872f85f782b"
+    },
+    "skills/swarm/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/swarm/SKILL.md",
+      "sha256": "34fb1420f1a0ad343bcf3c3e531db67b0ed43ba09c421e97936ce11200c43546"
+    },
+    "skills/tdd/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/tdd/SKILL.md",
+      "sha256": "eeb868e2dfebee528d730a67d7b17498fac4bb85dec2e38bc5c5176aca4d5d2f"
+    },
+    "skills/teach/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/teach/SKILL.md",
+      "sha256": "7f759a4ab2d8206d75f8c9984a113249135c45b1af95a5c2907681d56c76489f"
+    },
+    "skills/technical-writing/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/technical-writing/SKILL.md",
+      "sha256": "f52de47ccac67a713d5cb5d8bd5dc525ee8f624507d31a804e37efa339038430"
+    },
+    "skills/thermo-nuclear-code-quality-review/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/skills/thermo-nuclear-code-quality-review/SKILL.md",
+      "sha256": "fff2e589b3727914ff18a633b8d45e34119ceb13ccd7962a330fdd30403a85b8"
+    },
+    "skills/typescript-best-practices/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/typescript-best-practices/SKILL.md",
+      "sha256": "ec1dac086d3708e5940d45d250c30a37dd953b4e3cb2ca0692f5851d7a039e27"
+    },
+    "skills/typescript-best-practices/references/patterns.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/typescript-best-practices/references/patterns.md",
+      "sha256": "12e70c9419a8b3f5d6a1ab80e272c1f00a43ac0b3bbf72d68199033570e5de77"
+    },
+    "skills/typescript-patterns/SKILL.md": {
+      "source": "ecc",
+      "path": "skills/typescript-patterns/SKILL.md",
+      "sha256": "826b574c2dfc0421143e65a2808e753f2341677be7c925e4bf0ee4d3a0c3c301"
+    },
+    "skills/unslop/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/unslop/SKILL.md",
+      "sha256": "ccab208e315ce05e2fab8eeee2f7879f1289b5c6844840b2d307adf31c79144f"
+    },
+    "skills/verify-this/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "cursor-team-kit/skills/verify-this/SKILL.md",
+      "sha256": "cd70743ae2e54bc0019d25452224e9a2f2c0bb80e58bbd0d739d558624434bfe"
+    },
+    "skills/why/SKILL.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/SKILL.md",
+      "sha256": "09405adc5afda90841f16318e471f25329d17da908956d79973edb34cdccb188"
+    },
+    "skills/why/references/epistemics.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/epistemics.md",
+      "sha256": "d54a2361b2d5973bc3fe2edf62f446d87935974d4b40d47f23b9529f956ca758"
+    },
+    "skills/why/references/investigator-prompt.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/investigator-prompt.md",
+      "sha256": "c44afba186f899094f3694e6c9d6de5d14ff7c4ce28b787a9f50fc789c9a7fc3"
+    },
+    "skills/why/references/source-playbook.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/source-playbook.md",
+      "sha256": "9ae9dcb9d09111c9facc68510331c5aba4aed9b1b057314ff1fc0e166ad3993a"
+    },
+    "skills/why/references/sources/code-archaeology.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/sources/code-archaeology.md",
+      "sha256": "a4a3970e9db448054aed676f3f7feeee667b4b69f0bd57c8fd72b751be687cc7"
+    },
+    "skills/why/references/sources/databricks.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/sources/databricks.md",
+      "sha256": "236ede7aab6454662a992db088a5393537a5233a4c26719c93188f9e174488f6"
+    },
+    "skills/why/references/sources/datadog.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/sources/datadog.md",
+      "sha256": "b139faac5dc11b8f26c8255dce6033c1a6ac143b038d3dd103f2034c5dbec9cd"
+    },
+    "skills/why/references/sources/incident-postmortem.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/sources/incident-postmortem.md",
+      "sha256": "bf2661f1a81c37700884a45b77d6289be0c802b065febced31990e6564510839"
+    },
+    "skills/why/references/sources/linear.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/sources/linear.md",
+      "sha256": "01304e7f1badfcfb78babbb0edcadeb3cc8dd3f713793420cdff24ba190f907c"
+    },
+    "skills/why/references/sources/notion.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/sources/notion.md",
+      "sha256": "3bcfa695c49dfad4ac036d5d7181c12585f55ac04f1936198d16ab75a2788997"
+    },
+    "skills/why/references/sources/sentry.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/sources/sentry.md",
+      "sha256": "2d4f83048eac1df530b399e2aed75dd7c9c18577b7665420aaeb96d0ceb0b702"
+    },
+    "skills/why/references/sources/slack.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/sources/slack.md",
+      "sha256": "3bc6309f5c7b26ace3b919dbd7f7b048861dd2020f910fe24f656cc74b3b661c"
+    },
+    "skills/why/references/synthesizer-prompt.md": {
+      "source": "cursor-plugins",
+      "path": "harness/pstack/claude-code/skills/why/references/synthesizer-prompt.md",
+      "sha256": "11c62671aa7b7a6e3d36929ffe2b59bf95e6ca664eee4d93e6ee527dd3390ddb"
+    }
+  }
+}

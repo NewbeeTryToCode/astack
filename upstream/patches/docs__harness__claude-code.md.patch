@@ -1,0 +1,51 @@
+--- a/docs/harness/claude-code.md
++++ b/docs/harness/claude-code.md
+@@ -1,6 +1,8 @@
+ # pstack in Claude Code
+ 
+ pstack skills use Cursor names. In Claude Code, read this file once per session, then map each Cursor name in a skill with the tables below. `<pstack>` means the folder that holds `skills/` and `docs/`. If a Cursor field has no row, drop it and say so. Never pass a field or value the tool schema rejects.
++
++This copy ships in the `stack` plugin, which bundles pstack with cursor-team-kit and ECC. Read [the stack integration](./stack.md) right after this file. Where the two differ, `stack.md` wins.
+ 
+ ## Tools
+ 
+@@ -9,7 +11,7 @@
+ | `Task` | `Agent` |
+ | `AskQuestion` | `AskUserQuestion`. In `-p` mode it is absent, so ask in plain text. |
+ | Open a todolist | Use `TodoWrite` if the session offers it. Otherwise keep the list in your reply and update it at each phase. |
+-| Run another pstack skill (`/name` or "the **name** skill") | `Read` `<pstack>/skills/<name>/SKILL.md` and follow it. The `Skill` tool refuses most pstack skills. When you tell the user to type it, write `/pstack:<name>`. |
++| Run another pstack skill (`/name` or "the **name** skill") | `Read` `<pstack>/skills/<name>/SKILL.md` and follow it. The `Skill` tool refuses most pstack skills. When you tell the user to type it, write `/stack:<name>`. |
+ | `Grep`, `Glob` | `Bash` with `rg` when the session has no `Grep` or `Glob`. |
+ 
+ ## Subagent fields
+@@ -17,7 +19,7 @@
+ | Cursor | Claude Code |
+ | --- | --- |
+ | `subagent_type: generalPurpose` | `subagent_type: "general-purpose"` |
+-| `poteto-agent`, `comment-sicko` | `pstack:poteto-agent`, `pstack:comment-sicko` |
++| `poteto-agent`, `comment-sicko` | `stack:poteto-agent`, `stack:comment-sicko` |
+ | `readonly: true` | `subagent_type: "Explore"`. It keeps `Bash`, so the brief also says "do not edit files", and you check `git status` afterward. |
+ | `readonly: false` | `general-purpose`. It keeps the session's MCP servers. |
+ | `environment: "cloud"` | `isolation: "worktree"`. Name the branch or commit the worker checks out. |
+@@ -32,9 +34,10 @@
+ | Cursor | Claude Code |
+ | --- | --- |
+ | `claude-<family>-<version>-<effort>[-fast]`, such as `claude-opus-5-5-xhigh` | `model: "opus"` and `effort: "xhigh"`. `model` takes only `opus`, `sonnet`, `haiku`, `fable`. Drop `-fast`. |
+-| A `grok-*`, `gpt-*`, or other non-Claude slug | Omit `model` so the agent runs on the session model, and say so. |
++| A `grok-*`, `gpt-*`, or other non-Claude slug | The Claude model the Models table in `stack.md` gives that role. |
++| `openrouter:<model-id>` in a panel | An external adversary. Follow External adversaries in `stack.md`. |
+ | `auto` or `inherit-parent` | Omit `model`. |
+-| The `pstack-models.mdc` rule, `~/.cursor/rules/pstack-models.mdc` | `~/.claude/rules/pstack-models.md`. Claude Code loads it into every new session, so its role lines are already in context. If they are not, read the file. If the file or the role's line is missing, use the skill's default slug. |
++| The `pstack-models.mdc` rule, `~/.cursor/rules/pstack-models.mdc` | `~/.claude/rules/pstack-models.md`. Claude Code loads it into every new session, so its role lines are already in context. If they are not, read the file. If the file or the role's line is missing, use the role's default from the Models table in `stack.md`. |
+ | A role value `<model> <effort>`, such as `opus high` | `model: "opus"` and `effort: "high"`. |
+ 
+ ## setup-pstack
+@@ -42,7 +45,7 @@
+ Claude Code loads every `.md` file in `~/.claude/rules/` into each new session, so `setup-pstack` writes its rule there. Follow its steps with these changes:
+ 
+ - Detect. The detected models are the `model` values that the `Agent` tool schema lists, each with an effort from its `effort` values. Write a real model as `<model> <effort>`, such as `opus xhigh`. The effort is the last token, so the budget step works as written.
+-- Defaults. Map each default slug with the rows above: `claude-opus-5-5-xhigh` is `opus xhigh`, and `grok-4.7-xhigh-fast` is `inherit-parent`.
++- Defaults. Use the **In stack** column of the Models table in `stack.md` for every role.
+ - Write. Write `~/.claude/rules/pstack-models.md` with no frontmatter, then the comment lines, the `# budget` line, and one line per role from step 5. Overwrite the whole file. Never put the role lines in `CLAUDE.md` or `AGENTS.md`.
+ 
+ ## Paths
