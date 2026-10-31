@@ -3567,14 +3567,14 @@
   },
   "overlay": {
     ".claude-plugin/plugin.json": "9b0de4bdb1c9aee24332978aba4e904f821eeb522ef3503ae94a3c2416a784d6",
-    "docs/harness/stack.md": "9500e9754865d4081c3855d4e9afe91e30d4f27e0d7a908bd67fcf0b6e8e0507",
+    "docs/harness/stack.md": "bebaae9ea216ffd66f91f1bd89bad8ddc581b84f0cd0bbd73cfffc043871f267",
     "hooks/hooks.json": "8da491b3eb10dc531b760bfdfcca58ae967b4cd59d2582ec5ced1d73104731d6",
-    "roles.json": "68cd9c6336abf718811103ce4d28f44095ce342479f8c6acb898695f3bc11edd",
-    "scripts/delegate.py": "ccb3bee711cee943ddb7e3b215980b1c38c4a162cbc71502f66268191feaad5b",
+    "roles.json": "49f4d5a0a8c3d7f977a321d2432c4fdc33d53a55b89da349ab443bdd2cd3837c",
+    "scripts/delegate.py": "6905bf46ec5f460ae3e46a5ca6342e9177b22fd97b2324069c3d9b6fdd3bd64d",
     "scripts/openrouter-adversary.py": "cd9f65503fd4ba5cee8db448349c973ec37cdb3f2e549a569f096454e4bece03",
-    "scripts/role-guard.py": "f93d587043dedba924e934d3a5cc5a4536cff7ca6ab68f1851870d3c2e8ae086",
+    "scripts/role-guard.py": "a38c39c28ab2cc1d573402d40a0857bd91dfd0981eb809c8f75300d140ca14ef",
     "scripts/stack-hook.js": "03b1386f842d8c1ae9c7fefe41c31030ec94de8e94cc657b5f82302224c6a520",
-    "skills/setup-stack/SKILL.md": "9da1234ed625392ae245769b1a081b38f7c322067bcc3497a3af6d3f16011cff",
+    "skills/setup-stack/SKILL.md": "c5f3631261e7bd56b73aebcee919ad3ae8ea807168494e777e734272d6374d06",
     "skills/setup-stack/scripts/install-rules.py": "843a266c8811fa77fc73dc0b1ead074d659bdafa659d51f80d500fea106fb656"
   }
 }

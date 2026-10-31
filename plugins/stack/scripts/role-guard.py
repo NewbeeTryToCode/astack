@@ -10,7 +10,8 @@ Claude session:
 
 The delegate's own child is marked with STACK_DELEGATE_ROLE and is never blocked. Files outside a
 repository, such as briefs and the decision trail, are never blocked. When the backend is not ready,
-nothing is blocked, so the Claude fallback keeps working. STACK_ALLOW_CLAUDE_BUILDER=1 turns the guard off.
+nothing is blocked, so the Claude fallback keeps working. A backend that delegate.py recorded as down
+(quota, credit, auth, outage) counts as not ready until its cooldown ends. STACK_ALLOW_CLAUDE_BUILDER=1 turns the guard off.
 """
 
 import importlib.util
@@ -38,6 +39,8 @@ def ready_builder(delegate):
         return None
     spec = roles["backends"][builder["backend"]]
     if not os.environ.get(spec.get("key_env", "")) or not delegate.doctor_passed(builder["backend"]):
+        return None
+    if delegate.backend_down(builder["backend"]):
         return None
     return builder
 

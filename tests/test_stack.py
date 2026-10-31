@@ -263,7 +263,7 @@ class DelegateTests(unittest.TestCase):
                     os.environ[k] = v
         self.assertNotIn("claude-secret", " ".join(env.values()))
         self.assertEqual(sorted(k for k in env if k.startswith("CLAUDE_") and k != "CLAUDE_CONFIG_DIR"),
-                         ["CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC"])
+                         ["CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC", "CLAUDE_CODE_MAX_RETRIES"])
         self.assertEqual(env["ANTHROPIC_API_KEY"], "go-key")
         self.assertEqual(env["ANTHROPIC_BASE_URL"], "https://opencode.ai/zen/go")
         self.assertNotIn("ANTHROPIC_AUTH_TOKEN", env)
@@ -290,6 +290,67 @@ class DelegateTests(unittest.TestCase):
             self.delegate.child_env = honest
             self.assertFalse(caught["ok"], caught)
             self.assertIn("Authorization", " ".join(caught["problems"]))
+
+
+class OutageTests(unittest.TestCase):
+    def setUp(self):
+        self.delegate = load_delegate()
+        self.tmp = tempfile.TemporaryDirectory()
+        self.delegate.STAMP = Path(self.tmp.name) / "stack" / "delegate-doctor.json"
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_backend_failures_are_told_apart_from_task_failures(self):
+        failure = self.delegate.backend_failure
+        self.assertTrue(failure(1, True, "API Error: Request rejected (429) · Go usage limit reached", []))
+        self.assertTrue(failure(1, True, "Upstream request failed: Go requires a credential", []))
+        self.assertTrue(failure(0, True, "API Error: 402 insufficient credit", []))
+        self.assertFalse(failure(1, False, "The tests still fail: AssertionError 3 != 4", []))
+        self.assertFalse(failure(0, False, "Done. Changed notes.py", ["notes.py"]))
+        self.assertFalse(failure(1, True, "API Error: 429", ["notes.py"]), "work was done, so it is not an outage")
+
+    def test_outage_lasts_for_its_cooldown_and_can_be_reset(self):
+        self.assertIsNone(self.delegate.backend_down("go"))
+        self.delegate.mark_down("go", "429 usage limit", minutes=30)
+        self.assertIn("429", self.delegate.backend_down("go")["reason"])
+        self.delegate.clear_down("go")
+        self.assertIsNone(self.delegate.backend_down("go"))
+        self.delegate.mark_down("go", "429", minutes=-1)
+        self.assertIsNone(self.delegate.backend_down("go"), "an expired outage no longer counts")
+
+    def test_run_skips_a_backend_that_is_down(self):
+        self.delegate.mark_down("go", "429 usage limit", minutes=30)
+        roles = self.delegate.load_roles()
+        result = self.delegate.run(roles, "builder", ".", "/dev/null", None, None)
+        self.assertTrue(result["backend_failed"])
+        self.assertEqual(result["fallback"], "claude:sonnet")
+        self.assertIn("marked down", result["skipped"])
+
+    def test_only_files_the_child_touched_count_as_changed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            subprocess.run(["git", "init", "-q"], cwd=repo, check=True)
+            (repo / "kept.py").write_text("x = 1\n")
+            subprocess.run(["git", "add", "."], cwd=repo, check=True)
+            subprocess.run(["git", "-c", "user.email=e@e", "-c", "user.name=e", "commit", "-qm", "init"], cwd=repo, check=True)
+            (repo / "already_dirty.py").write_text("draft\n")
+            start, before = self.delegate.git(repo, "rev-parse", "HEAD"), self.delegate.dirty(repo)
+            self.assertEqual(self.delegate.changed_since(repo, start, before), [], "files dirty before the run are not the child's")
+            (repo / "kept.py").write_text("x = 2\n")
+            (repo / "already_dirty.py").write_text("finished\n")
+            (repo / "new.py").write_text("y = 1\n")
+            self.assertEqual(self.delegate.changed_since(repo, start, before), ["already_dirty.py", "kept.py", "new.py"])
+
+    def test_quota_waits_longer_than_a_transient_failure(self):
+        spec = {"cooldown_minutes": 30, "transient_cooldown_minutes": 5}
+        self.assertEqual(self.delegate.cooldown(spec, "API Error: 429 Go usage limit reached"), 30)
+        self.assertEqual(self.delegate.cooldown(spec, "API Error: 529 overloaded"), 5)
+        self.assertEqual(self.delegate.cooldown(spec, "API Error: 402 insufficient credit"), 30)
+
+    def test_user_overrides_merge_at_every_depth(self):
+        merged = self.delegate.merge({"backends": {"go": {"key_env": "K", "base_url": "a"}}}, {"backends": {"go": {"base_url": "b"}}})
+        self.assertEqual(merged, {"backends": {"go": {"key_env": "K", "base_url": "b"}}})
 
 
 class RoleGuardTests(unittest.TestCase):
@@ -332,6 +393,14 @@ class RoleGuardTests(unittest.TestCase):
             self.assertEqual(self.guard("Write", {"file_path": str(repo / "notes.json")}, env), 0, "ignored file")
             self.assertEqual(self.guard("Write", {"file_path": str(Path(root) / "brief.md")}, env), 0, "outside a repo")
             self.assertEqual(self.guard("Edit", {"file_path": str(repo / "notes.py")}, dict(env, STACK_DELEGATE_ROLE="go")), 0, "the delegate")
+
+    @unittest.skipUnless(shutil.which("claude"), "needs the claude CLI")
+    def test_claude_fallback_passes_while_the_backend_is_down(self):
+        with tempfile.TemporaryDirectory() as root:
+            env, repo = self.ready_env(root), self.repo(root)
+            (Path(root) / "stack" / "backend-status.json").write_text(json.dumps({"go": {"down_until": 9999999999, "reason": "429"}}))
+            self.assertEqual(self.guard("Edit", {"file_path": str(repo / "notes.py")}, env), 0)
+            self.assertEqual(self.guard("Agent", {"subagent_type": "stack:poteto-agent", "model": "sonnet"}, env), 0)
 
     def test_everything_passes_when_the_backend_is_not_ready(self):
         with tempfile.TemporaryDirectory() as root:

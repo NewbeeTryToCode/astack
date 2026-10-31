@@ -26,7 +26,7 @@ Add `--project <path>` for the project scope. Show the operator the files it pri
 
 ## 3. Other backends
 
-For each backend that a role uses other than `claude`, check its key without printing it. For `go`, that is `test -n "$OPENCODE_API_KEY" && echo set`. If it is set, run `python3 <this skill's folder>/../../scripts/delegate.py doctor --backend go` and show the result. `ok: true` means the child sends only the Go key. On `ok: false`, show the problems and suggest binding those roles to `claude:` until it passes. If the key is not set, tell the operator those roles fall back to Claude, and that they add `OPENCODE_API_KEY` to their shell profile, or to the cloud environment's settings for cloud sessions.
+For each backend that a role uses other than `claude`, check its key without printing it. For `go`, that is `test -n "$OPENCODE_API_KEY" && echo set`. If it is set, run `python3 <this skill's folder>/../../scripts/delegate.py doctor --backend go` and show the result. `ok: true` means the child sends only the Go key. Then run `delegate.py status` to show whether a backend is marked down after a quota or auth error, and what it falls back to. On `ok: false`, show the problems and suggest binding those roles to `claude:` until it passes. If the key is not set, tell the operator those roles fall back to Claude, and that they add `OPENCODE_API_KEY` to their shell profile, or to the cloud environment's settings for cloud sessions.
 
 Check whether `OPENROUTER_API_KEY` is set the same way. Without it, `interrogate` skips `openrouter:` panel entries.
 
