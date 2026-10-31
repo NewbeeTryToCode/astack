@@ -174,6 +174,59 @@ def calls(log):
     return out
 
 
+def tool_results(log):
+    """tool_use_id -> the text the tool returned."""
+    out = {}
+    for e in events(log):
+        if e.get("type") == "user" and isinstance(e["message"].get("content"), list):
+            for c in e["message"]["content"]:
+                if c.get("type") == "tool_result":
+                    body = c.get("content")
+                    out[c["tool_use_id"]] = body if isinstance(body, str) else " ".join(x.get("text", "") for x in body or [])
+    return out
+
+
+def delegations(log):
+    """Each `delegate.py run`: its position among tool calls, the brief text, and the JSON it printed."""
+    results, found, briefs, n = tool_results(log), [], {}, -1
+    for e in events(log):
+        if e.get("type") != "assistant":
+            continue
+        for c in e["message"]["content"]:
+            if c.get("type") != "tool_use":
+                continue
+            n += 1
+            i = c["input"]
+            if c["name"] == "Write":
+                briefs[i.get("file_path", "")] = i.get("content", "")
+            if c["name"] == "Bash" and "delegate.py run" in i.get("command", ""):
+                m = re.search(r"--brief\s+(\S+)", i["command"])
+                brief = next((v for k, v in briefs.items() if m and k.endswith(m.group(1).strip("'\"").split("/")[-1])), "")
+                raw = results.get(c["id"], "")
+                start = raw.find("{")
+                try:
+                    report = json.loads(raw[start:raw.rfind("}") + 1]) if start >= 0 else {}
+                except ValueError:
+                    report = {}
+                found.append({"index": n, "brief": brief, "report": report})
+    return found
+
+
+def ran_on_glm(log):
+    return any(d["report"].get("backend") == "go" and "glm-5.3" in d["report"].get("models_used", []) and d["report"].get("exit") == 0
+               for d in delegations(log))
+
+
+def reviewed_after_delegation(cs, log):
+    runs = delegations(log)
+    if not runs:
+        return False
+    after = runs[-1]["index"]
+    return any(n > after and ((t == "Bash" and re.search(r"git (diff|show)|unittest|pytest|notes\.py", i.get("command", "")))
+                              or (t == "Read" and i.get("file_path", "").endswith(".py")))
+               for n, (t, i, _) in enumerate(cs))
+
+
 def text_of(inp):
     return " ".join(str(v) for v in inp.values())
 
@@ -236,8 +289,9 @@ def grade_F2(d):
         parsed = False
     return {
         "notes.py changed after approval": "notes.py" in changed_since_start(app),
-        "delegated to a subagent": bool(agent_briefs),
-        "every subagent brief states the goal": bool(agent_briefs) and all(re.search(r"(?i)script|json", b) for b in agent_briefs),
+        "builder ran on GLM-5.3 through the delegate": ran_on_glm(log),
+        "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)script", d["brief"]) for d in delegations(log)),
+        "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
         "ran the real CLI after the edit (user POV)": bool(cli_after),
         "--json output parses as a list now": parsed,
         "final reply shows evidence": bool(re.search(r"\[|json", final_text(log))),
@@ -251,6 +305,9 @@ def grade_F3(d):
     app = d / "app"
     fixed = "args.number - 1" in (app / "notes.py").read_text()
     return {
+        "builder ran on GLM-5.3 through the delegate": ran_on_glm(log),
+        "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)delete|first", d["brief"]) for d in delegations(log)),
+        "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
         "no plan gate: fixed in the same run": bool(edits) and fixed,
         "reproduced before the first edit": bool(repro) and bool(edits) and repro[0] < edits[0],
         "re-ran the repro after the edit": bool(edits) and any(n > edits[-1] for n in repro),
@@ -266,6 +323,9 @@ def grade_F4(d):
              or (t == "Bash" and "decision" in i.get("command", ""))]
     recorded = any(re.search(r"(?i)\bplan\b", json.dumps(i)) for i in trail)
     return {
+        "builder ran on GLM-5.3 through the delegate": ran_on_glm(log),
+        "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)count", d["brief"]) for d in delegations(log)),
+        "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
         "recorded the plan in the decision trail": recorded,
         "did not run /stack:plan, which waits": not reads(cs, "commands/plan.md"),
         "did not stop for approval: count works": out.returncode == 0 and out.stdout.strip().isdigit(),
