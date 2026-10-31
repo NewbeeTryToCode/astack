@@ -368,7 +368,7 @@ def tags_behaviour(app):
         shop = cli("list", "--tag", "shop", cwd=tmp).stdout
         checks["list --tag keeps the usual numbers"] = "1. milk" in shop and "3. bread" in shop and "rent" not in shop
         tags = [line.split() for line in cli("tags", cwd=tmp).stdout.splitlines() if line.strip()]
-        names = [next((w for w in row if w.isalpha()), "") for row in tags]
+        names = [next((w.strip(":#()[],") for w in row if any(ch.isalpha() for ch in w)), "") for row in tags]
         checks["tags: most used first, ties by name"] = names[:3] == ["shop", "bills", "food"] and any("2" in row for row in tags[:1])
         cli("delete", "1", cwd=tmp)
         after = cli("list", cwd=tmp).stdout
