@@ -1,0 +1,8 @@
+{
+  "name": "stack",
+  "version": "0.1.0",
+  "description": "astack's stack plugin ported to ZCode: pstack judgment/verification + ECC planning and guardrails as stack-* skills",
+  "skills": [
+    "./skills"
+  ]
+}

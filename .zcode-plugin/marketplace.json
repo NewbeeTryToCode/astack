@@ -1,0 +1,11 @@
+{
+  "name": "astack",
+  "plugins": [
+    {
+      "name": "stack",
+      "source": "./plugins/stack-zcode",
+      "version": "0.1.0",
+      "description": "stack ported to ZCode skills"
+    }
+  ]
+}
