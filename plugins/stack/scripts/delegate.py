@@ -81,6 +81,7 @@ def child_env(roles, backend, model, base_url=None, key=None, session=None):
     if not key:
         sys.exit(f"{spec['key_env']} is not set, so the {backend} backend has no key")
     env.update({
+        "STACK_DELEGATE_ROLE": backend,
         "ANTHROPIC_BASE_URL": base_url or spec["base_url"],
         "ANTHROPIC_API_KEY": key,
         "ANTHROPIC_MODEL": model,

@@ -3,8 +3,8 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Agent|Task",
-        "description": "stack role guard: a non-opus poteto-agent goes to the backend the builder role is bound to",
+        "matcher": "Agent|Task|Edit|Write|MultiEdit|NotebookEdit",
+        "description": "stack role guard: while the builder is bound to a ready backend, only that backend writes product code",
         "hooks": [
           {
             "type": "command",

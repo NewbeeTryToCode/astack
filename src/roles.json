@@ -1,11 +1,17 @@
 {
   "roles": {
     "judge": "claude:opus",
-    "hardest": "claude:opus",
-    "builder": "go:glm-5.3",
+    "builder": "go:glm-5.3-flash",
+    "hardest": "go:glm-5.3-flash",
     "evidence": "go:glm-5.3-flash",
-    "builders": ["claude:opus", "go:glm-5.3"],
-    "adversaries": ["claude:opus", "claude:sonnet", "go:glm-5.3-flash"]
+    "builders": [
+      "go:glm-5.3-flash",
+      "go:glm-5.3-flash"
+    ],
+    "adversaries": [
+      "claude:opus",
+      "go:glm-5.3-flash"
+    ]
   },
   "pstack_roles": {
     "feature, refactoring": "builder",
@@ -28,19 +34,46 @@
   },
   "backends": {
     "claude": {
-      "aliases": ["opus", "sonnet", "haiku", "fable"]
+      "aliases": [
+        "opus",
+        "sonnet",
+        "haiku",
+        "fable"
+      ]
     },
     "go": {
       "base_url": "https://opencode.ai/zen/go",
       "key_env": "OPENCODE_API_KEY",
       "session_header": "x-opencode-session",
-      "alias_models": { "opus": "glm-5.3", "sonnet": "glm-5.3", "haiku": "glm-5.3-flash" }
+      "alias_models": {
+        "opus": "glm-5.3-flash",
+        "sonnet": "glm-5.3-flash",
+        "haiku": "glm-5.3-flash"
+      }
     }
   },
   "delegate_tools": [
-    "Read", "Glob", "Grep", "Edit", "Write", "MultiEdit", "TodoWrite",
-    "Bash(git *)", "Bash(python3 *)", "Bash(python *)", "Bash(pytest *)", "Bash(node *)", "Bash(npm *)",
-    "Bash(npx *)", "Bash(pnpm *)", "Bash(cargo *)", "Bash(go *)", "Bash(make *)", "Bash(ls *)",
-    "Bash(cat *)", "Bash(mkdir *)", "Bash(jq *)"
+    "Read",
+    "Glob",
+    "Grep",
+    "Edit",
+    "Write",
+    "MultiEdit",
+    "TodoWrite",
+    "Bash(git *)",
+    "Bash(python3 *)",
+    "Bash(python *)",
+    "Bash(pytest *)",
+    "Bash(node *)",
+    "Bash(npm *)",
+    "Bash(npx *)",
+    "Bash(pnpm *)",
+    "Bash(cargo *)",
+    "Bash(go *)",
+    "Bash(make *)",
+    "Bash(ls *)",
+    "Bash(cat *)",
+    "Bash(mkdir *)",
+    "Bash(jq *)"
   ]
 }

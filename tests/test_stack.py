@@ -237,9 +237,10 @@ class DelegateTests(unittest.TestCase):
 
     def test_pstack_roles_resolve_to_bindings(self):
         builder = self.delegate.resolve(self.roles, "feature, refactoring")
-        self.assertEqual(builder, [{"role": "builder", "backend": "go", "model": "glm-5.3", "via": "delegate"}])
+        self.assertEqual(builder, [{"role": "builder", "backend": "go", "model": "glm-5.3-flash", "via": "delegate"}])
+        self.assertEqual(self.delegate.resolve(self.roles, "hardest tasks")[0]["model"], "glm-5.3-flash")
         panel = self.delegate.resolve(self.roles, "interrogate reviewers")
-        self.assertEqual([b["via"] for b in panel], ["agent", "agent", "delegate"])
+        self.assertEqual([b["via"] for b in panel], ["agent", "delegate"])
         self.assertEqual(self.delegate.resolve(self.roles, "judgment and prose")[0]["model"], "opus")
 
     def test_every_pstack_role_line_resolves(self):
@@ -267,6 +268,7 @@ class DelegateTests(unittest.TestCase):
         self.assertEqual(env["ANTHROPIC_BASE_URL"], "https://opencode.ai/zen/go")
         self.assertNotIn("ANTHROPIC_AUTH_TOKEN", env)
         self.assertTrue(env["ANTHROPIC_CUSTOM_HEADERS"].startswith("x-opencode-session: "))
+        self.assertEqual(env["STACK_DELEGATE_ROLE"], "go")
 
     @unittest.skipUnless(shutil.which("claude"), "needs the claude CLI")
     def test_doctor_passes_and_catches_a_leaked_credential(self):
@@ -291,48 +293,58 @@ class DelegateTests(unittest.TestCase):
 
 
 class RoleGuardTests(unittest.TestCase):
-    def guard(self, tool_input, env):
-        payload = {"hook_event_name": "PreToolUse", "tool_name": "Agent", "tool_input": tool_input}
-        full = {k: v for k, v in os.environ.items() if k not in ("OPENCODE_API_KEY", "STACK_ALLOW_CLAUDE_BUILDER")}
+    def guard(self, tool, tool_input, env):
+        payload = {"hook_event_name": "PreToolUse", "tool_name": tool, "tool_input": tool_input}
+        full = {k: v for k, v in os.environ.items() if k not in ("OPENCODE_API_KEY", "STACK_ALLOW_CLAUDE_BUILDER", "STACK_DELEGATE_ROLE")}
         full.update(env)
         return subprocess.run([sys.executable, str(PLUGIN / "scripts/role-guard.py")], input=json.dumps(payload),
-                              capture_output=True, text=True, env=full)
+                              capture_output=True, text=True, env=full).returncode
 
     def ready_env(self, cache):
         """A cache whose doctor stamp matches this Claude Code version, and a Go key."""
-        delegate = load_delegate()
         stamp = Path(cache) / "stack" / "delegate-doctor.json"
         stamp.parent.mkdir(parents=True)
-        stamp.write_text(json.dumps({"go": {"ok": True, "claude": delegate.claude_version()}}))
+        stamp.write_text(json.dumps({"go": {"ok": True, "claude": load_delegate().claude_version()}}))
         return {"XDG_CACHE_HOME": cache, "OPENCODE_API_KEY": "k"}
 
-    @unittest.skipUnless(shutil.which("claude"), "needs the claude CLI")
-    def test_sonnet_builder_is_sent_to_the_delegate(self):
-        with tempfile.TemporaryDirectory() as cache:
-            r = self.guard({"subagent_type": "stack:poteto-agent", "model": "sonnet", "prompt": "build"}, self.ready_env(cache))
-            self.assertEqual(r.returncode, 2, r.stderr)
-            self.assertIn("delegate.py", r.stderr)
+    def repo(self, root):
+        repo = Path(root) / "repo"
+        repo.mkdir()
+        subprocess.run(["git", "init", "-q"], cwd=repo, check=True)
+        (repo / ".gitignore").write_text("notes.json\n")
+        return repo
 
     @unittest.skipUnless(shutil.which("claude"), "needs the claude CLI")
-    def test_opus_and_other_agents_pass(self):
+    def test_claude_builder_spawns_are_sent_to_the_delegate(self):
         with tempfile.TemporaryDirectory() as cache:
             env = self.ready_env(cache)
-            self.assertEqual(self.guard({"subagent_type": "stack:poteto-agent", "model": "opus"}, env).returncode, 0)
-            self.assertEqual(self.guard({"subagent_type": "general-purpose", "model": "sonnet"}, env).returncode, 0)
-            self.assertEqual(self.guard({"subagent_type": "stack:poteto-agent", "model": "sonnet"},
-                                        dict(env, STACK_ALLOW_CLAUDE_BUILDER="1")).returncode, 0)
+            for model in ("sonnet", "opus", None):
+                self.assertEqual(self.guard("Agent", {"subagent_type": "stack:poteto-agent", "model": model}, env), 2, model)
+            self.assertEqual(self.guard("Agent", {"subagent_type": "general-purpose", "model": "opus"}, env), 0)
+            self.assertEqual(self.guard("Agent", {"subagent_type": "stack:poteto-agent"}, dict(env, STACK_ALLOW_CLAUDE_BUILDER="1")), 0)
 
-    def test_claude_fallback_passes_when_the_backend_is_not_ready(self):
-        with tempfile.TemporaryDirectory() as cache:
-            r = self.guard({"subagent_type": "stack:poteto-agent", "model": "sonnet"}, {"XDG_CACHE_HOME": cache})
-            self.assertEqual(r.returncode, 0, r.stderr)
+    @unittest.skipUnless(shutil.which("claude"), "needs the claude CLI")
+    def test_the_judge_cannot_edit_product_files(self):
+        with tempfile.TemporaryDirectory() as root:
+            env, repo = self.ready_env(root), self.repo(root)
+            self.assertEqual(self.guard("Edit", {"file_path": str(repo / "notes.py")}, env), 2)
+            self.assertEqual(self.guard("Write", {"file_path": str(repo / "new" / "module.py")}, env), 2)
+            self.assertEqual(self.guard("Write", {"file_path": str(repo / "notes.json")}, env), 0, "ignored file")
+            self.assertEqual(self.guard("Write", {"file_path": str(Path(root) / "brief.md")}, env), 0, "outside a repo")
+            self.assertEqual(self.guard("Edit", {"file_path": str(repo / "notes.py")}, dict(env, STACK_DELEGATE_ROLE="go")), 0, "the delegate")
+
+    def test_everything_passes_when_the_backend_is_not_ready(self):
+        with tempfile.TemporaryDirectory() as root:
+            repo = self.repo(root)
+            self.assertEqual(self.guard("Agent", {"subagent_type": "stack:poteto-agent", "model": "sonnet"}, {"XDG_CACHE_HOME": root}), 0)
+            self.assertEqual(self.guard("Edit", {"file_path": str(repo / "notes.py")}, {"XDG_CACHE_HOME": root}), 0)
 
     def test_builder_bound_to_claude_passes(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            roles = Path(tmp) / "roles.json"
+        with tempfile.TemporaryDirectory() as root:
+            roles = Path(root) / "roles.json"
             roles.write_text(json.dumps({"roles": {"builder": "claude:sonnet"}}))
-            env = {"XDG_CACHE_HOME": tmp, "OPENCODE_API_KEY": "k", "STACK_ROLES_FILE": str(roles)}
-            self.assertEqual(self.guard({"subagent_type": "stack:poteto-agent", "model": "sonnet"}, env).returncode, 0)
+            env = {"XDG_CACHE_HOME": root, "OPENCODE_API_KEY": "k", "STACK_ROLES_FILE": str(roles)}
+            self.assertEqual(self.guard("Edit", {"file_path": str(self.repo(root) / "notes.py")}, env), 0)
 
 
 if __name__ == "__main__":

@@ -67,7 +67,7 @@ flowchart LR
 | 8 | No ECC memory, learning, session or cost hooks | rewire owns memory, and two memory systems would double session-start context | Keeping ECC instincts |
 | 9 | ECC rules installed on request by `/stack:setup-stack` | Plugins cannot ship always-on rules, and rules cost context in every session | Copying rules into `~/.claude` on install |
 | 10 | Plugin name `stack` | Short prefix (`/stack:poteto-mode`) and no clash with an installed `pstack` or `ecc` | Reusing `pstack` |
-| 11 | Roles bound in `roles.json`, other backends run through `delegate.py` | The same role uses the same model in every harness. Builder tokens go to OpenCode Go, and Opus stays the judge. | Binding models per harness, or GLM as the judge, which is the one gate nothing checks |
+| 11 | Every code role bound to GLM-5.3-Flash on OpenCode Go, Opus only judges, and a hook enforces it | The operator's choice: one builder model in every harness, and Claude usage spent on evaluation. In the eval, a prose rule alone let Opus write the code itself, so the guard blocks Claude builder spawns and direct edits of repository files while Go is ready. | Opus building small changes itself, which cost less Claude usage in the eval but leaves the builder role unused |
 | 12 | The delegate's environment is an allowlist, and `doctor` gates the first run | In a cloud session the child inherited the session's Claude credential and sent it to the Go endpoint. Building the environment instead of inheriting it, and checking it on a local recorder, makes that impossible to miss. | Unsetting known variables, which breaks when Claude Code adds a new one |
 
 ## Updating upstream

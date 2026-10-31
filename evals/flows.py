@@ -235,7 +235,8 @@ def delegations(log):
 
 
 def ran_on_glm(log):
-    return any(d["report"].get("backend") == "go" and "glm-5.3" in d["report"].get("models_used", []) and d["report"].get("exit") == 0
+    return any(d["report"].get("backend") == "go" and d["report"].get("exit") == 0
+               and any(m.startswith("glm-5.3") for m in d["report"].get("models_used", []))
                for d in delegations(log))
 
 
@@ -311,7 +312,7 @@ def grade_F2(d):
         parsed = False
     return {
         "notes.py changed after approval": "notes.py" in changed_since_start(app),
-        "builder ran on GLM-5.3 through the delegate": ran_on_glm(log),
+        "builder ran on GLM through the delegate": ran_on_glm(log),
         "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)script", d["brief"]) for d in delegations(log)),
         "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
         "ran the real CLI after the edit (user POV)": bool(cli_after),
@@ -327,7 +328,7 @@ def grade_F3(d):
     app = d / "app"
     fixed = "args.number - 1" in (app / "notes.py").read_text()
     return {
-        "builder ran on GLM-5.3 through the delegate": ran_on_glm(log),
+        "builder ran on GLM through the delegate": ran_on_glm(log),
         "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)delete|first", d["brief"]) for d in delegations(log)),
         "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
         "no plan gate: fixed in the same run": bool(edits) and fixed,
@@ -345,7 +346,7 @@ def grade_F4(d):
              or (t == "Bash" and "decision" in i.get("command", ""))]
     recorded = any(re.search(r"(?i)\bplan\b", json.dumps(i)) for i in trail)
     return {
-        "builder ran on GLM-5.3 through the delegate": ran_on_glm(log),
+        "builder ran on GLM through the delegate": ran_on_glm(log),
         "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)count", d["brief"]) for d in delegations(log)),
         "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
         "recorded the plan in the decision trail": recorded,
@@ -386,7 +387,7 @@ def tags_behaviour(app):
 def grade_F6(d):
     log, cs = d / "transcript.jsonl", calls(d / "transcript.jsonl")
     return {
-        "builder ran on GLM-5.3 through the delegate": ran_on_glm(log),
+        "builder ran on GLM through the delegate": ran_on_glm(log),
         "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)tag", x["brief"]) for x in delegations(log)),
         "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
         **tags_behaviour(d / "app"),
