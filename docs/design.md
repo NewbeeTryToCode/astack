@@ -67,6 +67,8 @@ flowchart LR
 | 8 | No ECC memory, learning, session or cost hooks | rewire owns memory, and two memory systems would double session-start context | Keeping ECC instincts |
 | 9 | ECC rules installed on request by `/stack:setup-stack` | Plugins cannot ship always-on rules, and rules cost context in every session | Copying rules into `~/.claude` on install |
 | 10 | Plugin name `stack` | Short prefix (`/stack:poteto-mode`) and no clash with an installed `pstack` or `ecc` | Reusing `pstack` |
+| 11 | Every code role bound to GLM-5.3-Flash on OpenCode Go, Opus only judges, and a hook enforces it | The operator's choice: one builder model in every harness, and Claude usage spent on evaluation. In the eval, a prose rule alone let Opus write the code itself, so the guard blocks Claude builder spawns and direct edits of repository files while Go is ready. | Opus building small changes itself, which cost less Claude usage in the eval but leaves the builder role unused |
+| 12 | The delegate's environment is an allowlist, and `doctor` gates the first run | In a cloud session the child inherited the session's Claude credential and sent it to the Go endpoint. Building the environment instead of inheriting it, and checking it on a local recorder, makes that impossible to miss. | Unsetting known variables, which breaks when Claude Code adds a new one |
 
 ## Updating upstream
 
@@ -89,3 +91,17 @@ flowchart LR
 | F5 hooks | ECC's Bash preflight blocks `git commit --no-verify` in a live session | pass |
 
 What the evals changed: the plan gate rule was split into "a plan is always written" and "waiting is what a grant removes", Fable left the default panels after it was refused twice, and the eval runs moved outside this repository so its `CLAUDE.md` stops leaking into them.
+
+### GLM-5.3-Flash builder eval (2026-10-31)
+
+Every code role bound to `go:glm-5.3-flash`, Opus as the judge, the role guard on. All 34 checks pass, and every check that grades the finished code was shown to fail on the unchanged or still-buggy app.
+
+| Scenario | Delegate runs | Builder model | Builder time | Opus edits to repository files | Claude cost |
+| --- | --- | --- | --- | --- | --- |
+| F1 feature, plan gate | 0 (plan only) | | | none | $0.46 |
+| F2 approved plan | 2 | glm-5.3-flash | 55 s | none | $0.93 |
+| F3 bug fix | 1 | glm-5.3-flash | 38 s | none | $0.55 |
+| F4 autonomous | 1 | glm-5.3-flash | 55 s | none | $1.06 |
+| F6 tags feature | 2 | glm-5.3-flash | 144 s | none | $1.31 |
+
+For comparison on the same scenarios: a Sonnet subagent builder cost $0.94 (F2) and $1.56 (F6) in Claude usage, and Opus writing the change itself cost $0.47 (F3), $0.35 (F4) and $0.62 (F6). Forcing the Flash builder costs less Claude usage than a Sonnet builder and more than Opus working alone, because Opus still writes the brief, reviews the diff and runs the checks. The guard blocked nothing in these runs: once the exception was gone, `poteto-mode` routed every change to the delegate on its own.

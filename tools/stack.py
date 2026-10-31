@@ -165,25 +165,43 @@ def build(out, local, with_patches=True, with_overlay=True):
             subprocess.run(["patch", "-p1", "-s", "-f", "--no-backup-if-mismatch", "-d", str(out), "-i", str(patch)], check=True)
 
     overlay = ROOT / manifest["overlay"]
+    overlaid = {}
     if with_overlay:
-        for src in sorted(p for p in overlay.rglob("*") if p.is_file()):
+        for src in sorted(p for p in overlay.rglob("*") if p.is_file() and "__pycache__" not in p.parts):
             rel = src.relative_to(overlay).as_posix()
             if rel in vendored:
                 sys.exit(f"overlay file {rel} shadows a vendored file. Patch it instead.")
             dest = out / rel
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dest)
+            overlaid[rel] = sha(dest.read_bytes())
 
     lock = {
         "sources": {n: s["commit"] for n, s in sources.items()},
-        "files": {rel: dict(info, sha256=hashlib.sha256((out / rel).read_bytes()).hexdigest()) for rel, info in sorted(vendored.items())},
+        "files": {rel: dict(info, sha256=sha((out / rel).read_bytes())) for rel, info in sorted(vendored.items())},
+        "overlay": overlaid,
     }
     (out / "VENDORED.json").write_text(json.dumps(lock, indent=2) + "\n")
     return out
 
 
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def overlay_action(built, source, recorded):
+    """What `diff` does with one overlay file, given its bytes in plugins/stack and in src/ and its hash at build."""
+    if source is not None and built == source:
+        return "same"
+    built_edited = sha(built) != recorded
+    source_edited = source is None or sha(source) != recorded
+    if built_edited and source_edited:
+        return "conflict"
+    return "copy-back" if built_edited else "keep-source"
+
+
 def tree(path):
-    return {p.relative_to(path).as_posix(): p.read_bytes() for p in path.rglob("*") if p.is_file()}
+    return {p.relative_to(path).as_posix(): p.read_bytes() for p in path.rglob("*") if p.is_file() and "__pycache__" not in p.parts}
 
 
 def cmd_build(args):
@@ -223,14 +241,21 @@ def cmd_diff(args):
             (PATCHES / (rel.replace("/", "__") + ".patch")).write_text("".join(lines))
             written += 1
     overlay = ROOT / manifest["overlay"]
+    recorded = lock.get("overlay", {})
+    conflicts = []
     for rel, data in tree(committed).items():
         if rel in lock["files"] or rel == "VENDORED.json" or rel.startswith("LICENSES/"):
             continue
         dest = overlay / rel
-        if not dest.exists() or dest.read_bytes() != data:
+        action = overlay_action(data, dest.read_bytes() if dest.exists() else None, recorded.get(rel))
+        if action == "copy-back":
             dest.parent.mkdir(parents=True, exist_ok=True)
             dest.write_bytes(data)
-            print(f"overlay updated: {rel}")
+            print(f"overlay updated from plugins/stack: {rel}")
+        elif action == "conflict":
+            conflicts.append(rel)
+    if conflicts:
+        sys.exit("edited in both src/ and plugins/stack, so neither was overwritten: " + ", ".join(conflicts))
     print(f"diff: {written} patch file(s) in upstream/patches")
 
 

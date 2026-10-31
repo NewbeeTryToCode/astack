@@ -34,10 +34,10 @@ This copy ships in the `stack` plugin, which bundles pstack with cursor-team-kit
 | Cursor | Claude Code |
 | --- | --- |
 | `claude-<family>-<version>-<effort>[-fast]`, such as `claude-opus-5-5-xhigh` | `model: "opus"` and `effort: "xhigh"`. `model` takes only `opus`, `sonnet`, `haiku`, `fable`. Drop `-fast`. |
-| A `grok-*`, `gpt-*`, or other non-Claude slug | The Claude model the Models table in `stack.md` gives that role. |
+| A `grok-*`, `gpt-*`, or other non-Claude slug | The binding the Models section of `stack.md` gives that role, run as that section says. |
 | `openrouter:<model-id>` in a panel | An external adversary. Follow External adversaries in `stack.md`. |
 | `auto` or `inherit-parent` | Omit `model`. |
-| The `pstack-models.mdc` rule, `~/.cursor/rules/pstack-models.mdc` | `~/.claude/rules/pstack-models.md`. Claude Code loads it into every new session, so its role lines are already in context. If they are not, read the file. If the file or the role's line is missing, use the role's default from the Models table in `stack.md`. |
+| The `pstack-models.mdc` rule, `~/.cursor/rules/pstack-models.mdc` | `~/.claude/rules/pstack-models.md`. Claude Code loads it into every new session, so its role lines are already in context. If they are not, read the file. If the file or the role's line is missing, use the role's binding from `roles.json`, as the Models section of `stack.md` describes. |
 | A role value `<model> <effort>`, such as `opus high` | `model: "opus"` and `effort: "high"`. |
 
 ## setup-pstack
@@ -45,7 +45,7 @@ This copy ships in the `stack` plugin, which bundles pstack with cursor-team-kit
 Claude Code loads every `.md` file in `~/.claude/rules/` into each new session, so `setup-pstack` writes its rule there. Follow its steps with these changes:
 
 - Detect. The detected models are the `model` values that the `Agent` tool schema lists, each with an effort from its `effort` values. Write a real model as `<model> <effort>`, such as `opus xhigh`. The effort is the last token, so the budget step works as written.
-- Defaults. Use the **In stack** column of the Models table in `stack.md` for every role.
+- Defaults. Do not write role lines. `roles.json` holds the defaults, and `/stack:setup-stack` changes them in `~/.config/stack/roles.json`.
 - Write. Write `~/.claude/rules/pstack-models.md` with no frontmatter, then the comment lines, the `# budget` line, and one line per role from step 5. Overwrite the whole file. Never put the role lines in `CLAUDE.md` or `AGENTS.md`.
 
 ## Paths

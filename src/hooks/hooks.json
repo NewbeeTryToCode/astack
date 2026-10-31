@@ -3,24 +3,46 @@
   "hooks": {
     "PreToolUse": [
       {
+        "matcher": "Agent|Task|Edit|Write|MultiEdit|NotebookEdit",
+        "description": "stack role guard: while the builder is bound to a ready backend, only that backend writes product code",
+        "hooks": [
+          {
+            "type": "command",
+            "timeout": 10,
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/role-guard.py\""
+          }
+        ]
+      },
+      {
         "matcher": "Bash",
         "description": "ECC Bash preflight: block --no-verify, tmux and git push reminders, commit quality, GateGuard",
         "hooks": [
-          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/plugin-hook-bootstrap.js node scripts/hooks/pre-bash-dispatcher.js" }
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/plugin-hook-bootstrap.js node scripts/hooks/pre-bash-dispatcher.js"
+          }
         ]
       },
       {
         "matcher": "Write|Edit|MultiEdit",
         "description": "ECC config protection: stop edits that weaken linter or formatter configs",
         "hooks": [
-          { "type": "command", "timeout": 5, "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/plugin-hook-bootstrap.js node scripts/hooks/run-with-flags.js pre:config-protection scripts/hooks/config-protection.js standard,strict" }
+          {
+            "type": "command",
+            "timeout": 5,
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/plugin-hook-bootstrap.js node scripts/hooks/run-with-flags.js pre:config-protection scripts/hooks/config-protection.js standard,strict"
+          }
         ]
       },
       {
         "matcher": ".*",
         "description": "ECC Hookify: project-local rules written with /stack:hookify",
         "hooks": [
-          { "type": "command", "timeout": 10, "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/plugin-hook-bootstrap.js node scripts/hooks/run-with-flags.js pre:hookify-runtime scripts/hooks/hookify-runtime.js minimal,standard,strict" }
+          {
+            "type": "command",
+            "timeout": 10,
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/plugin-hook-bootstrap.js node scripts/hooks/run-with-flags.js pre:hookify-runtime scripts/hooks/hookify-runtime.js minimal,standard,strict"
+          }
         ]
       }
     ],
@@ -28,7 +50,11 @@
       {
         "description": "ECC Hookify prompt rules",
         "hooks": [
-          { "type": "command", "timeout": 10, "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/plugin-hook-bootstrap.js node scripts/hooks/run-with-flags.js prompt:hookify-runtime scripts/hooks/hookify-runtime.js minimal,standard,strict" }
+          {
+            "type": "command",
+            "timeout": 10,
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/plugin-hook-bootstrap.js node scripts/hooks/run-with-flags.js prompt:hookify-runtime scripts/hooks/hookify-runtime.js minimal,standard,strict"
+          }
         ]
       }
     ],
@@ -37,8 +63,17 @@
         "matcher": ".*",
         "description": "ECC post-tool checks: quality gate, console.log warning, PR logger, Hookify",
         "hooks": [
-          { "type": "command", "timeout": 30, "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/posttooluse-dispatcher.js sync" },
-          { "type": "command", "async": true, "timeout": 45, "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/posttooluse-dispatcher.js async" }
+          {
+            "type": "command",
+            "timeout": 30,
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/posttooluse-dispatcher.js sync"
+          },
+          {
+            "type": "command",
+            "async": true,
+            "timeout": 45,
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/posttooluse-dispatcher.js async"
+          }
         ]
       }
     ],
@@ -47,9 +82,20 @@
         "matcher": ".*",
         "description": "ECC end-of-turn checks: Hookify completion rules, format and typecheck, console.log audit",
         "hooks": [
-          { "type": "command", "timeout": 10, "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/lifecycle-hook-bootstrap.js stop:hookify-runtime scripts/hooks/hookify-runtime.js minimal,standard,strict 10000" },
-          { "type": "command", "timeout": 300, "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/lifecycle-hook-bootstrap.js stop:format-typecheck scripts/hooks/stop-format-typecheck.js standard,strict 300000" },
-          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/lifecycle-hook-bootstrap.js stop:check-console-log scripts/hooks/check-console-log.js standard,strict 30000" }
+          {
+            "type": "command",
+            "timeout": 10,
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/lifecycle-hook-bootstrap.js stop:hookify-runtime scripts/hooks/hookify-runtime.js minimal,standard,strict 10000"
+          },
+          {
+            "type": "command",
+            "timeout": 300,
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/lifecycle-hook-bootstrap.js stop:format-typecheck scripts/hooks/stop-format-typecheck.js standard,strict 300000"
+          },
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stack-hook.js\" scripts/hooks/lifecycle-hook-bootstrap.js stop:check-console-log scripts/hooks/check-console-log.js standard,strict 30000"
+          }
         ]
       }
     ]
