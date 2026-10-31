@@ -3564,5 +3564,16 @@
       "path": "harness/pstack/claude-code/skills/why/references/synthesizer-prompt.md",
       "sha256": "11c62671aa7b7a6e3d36929ffe2b59bf95e6ca664eee4d93e6ee527dd3390ddb"
     }
+  },
+  "overlay": {
+    ".claude-plugin/plugin.json": "9b0de4bdb1c9aee24332978aba4e904f821eeb522ef3503ae94a3c2416a784d6",
+    "docs/harness/stack.md": "f18e92fb5cd8845f72c34b34bf9d707fa7346a8e76ed9765d45aae111523ce8b",
+    "hooks/hooks.json": "48785bfd1afaf519f8bfa5dd724cf1d4b223cd55012f94ce7da4170b6a579cc2",
+    "roles.json": "233e0adf42a436a890052c4d7d880b1328025e7cd9885b1a50e0fa658645b6d1",
+    "scripts/delegate.py": "7acb29132fa0358ca05b920b7fec3f23b5df97f24de812ba654a1977e39bafa2",
+    "scripts/openrouter-adversary.py": "cd9f65503fd4ba5cee8db448349c973ec37cdb3f2e549a569f096454e4bece03",
+    "scripts/stack-hook.js": "03b1386f842d8c1ae9c7fefe41c31030ec94de8e94cc657b5f82302224c6a520",
+    "skills/setup-stack/SKILL.md": "9da1234ed625392ae245769b1a081b38f7c322067bcc3497a3af6d3f16011cff",
+    "skills/setup-stack/scripts/install-rules.py": "843a266c8811fa77fc73dc0b1ead074d659bdafa659d51f80d500fea106fb656"
   }
 }

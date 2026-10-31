@@ -136,6 +136,19 @@ class VerifyTests(unittest.TestCase):
         self.assertFalse(any("tdd-workflow" in p for p in problems), "a Name map entry was reported")
 
 
+class OverlayDiffTests(unittest.TestCase):
+    """`diff` copies an overlay file back to src/ only when it was edited in plugins/stack alone."""
+
+    def test_overlay_decisions(self):
+        built, newer, old = b"built", b"edited in src", b"old"
+        h = stack.sha
+        self.assertEqual(stack.overlay_action(built, built, h(built)), "same")
+        self.assertEqual(stack.overlay_action(b"edited in plugins", old, h(old)), "copy-back")
+        self.assertEqual(stack.overlay_action(old, newer, h(old)), "keep-source")
+        self.assertEqual(stack.overlay_action(b"edited in plugins", newer, h(old)), "conflict")
+        self.assertEqual(stack.overlay_action(built, newer, None), "conflict")
+
+
 class SetupTests(unittest.TestCase):
     def test_install_rules_is_idempotent(self):
         with tempfile.TemporaryDirectory() as home:

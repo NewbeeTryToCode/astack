@@ -56,16 +56,29 @@ Bug fix, Perf issue, Hillclimb, Runtime forensics, Trace forensics, Investigatio
 
 ## Models
 
-The Claude Code adapter's model rows give way to this table. `/stack:setup-stack` writes these defaults into `~/.claude/rules/pstack-models.md`, and a line there overrides the default for that role.
+Roles, not models, are what the playbooks name. [`roles.json`](../../roles.json) at the plugin root binds each role to a backend and model, and `~/.config/stack/roles.json` overrides it key by key. The same binding holds in every harness, so a builder writes with the same model whether the session is Claude Code or OpenCode.
 
-| Cursor default | Roles | In stack |
+| Role | Default | Used for |
 | --- | --- | --- |
-| `grok-4.7-xhigh-fast` | feature, refactoring, bug-fix, perf-issue, hillclimb, how explorer, why investigators, reflect tooling, swarm workers | `sonnet xhigh` |
-| `claude-opus-5-5-xhigh` | judgment and prose, hardest tasks, how explainer, why synthesizer, reflect judgment | `opus xhigh` |
-| two-model panel | arena runners, arena cross-judge pool, architect runners | `opus xhigh, sonnet xhigh` |
-| two-family panel | interrogate reviewers | `opus xhigh, sonnet xhigh, openrouter:x-ai/grok-4.7` |
+| `judge` | `claude:opus` | The session that runs the playbook, plan review, verdicts, synthesis, prose |
+| `hardest` | `claude:opus` | Cross-cutting design, gnarly concurrency, subtle algorithms |
+| `builder` | `go:glm-5.3` | Code delegates for feature, refactoring, bug fix, perf, hillclimb |
+| `evidence` | `go:glm-5.3-flash` | Swarm workers, `how` explorers, `why` investigators, reflect tooling. Their output is commands and outputs the judge reads back. |
+| `builders` | `claude:opus`, `go:glm-5.3` | Arena and architect runners |
+| `adversaries` | `claude:opus`, `claude:sonnet`, `go:glm-5.3-flash` | `interrogate` reviewers |
 
-Claude panels pair `opus` with `sonnet`. Add `fable xhigh` to a panel line in `/stack:setup-stack` when your account can run Fable. Without usage credits it is refused, and each refusal costs a spawn. When the `Agent` tool rejects a model, follow `poteto-mode`'s rejected-slug rule. A panel entry written `openrouter:<model-id>` is an external adversary.
+`roles.json` maps every pstack role line (`feature, refactoring`, `swarm workers`, `interrogate reviewers` and the rest) to one of these roles under `pstack_roles`. Where a skill names a pstack role or a Cursor slug, resolve it with `python3 <pstack>/scripts/delegate.py resolve "<pstack role>"`.
+
+How to run a binding:
+
+- `claude:<alias>` runs as a native subagent: `Agent` with `model: "<alias>"`.
+- Any other backend, such as `go:<model>`, runs through the delegate. Write the brief to a file outside the worktree, goal first, exactly as you would brief a subagent, then run `python3 <pstack>/scripts/delegate.py run --role <role> --dir <worktree> --brief <file>`. It prints the child's reply, the files it changed and its transcript path. Review the diff yourself, as the playbook says for any delegate. The delegate's reply is never the verdict.
+- Give each delegate its own worktree, as with `isolation: "worktree"`. Two delegates never share a checkout.
+- If `delegate.py` exits with an error, put `Delegate failed: <role>, <error>.` in the reply and run that step with the role's Claude fallback (`claude:sonnet` for builder and evidence, `claude:opus` otherwise).
+
+The `go` backend is OpenCode Go through its Anthropic-compatible endpoint. It reads the key from `OPENCODE_API_KEY`. `delegate.py` builds the child's environment from an allowlist and runs `doctor` before the first delegation on each Claude Code version, which proves on a local recorder that the child sends only the Go key. A child that inherits a Claude Code session's environment sends that session's Claude credential to whatever base URL it is given.
+
+When the `Agent` tool rejects a Claude alias, follow `poteto-mode`'s rejected-slug rule. A panel entry written `openrouter:<model-id>` is an external adversary.
 
 ## External adversaries
 

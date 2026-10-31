@@ -8,9 +8,11 @@ disable-model-invocation: true
 
 Read [the stack integration](../../docs/harness/stack.md) first. It names the defaults this skill writes.
 
-## 1. Models
+## 1. Roles and models
 
-Read `../setup-pstack/SKILL.md` and follow it, with two changes. Its defaults are the **In stack** column of the Models table in `stack.md`, not the Cursor slugs. Keep the `openrouter:<model-id>` entry in the `interrogate reviewers` line unless the operator removes it, because it is a valid alias that the `Agent` tool never sees.
+Show the operator each role and its binding: run `python3 <this skill's folder>/../../scripts/delegate.py resolve <role>` for `judge`, `hardest`, `builder`, `evidence`, `builders` and `adversaries`. Ask whether to keep them. To change one, write only the changed keys to `~/.config/stack/roles.json`, in the same shape as the plugin's `roles.json`, for example `{"roles": {"builder": "claude:sonnet"}}`.
+
+If `~/.claude/rules/pstack-models.md` exists, tell the operator it overrides `roles.json` for the roles it names, and offer to delete it.
 
 ## 2. Rules
 
@@ -22,9 +24,11 @@ python3 <this skill's folder>/scripts/install-rules.py --sets <sets> --scope <sc
 
 Add `--project <path>` for the project scope. Show the operator the files it printed.
 
-## 3. External adversary
+## 3. Other backends
 
-Check whether `OPENROUTER_API_KEY` is set, without printing its value (`test -n "$OPENROUTER_API_KEY" && echo set`). If it is not, tell the operator that `interrogate` will skip the `openrouter:` panel entry, and that they can export the key in their shell profile to turn it on. In a cloud environment whose proxy injects the OpenRouter key, any placeholder value works.
+For each backend that a role uses other than `claude`, check its key without printing it. For `go`, that is `test -n "$OPENCODE_API_KEY" && echo set`. If it is set, run `python3 <this skill's folder>/../../scripts/delegate.py doctor --backend go` and show the result. `ok: true` means the child sends only the Go key. On `ok: false`, show the problems and suggest binding those roles to `claude:` until it passes. If the key is not set, tell the operator those roles fall back to Claude, and that they add `OPENCODE_API_KEY` to their shell profile, or to the cloud environment's settings for cloud sessions.
+
+Check whether `OPENROUTER_API_KEY` is set the same way. Without it, `interrogate` skips `openrouter:` panel entries.
 
 ## 4. Hooks and memory
 
@@ -32,4 +36,4 @@ Tell the operator which hooks run, from the Hooks section of `stack.md`, and how
 
 ## 5. Report
 
-One short list: the model rule path and the roles that differ from the defaults, the rule sets installed and where, whether external adversaries are on, the hook profile, and whether rewire is connected.
+One short list: the roles that differ from the defaults and where they are set, the doctor result for each backend, the rule sets installed and where, whether external adversaries are on, the hook profile, and whether rewire is connected.
