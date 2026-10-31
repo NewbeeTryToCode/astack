@@ -91,3 +91,17 @@ flowchart LR
 | F5 hooks | ECC's Bash preflight blocks `git commit --no-verify` in a live session | pass |
 
 What the evals changed: the plan gate rule was split into "a plan is always written" and "waiting is what a grant removes", Fable left the default panels after it was refused twice, and the eval runs moved outside this repository so its `CLAUDE.md` stops leaking into them.
+
+### GLM-5.3-Flash builder eval (2026-10-31)
+
+Every code role bound to `go:glm-5.3-flash`, Opus as the judge, the role guard on. All 34 checks pass, and every check that grades the finished code was shown to fail on the unchanged or still-buggy app.
+
+| Scenario | Delegate runs | Builder model | Builder time | Opus edits to repository files | Claude cost |
+| --- | --- | --- | --- | --- | --- |
+| F1 feature, plan gate | 0 (plan only) | | | none | $0.46 |
+| F2 approved plan | 2 | glm-5.3-flash | 55 s | none | $0.93 |
+| F3 bug fix | 1 | glm-5.3-flash | 38 s | none | $0.55 |
+| F4 autonomous | 1 | glm-5.3-flash | 55 s | none | $1.06 |
+| F6 tags feature | 2 | glm-5.3-flash | 144 s | none | $1.31 |
+
+For comparison on the same scenarios: a Sonnet subagent builder cost $0.94 (F2) and $1.56 (F6) in Claude usage, and Opus writing the change itself cost $0.47 (F3), $0.35 (F4) and $0.62 (F6). Forcing the Flash builder costs less Claude usage than a Sonnet builder and more than Opus working alone, because Opus still writes the brief, reviews the diff and runs the checks. The guard blocked nothing in these runs: once the exception was gone, `poteto-mode` routed every change to the delegate on its own.

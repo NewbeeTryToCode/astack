@@ -280,6 +280,31 @@ def first_text(log):
     return ""
 
 
+def final_code(app):
+    """The code the run ended with: uncommitted work in the checkout, else the newest commit on any branch."""
+    app = Path(app)
+    git = lambda *a: subprocess.run(["git", "-C", str(app), *a], capture_output=True, text=True).stdout.strip()
+    if git("status", "--porcelain", "--untracked-files=no"):
+        return app
+    newest = git("for-each-ref", "--sort=-committerdate", "--format=%(objectname)", "refs/heads").splitlines()[0]
+    if newest == git("rev-parse", "HEAD"):
+        return app
+    out = Path(tempfile.mkdtemp(prefix="final-code-"))
+    archive = subprocess.run(["git", "-C", str(app), "archive", newest], capture_output=True, check=True).stdout
+    subprocess.run(["tar", "-x", "-C", str(out)], input=archive, check=True)
+    return out
+
+
+def original(app, path):
+    root = subprocess.run(["git", "-C", str(app), "rev-list", "--max-parents=0", "HEAD"], capture_output=True, text=True).stdout.split()[0]
+    return subprocess.run(["git", "-C", str(app), "show", f"{root}:{path}"], capture_output=True, text=True).stdout
+
+
+def edit_points(cs, log, filename):
+    """Where code changed: this chat's own edits and every delegate run."""
+    return sorted(edits_to(cs, filename) + [x["index"] for x in delegations(log)])
+
+
 def changed_since_start(app):
     """Files that differ from the app's first commit, committed or not."""
     root = subprocess.run(["git", "rev-list", "--max-parents=0", "HEAD"], cwd=app, capture_output=True, text=True).stdout.split()[0]
@@ -302,16 +327,17 @@ def grade_F1(d):
 def grade_F2(d):
     log, cs = d / "transcript.jsonl", calls(d / "transcript.jsonl")
     app = OUT / "F1" / "app"
-    edits = edits_to(cs, "notes.py")
+    edits = edit_points(cs, log, "notes.py")
     cli_after = [n for n in bash_matching(cs, r"notes\.py\s+list\s+--json") if edits and n > edits[0]]
     agent_briefs = [i.get("prompt", "") for t, i, _ in cs if t == "Agent"]
-    out = subprocess.run([sys.executable, "notes.py", "list", "--json"], cwd=app, capture_output=True, text=True)
+    final = final_code(app)
+    out = subprocess.run([sys.executable, "notes.py", "list", "--json"], cwd=final, capture_output=True, text=True)
     try:
         parsed = isinstance(json.loads(out.stdout or "null"), list)
     except ValueError:
         parsed = False
     return {
-        "notes.py changed after approval": "notes.py" in changed_since_start(app),
+        "notes.py changed after approval": (final / "notes.py").read_text() != original(app, "notes.py"),
         "builder ran on GLM through the delegate": ran_on_glm(log),
         "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)script", d["brief"]) for d in delegations(log)),
         "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
@@ -323,13 +349,18 @@ def grade_F2(d):
 
 def grade_F3(d):
     log, cs = d / "transcript.jsonl", calls(d / "transcript.jsonl")
-    edits = edits_to(cs, "notes.py")
-    repro = bash_matching(cs, r"notes\.py\s+delete|delete")
-    app = d / "app"
-    fixed = "args.number - 1" in (app / "notes.py").read_text()
+    edits = edit_points(cs, log, "notes.py")
+    repro = bash_matching(cs, r"notes\.py\s+delete|delete|unittest|pytest")
+    final = final_code(d / "app")
+    with tempfile.TemporaryDirectory() as tmp:
+        for text in ("a", "b", "c"):
+            subprocess.run([sys.executable, str(final / "notes.py"), "add", text], cwd=tmp, capture_output=True)
+        subprocess.run([sys.executable, str(final / "notes.py"), "delete", "1"], cwd=tmp, capture_output=True)
+        listed = subprocess.run([sys.executable, str(final / "notes.py"), "list"], cwd=tmp, capture_output=True, text=True).stdout
+    fixed = listed.startswith("1. b") and "a" not in listed.split()
     return {
         "builder ran on GLM through the delegate": ran_on_glm(log),
-        "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)delete|first", d["brief"]) for d in delegations(log)),
+        "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)delete|first", x["brief"]) for x in delegations(log)),
         "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
         "no plan gate: fixed in the same run": bool(edits) and fixed,
         "reproduced before the first edit": bool(repro) and bool(edits) and repro[0] < edits[0],
@@ -341,7 +372,7 @@ def grade_F3(d):
 def grade_F4(d):
     log, cs = d / "transcript.jsonl", calls(d / "transcript.jsonl")
     app = d / "app"
-    out = subprocess.run([sys.executable, "notes.py", "count"], cwd=app, capture_output=True, text=True)
+    out = subprocess.run([sys.executable, "notes.py", "count"], cwd=final_code(app), capture_output=True, text=True)
     trail = [i for t, i, _ in cs if (t in ("Write", "Edit") and "decision" in i.get("file_path", ""))
              or (t == "Bash" and "decision" in i.get("command", ""))]
     recorded = any(re.search(r"(?i)\bplan\b", json.dumps(i)) for i in trail)
@@ -390,7 +421,7 @@ def grade_F6(d):
         "builder ran on GLM through the delegate": ran_on_glm(log),
         "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)tag", x["brief"]) for x in delegations(log)),
         "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
-        **tags_behaviour(d / "app"),
+        **tags_behaviour(final_code(d / "app")),
     }
 
 
