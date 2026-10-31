@@ -15,8 +15,10 @@ import argparse
 import json
 import os
 import re
+import shlex
 import shutil
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -133,6 +135,29 @@ def fix_links(out_md, origin_dir):
         write(out_md, text)
 
 
+def convert_hooks(src_hooks):
+    """hooks.json in ZCode's process form: node + arg vector, timeoutMs in milliseconds."""
+    data = json.loads(src_hooks.read_text())
+    out = {"description": data.get("description", ""), "hooks": {}}
+    for event, groups in data["hooks"].items():
+        conv = []
+        for group in groups:
+            hooks = []
+            for hook in group["hooks"]:
+                parts = shlex.split(hook["command"])
+                if len(parts) < 3 or parts[0] != "node" or not parts[1].endswith("/scripts/stack-hook.js"):
+                    sys.exit(f"unrecognized hook command: {hook['command']}")
+                entry = {"type": "process", "command": parts[0], "args": parts[1:]}
+                if hook.get("timeout"):
+                    entry["timeoutMs"] = hook["timeout"] * 1000
+                hooks.append(entry)
+            g = {k: v for k, v in group.items() if k not in ("hooks", "async")}
+            g["hooks"] = hooks
+            conv.append(g)
+        out["hooks"][event] = conv
+    return out
+
+
 def generate():
     global VENDORED
     VENDORED = json.loads((SRC / "VENDORED.json").read_text())
@@ -183,6 +208,12 @@ def generate():
     shutil.copy(ROOT / "tools" / "zcode-adapter.md", OUT / "docs/harness/zcode.md")
     shutil.copytree(SRC / "rules", OUT / "rules")
     shutil.copytree(SRC / "LICENSES", OUT / "LICENSES")
+    shutil.copytree(SRC / "scripts", OUT / "scripts")
+
+    # hooks: rewrite the Claude Code command entries as ZCode process hooks
+    # (an argument vector without a shell, the portable choice on Windows)
+    shutil.copytree(SRC / "hooks", OUT / "hooks")
+    write(OUT / "hooks/hooks.json", json.dumps(convert_hooks(SRC / "hooks" / "hooks.json"), indent=2) + "\n")
     write(OUT / "README.md", README)
     for md in OUT.rglob("*.md"):
         fix_links(md, origin_dir_of(md))
@@ -225,10 +256,26 @@ def verify():
                 continue
             if not (md.parent / target.split("#")[0]).exists():
                 problems.append(f"{rel}: broken link {target}")
+    hook_entries = 0
+    zhooks = OUT / "hooks" / "hooks.json"
+    if zhooks.exists():
+        for event, groups in json.loads(zhooks.read_text())["hooks"].items():
+            if event not in ("SessionStart", "UserPromptSubmit", "PreToolUse", "PermissionRequest",
+                             "PostToolUse", "PostToolUseFailure", "Stop"):
+                problems.append(f"hooks.json: unsupported event {event}")
+            for group in groups:
+                for hook in group["hooks"]:
+                    hook_entries += 1
+                    if hook.get("type") != "process" or hook.get("command") != "node":
+                        problems.append(f"hooks.json {event}: entry is not a node process hook")
+                    if not hook["args"][0].endswith("scripts/stack-hook.js"):
+                        problems.append(f"hooks.json {event}: entry does not go through stack-hook.js")
+    else:
+        problems.append("hooks/hooks.json missing from the generated tree")
     if problems:
         print(*problems, sep="\n")
         sys.exit(f"verify: {len(problems)} problem(s)")
-    print(f"verify: 105 skills, 23 agents, every link resolves, no unrewritten names")
+    print(f"verify: 105 skills, 23 agents, {hook_entries} process hooks, every link resolves, no unrewritten names")
 
 
 README = """# stack for ZCode
@@ -240,7 +287,7 @@ playbooks), cursor-team-kit (`deslop`, `control-cli`, `control-ui`, `verify-this
 - every skill keeps its upstream name under the `stack-` prefix, so nothing shadows other skills
 - the Claude Code adapter is replaced by [docs/harness/zcode.md](docs/harness/zcode.md) — read it once per session
 - commands are skills: `/stack:plan` is `stack-plan` here
-- the guardrail hooks are Claude Code plugin hooks and are not wired in this port (see the adapter)
+- the guardrail hooks ship in ZCode `process` form (plugin `hooks/hooks.json`; `--install` registers them in the ZCode config)
 
 Install (user scope): `python3 tools/port-zcode.py --install` from the astack repository —
 copies the skills to `~/.zcode/skills`, the agents to `~/.zcode/agents`, and `docs/` + `rules/`
@@ -267,12 +314,58 @@ def install():
         if dest.exists():
             shutil.rmtree(dest)
         shutil.copytree(OUT / kind, dest)
+    # the hook runtime resolves its root from its own location, so a plain copy
+    # of scripts/ (and hooks/ for reference) at ~/.zcode works for user scope
+    for kind in ("hooks", "scripts"):
+        dest = USER_ZCODE / kind
+        if dest.exists():
+            shutil.rmtree(dest)
+        shutil.copytree(OUT / kind, dest)
+    register_config_hooks()
     adapter = USER_ZCODE / "skills" / "stack-how" / "SKILL.md"
     resolved = (adapter.parent.parent.parent / "docs" / "harness" / "zcode.md").exists()
     print(f"installed {n_skills} skills into {USER_SKILLS}, {n_agents} agents into {USER_AGENTS}, "
-          f"docs/ and rules/ into {USER_ZCODE}")
+          f"docs/, rules/, hooks/, scripts/ into {USER_ZCODE}")
     print(f"installed layout resolves (adapter reachable from a skill): {'ok' if resolved else 'BROKEN'}")
     print("skills and agents are discovered on the next ZCode session (user-scope roots)")
+
+
+def register_config_hooks():
+    """Register the guardrail hooks in ~/.zcode/cli/config.json (backed up first).
+
+    Configuration-file hooks are disabled by default in ZCode, so the merged
+    block sets enabled: true unless the config explicitly said enabled: false.
+    """
+    root = str(USER_ZCODE).replace("\\", "/")
+    events = {}
+    for event, groups in json.loads((OUT / "hooks/hooks.json").read_text())["hooks"].items():
+        conv = []
+        for group in groups:
+            hooks = []
+            for hook in group["hooks"]:
+                entry = {"type": hook["type"], "command": hook["command"],
+                         "args": [a.replace("${CLAUDE_PLUGIN_ROOT}", root) for a in hook["args"]]}
+                if "timeoutMs" in hook:
+                    entry["timeoutMs"] = hook["timeoutMs"]
+                hooks.append(entry)
+            g = {k: v for k, v in group.items() if k != "hooks"}
+            g["hooks"] = hooks
+            conv.append(g)
+        events[event] = conv
+    cfg_path = USER_ZCODE / "cli" / "config.json"
+    backup = cfg_path.with_name(cfg_path.name + ".bak-" + time.strftime("%Y%m%d-%H%M%S"))
+    shutil.copy2(cfg_path, backup)
+    cfg = json.loads(cfg_path.read_text())
+    existing = cfg.get("hooks") or {}
+    merged = dict(existing.get("events") or {})
+    for event, groups in events.items():
+        merged[event] = (merged.get(event) or []) + groups
+    cfg["hooks"] = {"enabled": existing.get("enabled", True), "events": merged}
+    write(cfg_path, json.dumps(cfg, indent=2) + "\n")
+    n = sum(len(g["hooks"]) for ev in merged.values() for g in ev)
+    print(f"config hooks: {n} entries across {len(merged)} events written to {cfg_path} (backup: {backup.name})")
+    if cfg["hooks"]["enabled"] is not True:
+        print("WARNING: hooks.enabled is not true in the config — the registered hooks will not run")
 
 
 def main():

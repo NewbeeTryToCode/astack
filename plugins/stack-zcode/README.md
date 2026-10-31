@@ -7,7 +7,7 @@ playbooks), cursor-team-kit (`deslop`, `control-cli`, `control-ui`, `verify-this
 - every skill keeps its upstream name under the `stack-` prefix, so nothing shadows other skills
 - the Claude Code adapter is replaced by [docs/harness/zcode.md](docs/harness/zcode.md) — read it once per session
 - commands are skills: `/stack:plan` is `stack-plan` here
-- the guardrail hooks are Claude Code plugin hooks and are not wired in this port (see the adapter)
+- the guardrail hooks ship in ZCode `process` form (plugin `hooks/hooks.json`; `--install` registers them in the ZCode config)
 
 Install (user scope): `python3 tools/port-zcode.py --install` from the astack repository —
 copies the skills to `~/.zcode/skills`, the agents to `~/.zcode/agents`, and `docs/` + `rules/`

@@ -27,6 +27,6 @@ Run every role on the session model. The model tables in `stack.md` and `setup-s
 
 ## Not wired in the ZCode port
 
-- The guardrail hooks (Bash preflight, GateGuard, config protection, Hookify, end-of-turn checks) are Claude Code plugin hooks and are not installed here. Apply their intent by hand: never pass `--no-verify`, never weaken linter or formatter configs, strip `console.log` before finishing.
+- The guardrail hooks (Bash preflight, GateGuard, config protection, Hookify, end-of-turn checks) ARE installed. The plugin ships `hooks/hooks.json` in ZCode's `type: "process"` form, and a user install registers them under `hooks` in `~/.zcode/cli/config.json` (a backup of the config is written next to it; delete the `hooks` key to switch them off). They follow the Claude Code hook contract — payload on stdin, exit 2 blocks — and `stack-hook.js` fails open, so a misfiring hook never wedges a session. After the first real session, check the ZCode log's hook records: if GateGuard's JSON `deny` is discarded by ZCode's strict output validator, only that one gate degrades and the exit-code paths keep working.
 - `/stack-setup-stack`'s rules step writes `~/.claude/rules/stack/` in Claude Code. In ZCode, copy the chosen rule sets from `<stack>/rules/` into the project's instructions (or memory) instead, or read them when the step needs them.
 - `~/.cursor/` paths and the `pstack-models` rule file do not exist here; model choice is the session model (see Models).
