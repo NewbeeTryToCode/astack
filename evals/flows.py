@@ -7,7 +7,7 @@
 
 Grades check what the agent did, not what it said: which files it read, the order of its
 tool calls, the files it changed, the commands it ran as a user, and the hook events.
-Set CLAUDE_CONFIG_DIR to a config where `stack@agent-stack` is installed. Runs go to
+Set CLAUDE_CONFIG_DIR to a config where `stack@astack` is installed. Runs go to
 $STACK_EVAL_DIR (default: a temp folder), outside this repository, so its CLAUDE.md never leaks in.
 """
 

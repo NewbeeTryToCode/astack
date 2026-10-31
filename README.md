@@ -1,4 +1,4 @@
-# agent-stack
+# astack
 
 A Claude Code plugin marketplace with one plugin, `stack`. It merges two toolkits into one with no contradicting instructions:
 
@@ -10,11 +10,11 @@ Each concern has one owner. The full table is in [`plugins/stack/docs/harness/st
 ## Install
 
 ```bash
-/plugin marketplace add NewbeeTryToCode/agent-stack
+/plugin marketplace add NewbeeTryToCode/astack
 ```
 
 ```bash
-/plugin install stack@agent-stack
+/plugin install stack@astack
 ```
 
 Then run `/stack:setup-stack` once. It sets the model per role, installs the ECC rule sets you pick into `~/.claude/rules/stack/`, and checks the OpenRouter key for external adversaries.

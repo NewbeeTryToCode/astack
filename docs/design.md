@@ -1,4 +1,4 @@
-# agent-stack design
+# astack design
 
 ## Brief
 
