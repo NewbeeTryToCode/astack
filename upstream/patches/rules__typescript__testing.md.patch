@@ -1,0 +1,8 @@
+--- a/rules/typescript/testing.md
++++ b/rules/typescript/testing.md
+@@ -15,4 +15,4 @@
+ 
+ ## Agent Support
+ 
+-- **e2e-runner** - Playwright E2E testing specialist
++- **control-ui** skill - drive the real browser to prove an end-to-end flow (pstack verification)

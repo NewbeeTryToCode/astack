@@ -1,0 +1,11 @@
+--- a/skills/interrogate/SKILL.md
++++ b/skills/interrogate/SKILL.md
+@@ -20,6 +20,8 @@
+ 
+ > Break this change. Prove each finding with a run against the real code, such as a failing test, a repro script, or command output that shows the wrong behavior. For a design or plan, run a prototype or probe the current tree. Keep repros in your own worktree. Report each finding with a title, the exact command, the output it printed, and the output the intent requires. Leave out anything you did not run. That covers style, naming, structure, and risks that need a future change to matter. No findings is a valid result.
+ 
++Two kinds of adversary join the panel in `stack`. An `openrouter:<model-id>` entry in the reviewers line runs through a Claude executor, per External adversaries in `docs/harness/stack.md`. ECC specialist agents join by what the scope touches, per Specialist adversaries in the same file, as `subagent_type` `stack:<agent>` with the brief above.
++
+ ## Verify
+ 
+ Verify each finding per arena Phase F by rerunning its command. Keep a finding when the output shows the failure and the failure breaks the intent. Drop the rest. Merge findings that share a root cause.

@@ -1,0 +1,38 @@
+--- a/commands/plan.md
++++ b/commands/plan.md
+@@ -111,11 +111,6 @@
+ 
+ After writing the artifact, report its path and WAIT for confirmation before writing code.
+ 
+-> **Visual review:** instead of asking for a typed confirmation, you can open the
+-> artifact in the browser Plan Canvas (`/stack:plan`, or the `plan-canvas` skill):
+-> the user annotates the plan in place and clicks **Approve plan** or **Request
+-> changes**, which arrives as your confirmation signal.
+-
+ ## Example Usage
+ 
+ ```
+@@ -185,16 +180,16 @@
+ 
+ ## Integration with Other Commands
+ 
+-After planning:
+-- Use `/stack:plan` to run the confirmation gate visually in the browser (annotate + approve)
+-- Use the `tdd-workflow` skill to implement with test-driven development
+-- Use `/stack:build-fix` if build errors occur
+-- Use `/stack:interrogate` to review completed implementation
+-- Use `/stack:poteto-mode` or `/stack:poteto-mode` to open a pull request
++After the operator confirms the plan, `stack` hands it to pstack:
++- Implement with `/stack:poteto-mode`. The approved plan is the brief, and its phases follow the matched playbook's steps in the todo list.
++- Verify each phase per pstack's Prove It Works principle (`/stack:verify-this`, the project's `verify-*` skill, `/stack:tdd` when a cheap failing test exists).
++- Use `/stack:build-fix` if build errors occur.
++- Review with `/stack:interrogate`, then `/stack:no-comments` and `/stack:deslop`.
++- Open the pull request with the Opening a PR playbook of `/stack:poteto-mode`.
+ 
+ > **Need requirements first?** Use `/stack:plan-prd` for a lean PRD at `.claude/prds/{name}.prd.md`.
+ >
+-> **Need the legacy PRP flow?** Use `/stack:plan` for deep PRP planning with `.claude/PRPs/` artifacts. Use `/stack:poteto-mode` to execute those plans with rigorous validation loops.
++> **Recording a design decision?** Use the `architecture-decision-records` skill.
+ 
+ ## Optional Planner Agent
+ 

@@ -1,0 +1,23 @@
+{
+  "name": "stack",
+  "version": "0.1.0",
+  "description": "pstack's judgment, verification and playbooks with ECC's planning, language specialists and guardrail hooks, merged into one plugin with no contradicting instructions.",
+  "author": { "name": "NewbeeTryToCode" },
+  "repository": "https://github.com/NewbeeTryToCode/astack",
+  "license": "MIT",
+  "keywords": ["pstack", "poteto-mode", "ecc", "verification", "planning", "hooks"],
+  "userConfig": {
+    "hooks_enabled": {
+      "type": "boolean",
+      "title": "Enable ECC guardrail hooks",
+      "description": "Run the ECC Bash preflight, config protection, quality gate, Hookify and end-of-turn checks. Skills, agents and commands work either way.",
+      "default": true
+    },
+    "hook_profile": {
+      "type": "string",
+      "title": "ECC hook profile",
+      "description": "minimal, standard or strict. Invalid values fall back to standard.",
+      "default": "standard"
+    }
+  }
+}

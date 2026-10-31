@@ -1,0 +1,11 @@
+--- a/rules/rust/testing.md
++++ b/rules/rust/testing.md
+@@ -128,7 +128,7 @@
+ 
+ ## Coverage
+ 
+-- Target 80%+ line coverage
++- Coverage is a signal, not a gate (see common/testing.md)
+ - Use **cargo-llvm-cov** for coverage reporting
+ - Focus on business logic — exclude generated code and FFI bindings
+ 
