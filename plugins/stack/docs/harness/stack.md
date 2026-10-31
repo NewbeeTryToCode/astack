@@ -72,7 +72,7 @@ Claude panels pair `opus` with `sonnet`. Add `fable xhigh` to a panel line in `/
 An `openrouter:<model-id>` entry gets a different model family to look for failures while keeping pstack's rule that only a run proves a finding. The external model proposes. A Claude executor runs.
 
 1. Write the restated intent to `intent.md` and the scoped diff to `change.diff` inside the adversary's worktree.
-2. Spawn a `general-purpose` executor on the judgment model with `isolation: "worktree"`. Its brief: run `python3 <pstack>/scripts/openrouter-adversary.py --model <model-id> --intent intent.md --diff change.diff`, then run every finding's command in the worktree, and report only findings whose output shows the failure, each with the command, its output and the expected output. Name the external model as the finder.
+2. Spawn a `general-purpose` executor on the judgment model with `isolation: "worktree"`. Its brief: run `python3 <pstack>/scripts/openrouter-adversary.py --model <model-id> --intent intent.md --diff change.diff` (use `python` instead of `python3` on Windows), then run every finding's command in the worktree, and report only findings whose output shows the failure, each with the command, its output and the expected output. Name the external model as the finder.
 3. Exit code 3 means `OPENROUTER_API_KEY` is not set. Put `Skipped: openrouter:<model-id>, no OPENROUTER_API_KEY.` in the reply and continue with the rest of the panel. Any other failure is reported the same way, with the script's error.
 
 The executor never adds findings of its own. It only proves or drops the external model's findings, so the panel keeps the external model's perspective.

@@ -17,6 +17,7 @@ import json
 import os
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -41,6 +42,22 @@ def sh(*args, cwd=None):
     return subprocess.run(args, cwd=cwd, check=True, capture_output=True, text=True).stdout
 
 
+def rmtree(path):
+    """rmtree that also clears the read-only bit git leaves on object files (Windows)."""
+    def relax(func, target, _):
+        os.chmod(target, stat.S_IWRITE)
+        func(target)
+    shutil.rmtree(path, onerror=relax)
+
+
+def git_flags():
+    """Byte-exact checkouts: no EOL conversion, long paths on Windows."""
+    flags = ["-c", "core.autocrlf=false"]
+    if sys.platform == "win32":
+        flags += ["-c", "core.longpaths=true"]
+    return flags
+
+
 def fetch(name, spec, local):
     if name in local:
         path = Path(local[name]).resolve()
@@ -48,13 +65,20 @@ def fetch(name, spec, local):
         if head != spec["commit"]:
             sys.exit(f"--local {name} is at {head}, the lock pins {spec['commit']}")
         return path
-    path = CACHE / f"{name}@{spec['commit']}"
+    path = CACHE / f"{name}@{spec['commit'][:7]}"
     if (path / ".git").is_dir():
-        return path
+        if sh("git", "rev-parse", "HEAD", cwd=path).strip() == spec["commit"]:
+            return path
+        rmtree(path)
     path.mkdir(parents=True, exist_ok=True)
-    sh("git", "init", "-q", cwd=path)
-    sh("git", "fetch", "-q", "--depth", "1", spec["repo"], spec["commit"], cwd=path)
-    sh("git", "checkout", "-q", "FETCH_HEAD", cwd=path)
+    sh("git", *git_flags(), "init", "-q", cwd=path)
+    sh("git", *git_flags(), "fetch", "-q", "--depth", "1", spec["repo"], spec["commit"], cwd=path)
+    sh("git", *git_flags(), "checkout", "-q", "FETCH_HEAD", cwd=path)
+    head = sh("git", "rev-parse", "HEAD", cwd=path).strip()
+    if head != spec["commit"]:
+        sys.exit(f"upstream cache {name} is at {head}, the lock pins {spec['commit']}")
+    if sh("git", *git_flags(), "status", "--porcelain", cwd=path).strip():
+        sys.exit(f"upstream cache {name} is incomplete after checkout; delete {path} and rebuild")
     return path
 
 
@@ -90,7 +114,9 @@ def js_closure(base, seeds):
         seen.add(rel)
         if rel.endswith(".js"):
             for m in REQUIRE.finditer((base / rel).read_text()):
-                stack.append(os.path.normpath(os.path.join(os.path.dirname(rel), m.group(1))))
+                # posix separators: os.path.normpath emits backslashes on Windows, which
+                # would make VENDORED.json keys (and its hashes) platform-dependent
+                stack.append(os.path.normpath(os.path.join(os.path.dirname(rel), m.group(1))).replace(os.sep, "/"))
     return sorted(seen)
 
 
@@ -153,7 +179,7 @@ def build(out, local, with_patches=True, with_overlay=True):
             text = inject_adapter(text)
         if entry.get("rewrite_commands"):
             text = rewrite_commands(text, plugin, shipped_commands, manifest.get("command_remap", {}))
-        path.write_text(text)
+        path.write_text(text, newline="\n")
 
     for name, lic in manifest["licenses"].items():
         dest = out / "LICENSES" / f"{name}.txt"
@@ -178,7 +204,7 @@ def build(out, local, with_patches=True, with_overlay=True):
         "sources": {n: s["commit"] for n, s in sources.items()},
         "files": {rel: dict(info, sha256=hashlib.sha256((out / rel).read_bytes()).hexdigest()) for rel, info in sorted(vendored.items())},
     }
-    (out / "VENDORED.json").write_text(json.dumps(lock, indent=2) + "\n")
+    (out / "VENDORED.json").write_text(json.dumps(lock, indent=2) + "\n", newline="\n")
     return out
 
 
@@ -210,8 +236,8 @@ def cmd_diff(args):
     lock = json.loads((committed / "VENDORED.json").read_text())
     with tempfile.TemporaryDirectory() as tmp:
         pristine = build(Path(tmp) / "out", args.local, with_patches=False, with_overlay=False)
-        for old in PATCHES.glob("*.patch"):
-            old.unlink()
+        staged = Path(tmp) / "patches"
+        staged.mkdir()
         written = 0
         for rel in lock["files"]:
             if (pristine / rel).read_bytes() == (committed / rel).read_bytes():
@@ -220,8 +246,13 @@ def cmd_diff(args):
                 sys.exit(f"{rel} is binary and differs from upstream. Binary files cannot be patched.")
             before, after = (pristine / rel).read_text(), (committed / rel).read_text()
             lines = difflib.unified_diff(before.splitlines(True), after.splitlines(True), f"a/{rel}", f"b/{rel}")
-            (PATCHES / (rel.replace("/", "__") + ".patch")).write_text("".join(lines))
+            (staged / (rel.replace("/", "__") + ".patch")).write_text("".join(lines), newline="\n")
             written += 1
+        # every patch staged without error; only now replace the old ones
+        for old in PATCHES.glob("*.patch"):
+            old.unlink()
+        for patch in sorted(staged.iterdir()):
+            shutil.move(str(patch), PATCHES / patch.name)
     overlay = ROOT / manifest["overlay"]
     for rel, data in tree(committed).items():
         if rel in lock["files"] or rel == "VENDORED.json" or rel.startswith("LICENSES/"):
@@ -277,12 +308,16 @@ def name_map(out):
 
 
 def upstream_names(local):
-    """Every skill, agent and command name the pinned sources define."""
+    """Every skill, agent, command, automation, context and workflow name the pinned sources define."""
     roots = {name: fetch(name, spec, local) for name, spec in load("sources.json").items()}
     names = set()
     for base in (roots["cursor-plugins"] / "pstack", roots["cursor-plugins"] / "cursor-team-kit", roots["ecc"]):
         names |= {p.parent.name for p in base.glob("skills/*/SKILL.md")}
         names |= {p.stem for p in base.glob("agents/*.md")} | {p.stem for p in base.glob("commands/*.md")}
+    names |= {p.parent.name for p in (roots["cursor-plugins"] / "pstack").glob("automations/*/skills/*/SKILL.md")}
+    names |= {p.stem for p in (roots["ecc"] / "contexts").glob("*.md")}
+    names |= {p.stem for p in (roots["ecc"] / "workflows").glob("*.md")}
+    names.discard("README")
     return names
 
 

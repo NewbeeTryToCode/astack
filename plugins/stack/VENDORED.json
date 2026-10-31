@@ -7,7 +7,7 @@
     "README.md": {
       "source": "cursor-plugins",
       "path": "harness/pstack/claude-code/README.md",
-      "sha256": "9b774ecfa5c74981d341968fb1ae0c7a4b4acb0ed4558875c5c152f5101a9284"
+      "sha256": "639e6da982183300846e7ab63d6a53a84c49fcf51c98c6ab5c21d93a32b625e3"
     },
     "agents/build-error-resolver.md": {
       "source": "ecc",

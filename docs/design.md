@@ -67,6 +67,7 @@ flowchart LR
 | 8 | No ECC memory, learning, session or cost hooks | rewire owns memory, and two memory systems would double session-start context | Keeping ECC instincts |
 | 9 | ECC rules installed on request by `/stack:setup-stack` | Plugins cannot ship always-on rules, and rules cost context in every session | Copying rules into `~/.claude` on install |
 | 10 | Plugin name `stack` | Short prefix (`/stack:poteto-mode`) and no clash with an installed `pstack` or `ecc` | Reusing `pstack` |
+| 11 | LF everywhere, `-text` for build output, short cache dirs with a completeness check | A Windows build silently lost 2 files to MAX_PATH and false-drifted 74 files on EOLs; byte-determinism makes check, hashes and patches platform-independent | Normalizing EOLs only inside `tree()`, which masks real drift |
 
 ## Updating upstream
 

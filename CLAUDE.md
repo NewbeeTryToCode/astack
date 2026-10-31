@@ -3,7 +3,7 @@
 ## Working on this repo
 
 - `plugins/stack` is build output. Edit files the repo owns in `src/`, and turn edits to vendored files into patches with `python3 tools/stack.py diff`.
-- Before committing, run `python3 tools/stack.py check`, `python3 tools/stack.py verify` and `python3 -m unittest discover -s tests`.
+- Before committing, run `python3 tools/stack.py check`, `python3 tools/stack.py verify` and `python3 -m unittest discover -s tests`. On Windows use `python` in place of `python3` (the alias may be a Store stub).
 
 ## Commits and pull requests
 

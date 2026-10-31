@@ -14,7 +14,7 @@ Read `../setup-pstack/SKILL.md` and follow it, with two changes. Its defaults ar
 
 ## 2. Rules
 
-Ask which ECC rule sets to install and where. Offer `common` (recommended for any project), `rust`, `python` and `typescript`, and the scopes `user` (`~/.claude/rules/stack/`, every project) and `project` (`.claude/rules/stack/` in the current repository). Rules load into every session, so suggest only the languages the operator works in. Then run:
+Ask which ECC rule sets to install and where. Offer `common` (recommended for any project), `rust`, `python` and `typescript`, and the scopes `user` (`~/.claude/rules/stack/`, every project) and `project` (`.claude/rules/stack/` in the current repository). Rules load into every session, so suggest only the languages the operator works in. Then run (use `python` instead of `python3` on Windows):
 
 ```bash
 python3 <this skill's folder>/scripts/install-rules.py --sets <sets> --scope <scope>

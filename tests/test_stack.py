@@ -24,7 +24,7 @@ import stack  # noqa: E402
 def run_hook(command, payload, home, extra_env=None):
     """Run a hooks.json command the way Claude Code does, with the payload on stdin."""
     env = {k: v for k, v in os.environ.items() if not k.startswith(("ECC_", "STACK_", "CLAUDE_PLUGIN"))}
-    env.update(HOME=str(home), XDG_DATA_HOME=str(home / ".local/share"), CLAUDE_PLUGIN_ROOT=str(PLUGIN), **(extra_env or {}))
+    env.update(HOME=str(home), USERPROFILE=str(home), XDG_DATA_HOME=str(home / ".local/share"), CLAUDE_PLUGIN_ROOT=str(PLUGIN), **(extra_env or {}))
     env.pop("CLAUDE_CONFIG_DIR", None)
     shell = command.replace("${CLAUDE_PLUGIN_ROOT}", str(PLUGIN))
     return subprocess.run(["bash", "-c", shell], input=json.dumps(payload), capture_output=True, text=True, env=env, cwd=payload.get("cwd"))
@@ -140,7 +140,8 @@ class SetupTests(unittest.TestCase):
     def test_install_rules_is_idempotent(self):
         with tempfile.TemporaryDirectory() as home:
             script = PLUGIN / "skills/setup-stack/scripts/install-rules.py"
-            env = dict(os.environ, HOME=home)
+            # USERPROFILE too: Python >= 3.12 on Windows reads Path.home() from it, not HOME
+            env = dict(os.environ, HOME=home, USERPROFILE=home)
             for _ in range(2):
                 r = subprocess.run([sys.executable, str(script), "--sets", "common", "rust", "--scope", "user"], env=env, capture_output=True, text=True)
                 self.assertEqual(r.returncode, 0, r.stderr)
@@ -201,6 +202,7 @@ class OpenRouterTests(unittest.TestCase):
                                     "--intent", str(intent), "--diff", str(diff)], env=env, capture_output=True, text=True)
         finally:
             server.shutdown()
+            server.server_close()
         self.assertEqual(r.returncode, 0, r.stderr)
         out = json.loads(r.stdout)
         self.assertEqual([f["title"] for f in out["findings"]], ["page 1 skips the first page"])

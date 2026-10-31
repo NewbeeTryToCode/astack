@@ -64,6 +64,8 @@ python3 -m unittest discover -s tests -v
 python3 tools/stack.py check
 ```
 
+On Windows, use `python` in place of `python3` (the alias may be a Store stub).
+
 Edit vendored files in `plugins/stack`, then run `python3 tools/stack.py diff` to turn the edits into patches. Files this repo owns live in `src/`. To move to a new upstream commit, follow [Updating upstream](docs/design.md#updating-upstream).
 
 ## License
