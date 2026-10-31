@@ -22,7 +22,15 @@ from pathlib import Path
 
 OUT = Path(os.environ.get("STACK_EVAL_DIR", Path(tempfile.gettempdir()) / "stack-flow-evals"))
 TOOLS = ["Read", "Glob", "Grep", "Agent", "Edit", "Write", "TodoWrite",
-         "Bash(python3 *)", "Bash(git *)", "Bash(ls *)", "Bash(cat *)", "Bash(mkdir *)", "Bash(cd *)"]
+         "Bash(python3 *)", "Bash(python *)", "Bash(git *)", "Bash(ls *)", "Bash(cat *)", "Bash(mkdir *)", "Bash(cd *)",
+         "Bash(jq *)", "Bash(mktemp *)", "Bash(head *)", "Bash(tail *)", "Bash(wc *)", "Bash(diff *)", "Bash(grep *)",
+         "Bash(echo *)", "Bash(printf *)", "Bash(test *)"]
+
+TAGS = ("/stack:poteto-mode I'm going to bed, don't stop until it's done: add tags to notes.py. `add` takes a "
+        "repeatable --tag option. `list --tag X` shows only the notes with tag X, keeping their usual numbers so "
+        "`delete` still works on them. A new `tags` subcommand prints each tag with its note count, most used "
+        "first, ties by name. notes.json files written by the current version, a plain list of strings, must "
+        "keep working. Test it through the CLI.")
 
 NOTES = '''\
 import argparse
@@ -111,6 +119,15 @@ SCENARIOS = {
         "bug": False,
         "prompt": "/stack:poteto-mode I'm going to bed, don't stop until it's done: add a `count` subcommand to notes.py that prints how many notes there are.",
     },
+    "F6": {
+        "bug": False,
+        "prompt": TAGS,
+    },
+    "F6S": {
+        "bug": False,
+        "prompt": TAGS,
+        "roles": {"roles": {"builder": "claude:sonnet", "evidence": "claude:haiku"}},
+    },
     "F5": {
         "bug": False,
         "plain": True,
@@ -130,13 +147,18 @@ def make_app(path, bug):
         subprocess.run(cmd, cwd=path, check=True)
 
 
-def claude(cwd, prompt, log, resume=None):
+def claude(cwd, prompt, log, resume=None, roles=None):
     cmd = ["claude", "-p", prompt, "--permission-mode", "acceptEdits", "--allowedTools", *TOOLS,
            "--output-format", "stream-json", "--verbose"]
     if resume:
         cmd += ["--resume", resume]
+    env = dict(os.environ)
+    if roles:
+        override = Path(log).parent / "roles.json"
+        override.write_text(json.dumps(roles))
+        env["STACK_ROLES_FILE"] = str(override)
     with open(log, "w") as f:
-        subprocess.run(cmd, cwd=cwd, stdout=f, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, timeout=2400)
+        subprocess.run(cmd, cwd=cwd, stdout=f, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, timeout=3600, env=env)
 
 
 def events(log):
@@ -157,7 +179,7 @@ def run(names):
             claude(prior / "app", spec["prompt"], OUT / name / "transcript.jsonl", resume=session)
         else:
             make_app(OUT / name / "app", spec["bug"])
-            claude(OUT / name / "app", spec["prompt"], OUT / name / "transcript.jsonl")
+            claude(OUT / name / "app", spec["prompt"], OUT / name / "transcript.jsonl", roles=spec.get("roles"))
         print(f"{name}: done")
 
 
@@ -330,6 +352,53 @@ def grade_F4(d):
         "did not run /stack:plan, which waits": not reads(cs, "commands/plan.md"),
         "did not stop for approval: count works": out.returncode == 0 and out.stdout.strip().isdigit(),
         "ran the real CLI to verify": bool(bash_matching(cs, r"notes\.py\s+count")),
+    }
+
+
+def tags_behaviour(app):
+    """Drive the finished CLI the way a user would, in a fresh folder, and check what it prints."""
+    def cli(*args, cwd):
+        return subprocess.run([sys.executable, str(app / "notes.py"), *args], cwd=cwd, capture_output=True, text=True)
+
+    checks = {}
+    with tempfile.TemporaryDirectory() as tmp:
+        cli("add", "milk", "--tag", "shop", "--tag", "food", cwd=tmp)
+        cli("add", "pay rent", "--tag", "bills", cwd=tmp)
+        cli("add", "bread", "--tag", "shop", cwd=tmp)
+        shop = cli("list", "--tag", "shop", cwd=tmp).stdout
+        checks["list --tag keeps the usual numbers"] = "1. milk" in shop and "3. bread" in shop and "rent" not in shop
+        tags = [line.split() for line in cli("tags", cwd=tmp).stdout.splitlines() if line.strip()]
+        names = [next((w for w in row if w.isalpha()), "") for row in tags]
+        checks["tags: most used first, ties by name"] = names[:3] == ["shop", "bills", "food"] and any("2" in row for row in tags[:1])
+        cli("delete", "1", cwd=tmp)
+        after = cli("list", cwd=tmp).stdout
+        checks["delete still works after tagging"] = "milk" not in after and "1. pay rent" in after
+    with tempfile.TemporaryDirectory() as tmp:
+        (Path(tmp) / "notes.json").write_text('["old note"]')
+        legacy = cli("list", cwd=tmp)
+        cli("add", "new", "--tag", "x", cwd=tmp)
+        checks["old notes.json still works"] = legacy.returncode == 0 and "1. old note" in legacy.stdout and "2. new" in cli("list", cwd=tmp).stdout
+    tests = subprocess.run([sys.executable, "-m", "unittest", "-q"], cwd=app, capture_output=True, text=True)
+    checks["its own tests pass"] = tests.returncode == 0
+    return checks
+
+
+def grade_F6(d):
+    log, cs = d / "transcript.jsonl", calls(d / "transcript.jsonl")
+    return {
+        "builder ran on GLM-5.3 through the delegate": ran_on_glm(log),
+        "every delegate brief states the goal": bool(delegations(log)) and all(re.search(r"(?i)tag", x["brief"]) for x in delegations(log)),
+        "judge reviewed the work after delegating": reviewed_after_delegation(cs, log),
+        **tags_behaviour(d / "app"),
+    }
+
+
+def grade_F6S(d):
+    log, cs = d / "transcript.jsonl", calls(d / "transcript.jsonl")
+    spawned = [i for t, i, _ in cs if t == "Agent" and str(i.get("model", "")).lower() in ("sonnet", "haiku")]
+    return {
+        "builder ran as a Claude subagent": bool(spawned),
+        **tags_behaviour(d / "app"),
     }
 
 
