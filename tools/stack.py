@@ -167,7 +167,7 @@ def build(out, local, with_patches=True, with_overlay=True):
     overlay = ROOT / manifest["overlay"]
     overlaid = {}
     if with_overlay:
-        for src in sorted(p for p in overlay.rglob("*") if p.is_file()):
+        for src in sorted(p for p in overlay.rglob("*") if p.is_file() and "__pycache__" not in p.parts):
             rel = src.relative_to(overlay).as_posix()
             if rel in vendored:
                 sys.exit(f"overlay file {rel} shadows a vendored file. Patch it instead.")
@@ -201,7 +201,7 @@ def overlay_action(built, source, recorded):
 
 
 def tree(path):
-    return {p.relative_to(path).as_posix(): p.read_bytes() for p in path.rglob("*") if p.is_file()}
+    return {p.relative_to(path).as_posix(): p.read_bytes() for p in path.rglob("*") if p.is_file() and "__pycache__" not in p.parts}
 
 
 def cmd_build(args):

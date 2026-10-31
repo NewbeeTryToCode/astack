@@ -9,7 +9,8 @@
 models it used, the files it changed since it started, and the transcript path. The caller reviews
 the diff itself. A delegate's report is never the verdict.
 
-Roles come from roles.json next to this plugin, overridden key by key by ~/.config/stack/roles.json.
+Roles come from roles.json next to this plugin, overridden key by key by ~/.config/stack/roles.json
+(or the file STACK_ROLES_FILE names).
 A role bound to `claude:<alias>` runs as a native subagent, so `run` is only needed for other backends
 or when a harness without Claude subagents bridges to Claude Code.
 
@@ -33,7 +34,7 @@ import uuid
 from pathlib import Path
 
 PLUGIN = Path(__file__).resolve().parent.parent
-USER_ROLES = Path.home() / ".config" / "stack" / "roles.json"
+USER_ROLES = Path(os.environ.get("STACK_ROLES_FILE", Path.home() / ".config" / "stack" / "roles.json"))
 STAMP = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "stack" / "delegate-doctor.json"
 
 KEEP = {
@@ -158,7 +159,7 @@ def doctor(roles, backend):
 
 
 def doctor_passed(backend):
-    if not STAMP.exists():
+    if not STAMP.exists() or not shutil.which("claude"):
         return False
     stamp = json.loads(STAMP.read_text()).get(backend, {})
     return stamp.get("ok") and stamp.get("claude") == claude_version()

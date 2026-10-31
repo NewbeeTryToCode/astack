@@ -977,7 +977,7 @@
     "skills/poteto-mode/SKILL.md": {
       "source": "cursor-plugins",
       "path": "harness/pstack/claude-code/skills/poteto-mode/SKILL.md",
-      "sha256": "e38dbebc3cd46520c361a6ccaa39384f98503625ed0cb29718aa804601c66fd4"
+      "sha256": "0f1383bc85e2cf5f04baf1f862b4e11329145ec77b7292db539485309498c0ad"
     },
     "skills/poteto-mode/playbooks/authoring-a-skill.md": {
       "source": "cursor-plugins",
@@ -3567,11 +3567,12 @@
   },
   "overlay": {
     ".claude-plugin/plugin.json": "9b0de4bdb1c9aee24332978aba4e904f821eeb522ef3503ae94a3c2416a784d6",
-    "docs/harness/stack.md": "f18e92fb5cd8845f72c34b34bf9d707fa7346a8e76ed9765d45aae111523ce8b",
-    "hooks/hooks.json": "48785bfd1afaf519f8bfa5dd724cf1d4b223cd55012f94ce7da4170b6a579cc2",
+    "docs/harness/stack.md": "227b4894ed77156f8d80055c98513fe963bc59201cb26ca6b7d72a98f7abe1b1",
+    "hooks/hooks.json": "7caf9115b0f4a98e0d027e3ed9ab38b64c7549910a211d611f933a97ccf31a92",
     "roles.json": "233e0adf42a436a890052c4d7d880b1328025e7cd9885b1a50e0fa658645b6d1",
-    "scripts/delegate.py": "7acb29132fa0358ca05b920b7fec3f23b5df97f24de812ba654a1977e39bafa2",
+    "scripts/delegate.py": "e859f8dc5ddc99c8ab04555f3da691b70aa5cc87562ca3eb80d6a0127a19f9c2",
     "scripts/openrouter-adversary.py": "cd9f65503fd4ba5cee8db448349c973ec37cdb3f2e549a569f096454e4bece03",
+    "scripts/role-guard.py": "832c9adc5c7741dbaf5f287ea2ee3294b642790d65512a0a8b42642c5b11a103",
     "scripts/stack-hook.js": "03b1386f842d8c1ae9c7fefe41c31030ec94de8e94cc657b5f82302224c6a520",
     "skills/setup-stack/SKILL.md": "9da1234ed625392ae245769b1a081b38f7c322067bcc3497a3af6d3f16011cff",
     "skills/setup-stack/scripts/install-rules.py": "843a266c8811fa77fc73dc0b1ead074d659bdafa659d51f80d500fea106fb656"

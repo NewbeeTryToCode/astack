@@ -74,6 +74,7 @@ How to run a binding:
 - `claude:<alias>` runs as a native subagent: `Agent` with `model: "<alias>"`.
 - Any other backend, such as `go:<model>`, runs through the delegate. Write the brief to a file outside the worktree, goal first, exactly as you would brief a subagent, then run `python3 <pstack>/scripts/delegate.py run --role <role> --dir <worktree> --brief <file>`. It prints the child's reply, the files it changed and its transcript path. Review the diff yourself, as the playbook says for any delegate. The delegate's reply is never the verdict.
 - Give each delegate its own worktree, as with `isolation: "worktree"`. Two delegates never share a checkout.
+- `poteto-mode` resolves the role before every spawn, and a hook backs it up: while the builder is bound to another backend and that backend is ready, a `poteto-agent` spawned on any model but opus is blocked with the `delegate.py` command to run instead. `STACK_ALLOW_CLAUDE_BUILDER=1` turns the guard off.
 - If `delegate.py` exits with an error, put `Delegate failed: <role>, <error>.` in the reply and run that step with the role's Claude fallback (`claude:sonnet` for builder and evidence, `claude:opus` otherwise).
 
 The `go` backend is OpenCode Go through its Anthropic-compatible endpoint. It reads the key from `OPENCODE_API_KEY`. `delegate.py` builds the child's environment from an allowlist and runs `doctor` before the first delegation on each Claude Code version, which proves on a local recorder that the child sends only the Go key. A child that inherits a Claude Code session's environment sends that session's Claude credential to whatever base URL it is given.
@@ -123,7 +124,7 @@ The playbooks use `gh`. When `gh` is missing or not authenticated, as in Claude 
 
 ## Hooks
 
-`hooks/hooks.json` registers these ECC hooks through `scripts/stack-hook.js`:
+`hooks/hooks.json` registers the stack role guard (`scripts/role-guard.py`, on `Agent`) and these ECC hooks through `scripts/stack-hook.js`:
 
 - Bash preflight. Blocks `--no-verify`, reminds about tmux for long commands and about reviewing before `git push`, checks commit quality, and runs GateGuard on destructive commands.
 - Config protection. Stops edits that weaken linter or formatter configs.
