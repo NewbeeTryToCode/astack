@@ -2,7 +2,7 @@
 """Port the built `stack` plugin to ZCode's skill and agent format.
 
     python3 tools/port-zcode.py            generate plugins/stack-zcode/ and verify it
-    python3 tools/port-zcode.py --install  also copy the skills to ~/.zcode/skills and agents to ~/.zcode/agents
+    python3 tools/port-zcode.py --install  copy skills, agents, docs and rules into ~/.zcode
 
 Every skill and agent keeps its name under a `stack-` prefix (`stack-poteto-mode`,
 `stack-deslop`, `stack-plan`), so nothing shadows skills already installed in ZCode.
@@ -22,8 +22,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "plugins" / "stack"
 OUT = ROOT / "plugins" / "stack-zcode"
-USER_SKILLS = Path.home() / ".zcode" / "skills"
-USER_AGENTS = Path.home() / ".zcode" / "agents"
+USER_ZCODE = Path.home() / ".zcode"
+USER_SKILLS = USER_ZCODE / "skills"
+USER_AGENTS = USER_ZCODE / "agents"
 
 ORIGIN = {"harness/pstack/": "pstack", "cursor-team-kit/": "cursor-team-kit", "": "ECC"}
 
@@ -241,8 +242,10 @@ playbooks), cursor-team-kit (`deslop`, `control-cli`, `control-ui`, `verify-this
 - commands are skills: `/stack:plan` is `stack-plan` here
 - the guardrail hooks are Claude Code plugin hooks and are not wired in this port (see the adapter)
 
-Install (user scope): `python3 tools/port-zcode.py --install` from the astack repository,
-or add this repository as a ZCode marketplace and install `stack@astack`.
+Install (user scope): `python3 tools/port-zcode.py --install` from the astack repository —
+copies the skills to `~/.zcode/skills`, the agents to `~/.zcode/agents`, and `docs/` + `rules/`
+to `~/.zcode/` so every relative link from an installed skill resolves — or add this repository
+as a ZCode marketplace and install `stack@astack`.
 """
 
 
@@ -257,8 +260,19 @@ def install():
     for src in sorted(OUT.glob("agents/stack-*.md")):
         shutil.copy2(src, USER_AGENTS / src.name)
         n_agents += 1
-    print(f"installed {n_skills} skills into {USER_SKILLS} and {n_agents} agents into {USER_AGENTS}")
-    print("they are discovered on the next ZCode session (user-scope roots)")
+    # docs and rules are referenced by the installed skills via ../../, so they
+    # must sit next to skills/ at ~/.zcode for every link to resolve
+    for kind in ("docs", "rules"):
+        dest = USER_ZCODE / kind
+        if dest.exists():
+            shutil.rmtree(dest)
+        shutil.copytree(OUT / kind, dest)
+    adapter = USER_ZCODE / "skills" / "stack-how" / "SKILL.md"
+    resolved = (adapter.parent.parent.parent / "docs" / "harness" / "zcode.md").exists()
+    print(f"installed {n_skills} skills into {USER_SKILLS}, {n_agents} agents into {USER_AGENTS}, "
+          f"docs/ and rules/ into {USER_ZCODE}")
+    print(f"installed layout resolves (adapter reachable from a skill): {'ok' if resolved else 'BROKEN'}")
+    print("skills and agents are discovered on the next ZCode session (user-scope roots)")
 
 
 def main():

@@ -9,5 +9,7 @@ playbooks), cursor-team-kit (`deslop`, `control-cli`, `control-ui`, `verify-this
 - commands are skills: `/stack:plan` is `stack-plan` here
 - the guardrail hooks are Claude Code plugin hooks and are not wired in this port (see the adapter)
 
-Install (user scope): `python3 tools/port-zcode.py --install` from the astack repository,
-or add this repository as a ZCode marketplace and install `stack@astack`.
+Install (user scope): `python3 tools/port-zcode.py --install` from the astack repository —
+copies the skills to `~/.zcode/skills`, the agents to `~/.zcode/agents`, and `docs/` + `rules/`
+to `~/.zcode/` so every relative link from an installed skill resolves — or add this repository
+as a ZCode marketplace and install `stack@astack`.

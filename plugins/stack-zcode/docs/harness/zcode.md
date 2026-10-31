@@ -12,7 +12,7 @@
 
 - Slash names lose the colon: `/stack:poteto-mode` is `/stack-poteto-mode` here, and likewise for every command (`/stack-plan`, `/stack-plan-prd`, `/stack-build-fix`, …).
 - The cursor-team-kit skills are bundled: `deslop`, `control-cli`, `control-ui`, `verify-this`, `run-smoke-tests`, `fix-ci`, `loop-on-ci`, `fix-merge-conflicts`, `check-compiler-errors` and `thermo-nuclear-code-quality-review` are `stack-deslop`, `stack-control-cli`, and so on.
-- `<pstack>`, `<this skill's folder>` or `${CLAUDE_PLUGIN_ROOT}` in a skill means the folder that contains the `stack-*` skill folders (a user install: `~/.zcode/skills`; the plugin install: the `stack` plugin folder).
+- `<pstack>`, `<this skill's folder>` or `${CLAUDE_PLUGIN_ROOT}` in a skill means the folder that holds `skills/`, `docs/` and `rules/` (a user install: `~/.zcode`; the plugin install: the `stack` plugin folder).
 
 ## Models
 
