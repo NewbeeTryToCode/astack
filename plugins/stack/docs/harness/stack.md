@@ -40,15 +40,17 @@ ECC's own TDD workflow, verification loop, code-review command, PRP flow, Plan C
 
 This overrides the Never Block on the Human principle for one decision: what to build.
 
-For the Feature, Refactoring, Multi-phase plan and Orchestrate playbooks, and whenever `poteto-mode` routes to `figure-it-out`:
+For the Feature, Refactoring, Multi-phase plan and Orchestrate playbooks, and whenever `poteto-mode` routes to `figure-it-out`, the gate has two parts. **A plan** is written on every run. **Waiting for approval** is the only part a grant removes.
 
 1. Send `poteto-mode`'s first message (the goal in your own words and the smallest change you expect).
-2. Read `<pstack>/commands/plan.md` and follow it. Ground the plan in what `how` found, name the data shape, and list the verification each phase ends in, taken from the matched playbook.
-3. Stop and wait for the operator to confirm or edit the plan. Write no code before that.
-4. The approved plan becomes the brief. Copy its phases into the todo list after the playbook's steps. `architect` and `arena` explore designs inside it, not around it.
-5. If evidence later shows the plan is wrong, stop at the end of the current verifiable unit and bring the operator the evidence and a revised plan.
+2. Write the plan. Read `<pstack>/commands/plan.md` and follow it. Ground the plan in what `how` found, name the data shape, and list the verification each phase ends in, taken from the matched playbook.
+3. Wait. Stop for the operator to confirm or edit the plan, and write no code before that.
 
-Skip the gate when the operator says to skip the plan, gives a full-autonomy grant ("don't stop", "going to bed", "run until done"), or approved a plan earlier in the conversation that still covers the work. Under a grant, still write the plan with `/stack:plan`, record it in the decision trail (`show-me-your-work`), and proceed.
+Under a full-autonomy grant ("don't stop", "going to bed", "run until done"), replace steps 2 and 3. `/stack:plan` waits by design, so do not run it. Record the plan as the first entries of the decision trail (`show-me-your-work`): the goal, the data shape, the phases, and the check each phase ends in. Then proceed.
+4. The approved plan becomes the brief. Copy its phases into the todo list after the playbook's steps. `architect` and `arena` explore designs inside it, not around it.
+5. If evidence later shows the plan is wrong, stop at the end of the current verifiable unit and bring the operator the evidence and a revised plan. Under a grant, revise the plan in the decision trail and continue.
+
+Skip both parts only when the operator says to skip the plan, or approved a plan earlier in the conversation that still covers the work.
 
 Bug fix, Perf issue, Hillclimb, Runtime forensics, Trace forensics, Investigation, Visual parity, Babysit and Shipping are evidence-driven and have no gate unless the operator asks for a plan.
 
@@ -60,10 +62,10 @@ The Claude Code adapter's model rows give way to this table. `/stack:setup-stack
 | --- | --- | --- |
 | `grok-4.7-xhigh-fast` | feature, refactoring, bug-fix, perf-issue, hillclimb, how explorer, why investigators, reflect tooling, swarm workers | `sonnet xhigh` |
 | `claude-opus-5-5-xhigh` | judgment and prose, hardest tasks, how explainer, why synthesizer, reflect judgment | `opus xhigh` |
-| two-family panel | arena runners, arena cross-judge pool, architect runners | `opus xhigh, fable xhigh` |
-| two-family panel | interrogate reviewers | `opus xhigh, fable xhigh, openrouter:x-ai/grok-4.7` |
+| two-model panel | arena runners, arena cross-judge pool, architect runners | `opus xhigh, sonnet xhigh` |
+| two-family panel | interrogate reviewers | `opus xhigh, sonnet xhigh, openrouter:x-ai/grok-4.7` |
 
-`fable` is a separate Claude model, which keeps some diversity in a Claude-only panel. When the `Agent` tool rejects `fable`, follow `poteto-mode`'s rejected-slug rule. A panel entry written `openrouter:<model-id>` is an external adversary.
+Claude panels pair `opus` with `sonnet`. Add `fable xhigh` to a panel line in `/stack:setup-stack` when your account can run Fable. Without usage credits it is refused, and each refusal costs a spawn. When the `Agent` tool rejects a model, follow `poteto-mode`'s rejected-slug rule. A panel entry written `openrouter:<model-id>` is an external adversary.
 
 ## External adversaries
 

@@ -977,7 +977,7 @@
     "skills/poteto-mode/SKILL.md": {
       "source": "cursor-plugins",
       "path": "harness/pstack/claude-code/skills/poteto-mode/SKILL.md",
-      "sha256": "3b16e72dec45c0508e31e2ccc8b8d6af4076668becf1d2082d3c543fad06c08a"
+      "sha256": "e38dbebc3cd46520c361a6ccaa39384f98503625ed0cb29718aa804601c66fd4"
     },
     "skills/poteto-mode/playbooks/authoring-a-skill.md": {
       "source": "cursor-plugins",

@@ -63,7 +63,7 @@ flowchart LR
 | 4 | Patches as unified diffs regenerated from edits | Reviewable in a PR, re-applied on every build, conflicts surface at sync time | Hand-maintained copies |
 | 5 | ECC plan gate overrides "never block on the human" for what to build | Matches the operator's preference to settle design first | pstack's no-planning default |
 | 6 | ECC `testing.md` rewritten to defer to pstack | Mandatory 80% coverage contradicts Test Behavior, Not Implementation | Shipping both rules |
-| 7 | Claude panel `opus` + `fable`, OpenRouter optional | Keeps some model diversity with no extra key, and full diversity when a key exists | Claude-only, or requiring OpenRouter |
+| 7 | Claude panel `opus` + `sonnet`, OpenRouter optional | Keeps two models with no extra key, and a second model family when a key exists. Fable was refused twice in testing without usage credits, so it is opt-in. | `opus` + `fable` by default, Claude-only, or requiring OpenRouter |
 | 8 | No ECC memory, learning, session or cost hooks | rewire owns memory, and two memory systems would double session-start context | Keeping ECC instincts |
 | 9 | ECC rules installed on request by `/stack:setup-stack` | Plugins cannot ship always-on rules, and rules cost context in every session | Copying rules into `~/.claude` on install |
 | 10 | Plugin name `stack` | Short prefix (`/stack:poteto-mode`) and no clash with an installed `pstack` or `ecc` | Reusing `pstack` |
@@ -75,3 +75,17 @@ flowchart LR
 3. Re-make that edit in `plugins/stack`, then `python3 tools/stack.py diff` and `build`.
 4. `python3 tools/stack.py verify` and `python3 -m unittest discover -s tests`. New upstream references show up here as missing names. Ship the component, map it in `stack.md`, or list it under Not shipped.
 5. `python3 tools/stack.py check` must pass before you commit.
+
+## Flow evals
+
+`evals/flows.py` runs the installed plugin headless on a small CLI app and grades what the agent did: the files it read, the order of its tool calls, the files it changed, the commands it ran as a user, and the hook events. Each run is a real, paid Claude Code session, so the evals run by hand, not in CI.
+
+| Scenario | What it proves | Result on 2026-10-31 |
+| --- | --- | --- |
+| F1 feature | Restates the goal, reads `stack.md`, writes the plan with `/stack:plan`, stops with no code changed | pass, twice |
+| F2 F1 approved | Delegates with the goal in the brief, verifies by running the real CLI, reports evidence | pass |
+| F3 bug fix | No plan gate, reproduces before the first edit, commits the failing test before the fix | pass |
+| F4 "going to bed" | Records the plan in the decision trail, does not wait, verifies through the CLI | pass after the grant rule was made explicit (run 3) |
+| F5 hooks | ECC's Bash preflight blocks `git commit --no-verify` in a live session | pass |
+
+What the evals changed: the plan gate rule was split into "a plan is always written" and "waiting is what a grant removes", Fable left the default panels after it was refused twice, and the eval runs moved outside this repository so its `CLAUDE.md` stops leaking into them.
