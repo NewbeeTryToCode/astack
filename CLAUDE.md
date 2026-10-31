@@ -7,6 +7,8 @@
 
 ## Commits and pull requests
 
+- Never push to `main` directly. Commit on a new branch (for example `zcode/<topic>`), push the
+  branch, and open a pull request for the operator to review and merge.
 - Commit as the repository owner, never as Claude: before the first commit in a clone, run
   `git config user.name "NewbeeTryToCode"` and
   `git config user.email "36224565+NewbeeTryToCode@users.noreply.github.com"`
