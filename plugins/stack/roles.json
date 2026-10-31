@@ -1,0 +1,46 @@
+{
+  "roles": {
+    "judge": "claude:opus",
+    "hardest": "claude:opus",
+    "builder": "go:glm-5.3",
+    "evidence": "go:glm-5.3-flash",
+    "builders": ["claude:opus", "go:glm-5.3"],
+    "adversaries": ["claude:opus", "claude:sonnet", "go:glm-5.3-flash"]
+  },
+  "pstack_roles": {
+    "feature, refactoring": "builder",
+    "bug-fix": "builder",
+    "perf-issue": "builder",
+    "hillclimb": "builder",
+    "hardest tasks": "hardest",
+    "judgment and prose": "judge",
+    "how explorer": "evidence",
+    "how explainer": "judge",
+    "why investigators": "evidence",
+    "why synthesizer": "judge",
+    "reflect tooling": "evidence",
+    "reflect judgment, divergent, synthesizer": "judge",
+    "swarm workers": "evidence",
+    "arena runners": "builders",
+    "architect runners": "builders",
+    "arena cross-judge pool": "judge",
+    "interrogate reviewers": "adversaries"
+  },
+  "backends": {
+    "claude": {
+      "aliases": ["opus", "sonnet", "haiku", "fable"]
+    },
+    "go": {
+      "base_url": "https://opencode.ai/zen/go",
+      "key_env": "OPENCODE_API_KEY",
+      "session_header": "x-opencode-session",
+      "alias_models": { "opus": "glm-5.3", "sonnet": "glm-5.3", "haiku": "glm-5.3-flash" }
+    }
+  },
+  "delegate_tools": [
+    "Read", "Glob", "Grep", "Edit", "Write", "MultiEdit", "TodoWrite",
+    "Bash(git *)", "Bash(python3 *)", "Bash(python *)", "Bash(pytest *)", "Bash(node *)", "Bash(npm *)",
+    "Bash(npx *)", "Bash(pnpm *)", "Bash(cargo *)", "Bash(go *)", "Bash(make *)", "Bash(ls *)",
+    "Bash(cat *)", "Bash(mkdir *)", "Bash(jq *)"
+  ]
+}

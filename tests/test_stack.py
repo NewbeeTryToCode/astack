@@ -209,5 +209,73 @@ class OpenRouterTests(unittest.TestCase):
         self.assertIn("page 1 is the first page", seen["body"]["messages"][1]["content"])
 
 
+def load_delegate():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("delegate", PLUGIN / "scripts/delegate.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+class DelegateTests(unittest.TestCase):
+    def setUp(self):
+        self.delegate = load_delegate()
+        self.roles = self.delegate.load_roles()
+
+    def test_pstack_roles_resolve_to_bindings(self):
+        builder = self.delegate.resolve(self.roles, "feature, refactoring")
+        self.assertEqual(builder, [{"role": "builder", "backend": "go", "model": "glm-5.3", "via": "delegate"}])
+        panel = self.delegate.resolve(self.roles, "interrogate reviewers")
+        self.assertEqual([b["via"] for b in panel], ["agent", "agent", "delegate"])
+        self.assertEqual(self.delegate.resolve(self.roles, "judgment and prose")[0]["model"], "opus")
+
+    def test_every_pstack_role_line_resolves(self):
+        for line in self.roles["pstack_roles"]:
+            self.assertTrue(self.delegate.resolve(self.roles, line))
+
+    def test_child_env_drops_the_session_credentials(self):
+        leaked = {"CLAUDE_SESSION_INGRESS_TOKEN_FILE": "/run/token", "CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST": "1",
+                  "ANTHROPIC_AUTH_TOKEN": "claude-secret", "CLAUDE_CODE_OAUTH_TOKEN": "claude-secret",
+                  "ANTHROPIC_BASE_URL": "https://api.anthropic.com", "CLAUDE_CODE_REMOTE": "true"}
+        saved = {k: os.environ.get(k) for k in leaked}
+        os.environ.update(leaked)
+        try:
+            env = self.delegate.child_env(self.roles, "go", "glm-5.3", key="go-key")
+        finally:
+            for k, v in saved.items():
+                if v is None:
+                    os.environ.pop(k, None)
+                else:
+                    os.environ[k] = v
+        self.assertNotIn("claude-secret", " ".join(env.values()))
+        self.assertEqual(sorted(k for k in env if k.startswith("CLAUDE_") and k != "CLAUDE_CONFIG_DIR"),
+                         ["CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC"])
+        self.assertEqual(env["ANTHROPIC_API_KEY"], "go-key")
+        self.assertEqual(env["ANTHROPIC_BASE_URL"], "https://opencode.ai/zen/go")
+        self.assertNotIn("ANTHROPIC_AUTH_TOKEN", env)
+        self.assertTrue(env["ANTHROPIC_CUSTOM_HEADERS"].startswith("x-opencode-session: "))
+
+    @unittest.skipUnless(shutil.which("claude"), "needs the claude CLI")
+    def test_doctor_passes_and_catches_a_leaked_credential(self):
+        with tempfile.TemporaryDirectory() as cache:
+            self.delegate.STAMP = Path(cache) / "stamp.json"
+            clean = self.delegate.doctor(self.roles, "go")
+            self.assertTrue(clean["ok"], clean)
+            self.assertTrue(self.delegate.doctor_passed("go"))
+
+            honest = self.delegate.child_env
+
+            def leaky(*args, **kwargs):
+                env = honest(*args, **kwargs)
+                env["ANTHROPIC_AUTH_TOKEN"] = "pretend-claude-credential"
+                return env
+
+            self.delegate.child_env = leaky
+            caught = self.delegate.doctor(self.roles, "go")
+            self.delegate.child_env = honest
+            self.assertFalse(caught["ok"], caught)
+            self.assertIn("Authorization", " ".join(caught["problems"]))
+
+
 if __name__ == "__main__":
     unittest.main()

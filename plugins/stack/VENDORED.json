@@ -287,7 +287,7 @@
     "docs/harness/claude-code.md": {
       "source": "cursor-plugins",
       "path": "harness/pstack/claude-code/docs/harness/claude-code.md",
-      "sha256": "667c8634fa6e58d874ba7b63424b6b8f2b952ee77d86db8df5669ad98059448d"
+      "sha256": "4c20c62e31e650fa7d493ec674b21d5cc2455d92dc2a6c88c2fdcdd6a99cf03a"
     },
     "rules/common/coding-style.md": {
       "source": "ecc",
