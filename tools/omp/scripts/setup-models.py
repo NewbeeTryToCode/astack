@@ -150,6 +150,27 @@ def set_path(lines, start, end, path, value, indent):
     set_path(lines, index + 1, stop, path[1:], value, indent + 2)
 
 
+def existing_role_values(agent):
+    config = agent / "config.yml"
+    if not config.exists():
+        return set()
+    lines = config.read_text().splitlines()
+    start = next((i for i, line in enumerate(lines) if re.match(r"^modelRoles:\s*$", line)), None)
+    if start is None:
+        return set()
+    end = start + 1
+    while end < len(lines) and (lines[end].startswith(" ") or not lines[end].strip()):
+        end += 1
+    values = set()
+    for line in lines[start + 1:end]:
+        match = re.match(r"^\s+[A-Za-z0-9_-]+:\s*(.+?)\s*$", line)
+        if match:
+            value = match.group(1).strip().strip('"').strip("'")
+            if value:
+                values.add(value)
+    return values
+
+
 def set_nested(agent, root, path, value, dry_run):
     config = agent / "config.yml"
     lines = config.read_text().splitlines() if config.exists() else []
@@ -249,7 +270,7 @@ def main():
         roles["stack_panel_extra"] = args.panel_extra
     if args.interrogate_extra:
         roles["stack_interrogate_extra"] = args.interrogate_extra
-    known = set(roles.values())
+    known = set(roles.values()) | existing_role_values(agent)
     for index, selector in enumerate(reviewers, 1):
         if selector not in known:
             roles[f"stack_reviewer_{index}"] = selector
