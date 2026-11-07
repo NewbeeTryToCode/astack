@@ -11,7 +11,7 @@
 ## Names
 
 - Skills are `stack-<name>`: `stack-poteto-mode`, `stack-how`, `stack-interrogate`, `stack-deslop`, `stack-verify-this`, `stack-principle-prove-it-works`.
-- Agents are `stack-<name>`: `stack-poteto-agent`, `stack-comment-sicko`, `stack-rust-reviewer`, `stack-security-reviewer`, and the rest.
+- Agents are `stack-<name>`: `stack-poteto-agent`, `stack-judgment`, `stack-comment-sicko`, `stack-rust-reviewer`, `stack-security-reviewer`, and the rest.
 - Commands keep their upstream name under the plugin prefix: `/stack:plan`, `/stack:plan-prd`, `/stack:rust-build`, `/stack:hookify`.
 - `subagent_type: "stack:<name>"` means `agent: "stack-<name>"`. `subagent_type: "general-purpose"` means `agent: "task"`. `readonly: true` means `agent: "scout"` with "do not edit any files" in the brief, then check `git status` after it returns.
 
@@ -22,11 +22,18 @@ omp does not use Claude aliases such as `opus` or `sonnet`. A Task spawn takes o
 1. Read the managed block in `~/.omp/agent/RULES.md` between `<!-- stack:models:start -->` and `<!-- stack:models:end -->`. It maps each astack role to one or more exact selectors. If the block is missing, run `/skill:stack-setup-stack`.
 2. Pass the selector as `model` on the Task item. For a panel, spawn one subagent per selector in the list. `openrouter:<model-id>` is not a Task model: it is an external adversary, handled below.
 3. Per-call model selection requires `task.perCallModel: on` in the operator's `~/.omp/agent/config.yml`. A project's `.omp/config.yml` can lower the mode but cannot turn it on or grant a model. The model must also be granted by a configured `modelRoles` value, by a bundled or user-level agent frontmatter `model`, or by the parent's live model, and must pass `task.perCallModelAllow` when that list is set.
-4. `task.enableEffort` exposes the coarse `effort` hint. A selector that ends in `:high`, `:xhigh`, `:max` or another supported level sets the level directly. Keep the model family the role names; only change the level or `-fast` speed.
-5. If omp rejects a selector before the spawn, the call fails preflight. Do not quietly substitute the session model. Name the rejection, then use a selector from `modelRoles` that the operator approved, or ask.
-6. `resolvedModel`, `resolvedModelIdentity`, `resolvedThinkingLevel` and `resolvedModelIsFallback` in `details.results` are the proof of what ran. A role is routed only when those fields match the role's selector.
+4. For judgment roles, use `agent: "stack-judgment"` and **omit** `model`. `task.agentModelOverrides.stack-judgment` pins it to `@stack_judgment`; `retry.fallbackChains.stack_judgment` then switches to the configured fallback on a usage limit. A per-call `model` disables omp's retry fallback, so do not pass one for this agent.
+5. `task.enableEffort` exposes the coarse `effort` hint. A selector that ends in `:high`, `:xhigh`, `:max` or another supported level sets the level directly. Keep the model family the role names; only change the level or `-fast` speed.
+6. If omp rejects a selector before the spawn, the call fails preflight. Do not quietly substitute the session model. Name the rejection, then use a selector from `modelRoles` that the operator approved, or ask.
+7. `resolvedModel`, `resolvedModelIdentity`, `resolvedThinkingLevel` and `resolvedModelIsFallback` in `details.results` are the proof of what ran. A role is routed only when those fields match the role's selector.
 
-`/skill:stack-setup-stack` detects models with `omp models --json`, writes `modelRoles.stack_code` and `modelRoles.stack_judgment`, enables per-call selection, and writes the same mapping to `RULES.md`.
+## Judgment fallback
+
+The managed block can name `agent stack-judgment` on the judgment line. That agent has no per-call model. The operator's `task.agentModelOverrides.stack-judgment` resolves `@stack_judgment`, and `retry.fallbackChains.stack_judgment` plus `retry.fallbackOn` switch to the fallback selector when the primary hits a usage limit. This is the only path that gives automatic fallback: a Task item that passes `model` runs as a per-call worker, and omp disables retry fallback for those.
+
+If the block has no fallback, spawn `agent: "stack-judgment"` with no model and the session model applies; otherwise follow the block's selector.
+
+`/skill:stack-setup-stack` detects models with `omp models --json`, writes `modelRoles.stack_code`, `stack_judgment`, `stack_panel_primary`, `stack_panel_extra` and `stack_interrogate_extra`, enables per-call selection, writes the optional judgment fallback, and writes the same mapping to `RULES.md`.
 
 ## Subagents
 
@@ -42,7 +49,7 @@ The plan gate in `docs/harness/stack.md` still applies. Feature, Refactoring, Mu
 
 ## External adversaries
 
-An `openrouter:<model-id>` panel entry is not passed to Task. It gets a different model family to look for failures while keeping pstack's rule that only a run proves a finding.
+The setup's default panels use OpenCode models, so no `OPENROUTER_API_KEY` is needed. An `openrouter:<model-id>` entry is still supported when the operator adds one: it is not passed to Task, and gets a different model family to look for failures while keeping pstack's rule that only a run proves a finding.
 
 1. Write the restated intent to `intent.md` and the scoped diff to `change.diff` inside the adversary's worktree.
 2. Spawn `agent: "task"` with `isolated: true` (or a worktree) on the judgment model. Its brief: run `python3 <stack>/scripts/openrouter-adversary.py --model <model-id> --intent intent.md --diff change.diff`, then run every finding's command in the worktree, and report only findings whose output shows the failure, each with the command, output and expected output. Name the external model as the finder.
@@ -81,6 +88,10 @@ The extension runs the vendored ECC scripts with `node` or `bun` from `PATH`. Se
 
 omp's native and plugin rule loaders scan `rules/*.md` non-recursively, so the sets are flattened. Do not install into `~/.claude/rules/`; omp does not read that directory. `~/.omp/agent/RULES.md` is the sticky rule that carries the model routing block and is also delivered to task subagents.
 
+## MCP servers
+
+The plugin ships `.mcp.json`, which omp discovers for an installed plugin: one `context7` server over Streamable HTTP at `https://mcp.context7.com/mcp`. `/mcp list` names it, `/mcp disable context7` hides it for the profile, and `stack-docs-lookup` needs it. Servers for GitHub, Slack and issue trackers come from the operator's own configuration, not from this plugin.
+
 ## Memory
 
 When the session has rewire's MCP tools (`recall`, `remember`, `get`), `/skill:stack-recall` treats `recall` as the shared record, and `skill://stack-reflect` proposes lasting lessons with `remember` in addition to skill edits. Without rewire, both skills work from the session transcripts as written.
@@ -108,6 +119,7 @@ Cursor Automations, Bugbot, Cursor cloud agents, `/loop` and Cursor's built-in P
 | `AskQuestion` | `ask` |
 | `TodoWrite` | `todo` |
 | `subagent_type: "stack:<name>"` | `agent: "stack-<name>"` |
+| judgment role | `agent: "stack-judgment"` with no `model`; the role and fallback chain apply |
 | `subagent_type: "general-purpose"` | `agent: "task"` |
 | `readonly: true` | `agent: "scout"`, brief says "do not edit any files" |
 | `run_in_background: true` | omit; omp runs subagents in the background by default |

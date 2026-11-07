@@ -382,6 +382,16 @@ def generate(out=OUT, src=SRC, overrides=OVERRIDES):
         dest = out / "agents" / f"stack-{name}.md"
         write(dest, "---\n" + "\n".join(agent_frontmatter(name, fields)) + "\n---\n" + rewrite(body))
 
+    # a judgment-only delegate, pinned to @stack_judgment by the operator config so
+    # omp's retry.fallbackChains applies when Claude hits a usage limit
+    judgment_src = src / "agents" / "poteto-agent.md"
+    if judgment_src.exists():
+        _, body = fm(judgment_src.read_text())
+        write(out / "agents" / "stack-judgment.md",
+              "---\nname: stack-judgment\n"
+              "description: Judgment delegate for stack judgment roles. Runs on the stack_judgment role and its usage-limit fallback chain; spawn it without a per-call model.\n"
+              "---\n" + rewrite(body))
+
     # rules: flatten set/rule.md to rules/stack-<set>-<rule>.md so omp's non-recursive
     # native and plugin rule loaders discover every file
     for set_dir in sorted(p for p in (src / "rules").iterdir() if p.is_dir()):
@@ -415,6 +425,9 @@ def generate(out=OUT, src=SRC, overrides=OVERRIDES):
 
     # scripts and licenses ride along; the guardrail extension drives the hook scripts
     shutil.copytree(src / "scripts", out / "scripts")
+    # omp loads plugin MCP servers from a root .mcp.json, the same file Claude Code reads
+    if (src / ".mcp.json").exists():
+        shutil.copy2(src / ".mcp.json", out / ".mcp.json")
     shutil.copytree(src / "LICENSES", out / "LICENSES") if (src / "LICENSES").exists() else None
     write(out / "extensions/stack-guardrails.mjs", (overrides / "stack-guardrails.mjs").read_text())
 
@@ -495,8 +508,9 @@ def verify(out=OUT):
         problems.append(f"expected {len(src_skills)} skills, found {len(skills)}")
     if len(commands) != len(src_commands):
         problems.append(f"expected {len(src_commands)} commands, found {len(commands)}")
-    if len(agents) != len(src_agents):
-        problems.append(f"expected {len(src_agents)} agents, found {len(agents)}")
+    expected_agents = len(src_agents) + (1 if (out / "agents/stack-judgment.md").exists() else 0)
+    if len(agents) != expected_agents:
+        problems.append(f"expected {expected_agents} agents, found {len(agents)}")
     for name in sorted(skills):
         if not name.startswith("stack-"):
             problems.append(f"skill {name} is missing the stack- prefix")
@@ -539,9 +553,12 @@ def verify(out=OUT):
         r = subprocess.run(["node", "--check", str(extension)], capture_output=True, text=True)
         if r.returncode:
             problems.append(f"extensions/stack-guardrails.mjs: {r.stderr.strip().splitlines()[-1]}")
-    for required in ("docs/harness/omp.md", ".omp-plugin/plugin.json", "package.json"):
-        if not (out / required).exists():
-            problems.append(f"{required} is missing")
+    required = ("docs/harness/omp.md", ".omp-plugin/plugin.json", "package.json")
+    if (SRC / ".mcp.json").exists():
+        required += (".mcp.json",)
+    for name in required:
+        if not (out / name).exists():
+            problems.append(f"{name} is missing")
     return problems
 
 

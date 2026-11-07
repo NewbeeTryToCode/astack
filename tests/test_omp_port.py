@@ -108,7 +108,7 @@ class SetupTests(unittest.TestCase):
             text = config.read_text()
             self.assertIn("stack_code: opencode-go/deepseek-v4.1-flash:high", text)
             self.assertIn("stack_judgment: opencode-go/deepseek-v4.1-flash:max", text)
-            self.assertIn("perCallModel: \"on\"", text)
+            self.assertIn("perCallModel: on", text)
             self.assertIn("maxConcurrency: 8", text)
             self.assertIn("customKey: 1", text)
             self.assertEqual(text.count("stack_code:"), 1)
@@ -116,6 +116,33 @@ class SetupTests(unittest.TestCase):
             self.assertIn("<!-- stack:models:start -->", rules)
             self.assertIn("interrogate reviewers:", rules)
             self.assertEqual(rules.count("<!-- stack:models:start -->"), 1)
+
+    def test_setup_models_writes_judgment_fallback_without_openrouter(self):
+        with tempfile.TemporaryDirectory() as agent:
+            env = {**os.environ, "HOME": str(Path.home()), "PI_CODING_AGENT_DIR": agent}
+            result = subprocess.run(
+                [sys.executable, str(SETUP / "setup-models.py"),
+                 "--code", "opencode-go/deepseek-v4.1-flash:high",
+                 "--judgment", "anthropic/claude-opus-5-5:xhigh",
+                 "--panel-primary", "opencode-go/gpt-5.6-luna:xhigh",
+                 "--panel-extra", "opencode-go/glm-5.3-flash:high",
+                 "--interrogate-extra", "opencode-go/grok-4.7:xhigh",
+                 "--judgment-fallback", "opencode-go/gpt-5.6-luna:xhigh",
+                 "--max-effort", "xhigh", "--no-validate"],
+                capture_output=True, text=True, env=env)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            text = (Path(agent) / "config.yml").read_text()
+            self.assertIn("stack_panel_primary: opencode-go/gpt-5.6-luna:xhigh", text)
+            self.assertIn("stack_interrogate_extra: opencode-go/grok-4.7:xhigh", text)
+            self.assertIn("fallbackOn: usage-limit", text)
+            self.assertIn("fallbackChains:", text)
+            self.assertIn("- opencode-go/gpt-5.6-luna:xhigh", text)
+            self.assertIn("agentModelOverrides:", text)
+            self.assertIn("stack-judgment: \"@stack_judgment\"", text)
+            rules = (Path(agent) / "RULES.md").read_text()
+            self.assertIn("use agent stack-judgment", rules)
+            self.assertIn("opencode-go/grok-4.7:xhigh", rules)
+            self.assertNotIn("openrouter:", rules)
 
 
 if __name__ == "__main__":

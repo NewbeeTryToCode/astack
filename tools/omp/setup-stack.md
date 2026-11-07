@@ -21,12 +21,16 @@ Run `omp models --json` and keep the `kind: "chat"` entries. Each entry has a `s
 
 Map the answer to the target level: `max`, `xhigh`, `high`, `medium`.
 
-**(b) Pick two models.** Use the `ask` tool. Offer the detected chat models as options, and mark the strongest reasoning model (the one with the most thinking levels, then the largest context) as recommended for judgment. Offer a fast, cheaper coding model as recommended for code. Ask separately for:
+**(b) Pick the models.** Use the `ask` tool. Offer the detected chat models as options, and mark the strongest reasoning model (the one with the most thinking levels, then the largest context) as recommended for judgment. Offer a fast, cheaper coding model as recommended for code. Ask separately for:
 
 - the code model, used by feature, refactoring, bug-fix, perf-issue, hillclimb, how explorer, why investigators, reflect tooling and swarm workers;
-- the judgment model, used by judgment and prose, the hardest tasks, how explainer, why synthesizer and reflect judgment.
+- the judgment model, used by judgment and prose, the hardest tasks, how explainer, why synthesizer and reflect judgment;
+- optionally a panel primary, used by arena runners, architect runners and interrogate reviewers. Default it to a non-Claude OpenCode model when the judgment model is Claude, so panels do not spend the Claude quota;
+- optionally a panel extra and an interrogate-only extra. Use OpenCode models for these. Do not add an `openrouter:` entry unless the operator asks for one.
 
-Optionally ask for a third model for arena, architect and interrogate panels. If only one chat model is available, use it for both and say routing is mechanical until another model is configured.
+If only one chat model is available, use it for everything and say routing is mechanical until another model is configured.
+
+**(b2) Ask for a judgment fallback.** When the judgment model is Claude, ask for a fallback, and recommend `opencode-go/gpt-5.6-luna`. The fallback is used only on a usage limit by default. Explain the limit: a Task item that passes a per-call `model` runs as a per-call worker, and omp disables retry fallback for those. To use the fallback, the judgment roles must spawn `agent: "stack-judgment"` with no `model`; the operator's `task.agentModelOverrides.stack-judgment` resolves `@stack_judgment`, and the role's fallback chain applies. The omp adapter already says this.
 
 **(c) Apply the budget.** Append the level to each selector only when that model's `thinking` list contains it. If it does not, use the highest supported level at or below the target and tell the operator. For example, a model whose highest level is `high` becomes `provider/model:high` under `unlimited`.
 
@@ -34,11 +38,14 @@ Optionally ask for a third model for arena, architect and interrogate panels. If
 
 ```bash
 python3 <this skill's folder>/scripts/setup-models.py \
-  --code <selector> --judgment <selector> [--panel-extra <selector>] \
+  --code <selector> --judgment <selector> \
+  [--panel-primary <selector>] [--panel-extra <selector>] \
+  [--interrogate-extra <selector>] \
+  [--judgment-fallback <selector>] \
   --max-effort <level>
 ```
 
-The script writes `task.perCallModel: on`, the exact `task.perCallModelAllow` list, `task.enableEffort: true`, `task.maxEffort`, and the `modelRoles.stack_code` / `stack_judgment` entries in `~/.omp/agent/config.yml`. It writes the astack role block to `~/.omp/agent/RULES.md`. Pass `--agent-dir` to write a different profile. If it reports a selector problem, fix the selector and rerun; do not bypass the check with `--no-validate` unless the operator confirms the model is valid but discovery is stale.
+The script writes `task.perCallModel: on`, the exact `task.perCallModelAllow` list, `task.enableEffort: true`, `task.maxEffort`, the `modelRoles.stack_*` entries, and, when a fallback is given, `retry.fallbackOn`, `retry.fallbackChains.stack_judgment` and `task.agentModelOverrides.stack-judgment` in `~/.omp/agent/config.yml`. It writes the astack role block to `~/.omp/agent/RULES.md`. Pass `--agent-dir` to write a different profile. If it reports a selector problem, fix the selector and rerun; do not bypass the check with `--no-validate` unless the operator confirms the model is valid but discovery is stale.
 
 The settings that grant per-call models must live in the operator layer. A project's `.omp/config.yml` can turn `task.perCallModel` off but cannot turn it on or grant a model.
 
@@ -54,7 +61,7 @@ Add `--project <path>` for the project scope. Show the operator the files it pri
 
 ## 3. External adversary
 
-Check whether `OPENROUTER_API_KEY` is set, without printing its value (`test -n "$OPENROUTER_API_KEY" && echo set`). If it is not, tell the operator that `interrogate` will skip the `openrouter:` panel entry, and that they can export the key in their shell profile to turn it on. The executor still runs on an omp model; the external model only proposes findings.
+The default panels use omp models, so no OpenRouter key is needed. Only if the operator adds an `openrouter:<model-id>` entry, check whether `OPENROUTER_API_KEY` is set, without printing its value (`test -n "$OPENROUTER_API_KEY" && echo set`). If it is not, tell the operator that `interrogate` will skip the `openrouter:` panel entry. The executor still runs on an omp model; the external model only proposes findings.
 
 ## 4. Hooks and memory
 
@@ -71,4 +78,4 @@ Check whether the session has rewire's MCP tools (`recall`, `remember`). Say whe
 
 ## 5. Report
 
-One short list: the rule path and the roles that differ from the session default, the rule sets installed and where, whether external adversaries are on, the hook profile, and whether rewire is connected.
+One short list: the rule path and the roles that differ from the session default, whether a judgment fallback is configured and on which trigger, the rule sets installed and where, whether external adversaries are on, the hook profile, and whether rewire is connected.
