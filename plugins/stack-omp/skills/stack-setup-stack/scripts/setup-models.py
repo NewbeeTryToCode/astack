@@ -29,6 +29,7 @@ import sys
 from pathlib import Path
 
 LEVELS = ("low", "medium", "high", "xhigh", "max", "minimal")
+EFFORT_ORDER = ("minimal", "low", "medium", "high", "xhigh", "max")
 START = "<!-- stack:models:start -->"
 END = "<!-- stack:models:end -->"
 
@@ -161,7 +162,7 @@ def set_nested(agent, root, path, value, dry_run):
     config.write_text("\n".join(lines) + "\n", newline="\n")
 
 
-def rules_block(code, judgment, panel_primary, panel_extra, interrogate_extra, fallback):
+def rules_block(code, judgment, panel_primary, panel_extra, interrogate_extra, fallback, reviewers=None):
     def dedupe(values):
         seen = []
         for value in values:
@@ -170,7 +171,7 @@ def rules_block(code, judgment, panel_primary, panel_extra, interrogate_extra, f
         return seen
 
     panel = dedupe([panel_primary or judgment, code, panel_extra])
-    interrogate = dedupe(panel + [interrogate_extra])
+    interrogate = dedupe(reviewers if reviewers else panel + [interrogate_extra])
     judgment_line = judgment
     if fallback:
         judgment_line = f"{judgment} (use agent stack-judgment; fallback {fallback} on usage limits)"
@@ -210,6 +211,7 @@ def main():
     parser.add_argument("--panel-primary", help="selector for the arena, architect and interrogate panels (default: judgment)")
     parser.add_argument("--panel-extra", help="optional extra selector for arena, architect and interrogate panels")
     parser.add_argument("--interrogate-extra", help="optional extra selector for the interrogate panel only")
+    parser.add_argument("--interrogate-reviewers", help="comma-separated full interrogate panel; overrides --interrogate-extra")
     parser.add_argument("--judgment-fallback", help="selector tried when the judgment model hits a usage limit")
     parser.add_argument("--judgment-agent", default="stack-judgment",
                         help="agent name pinned to the judgment role (default: stack-judgment)")
@@ -223,12 +225,20 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="print the changes without writing")
     args = parser.parse_args()
 
+    reviewers = [item.strip() for item in (args.interrogate_reviewers or "").split(",") if item.strip()]
     selectors = [args.code, args.judgment, args.panel_primary, args.panel_extra,
-                 args.interrogate_extra, args.judgment_fallback] + args.allow
+                 args.interrogate_extra, args.judgment_fallback] + reviewers + args.allow
     problems = validate([s for s in selectors if s], args.no_validate)
     if problems:
         print(*problems, sep="\n", file=sys.stderr)
         sys.exit("setup-models: the model list does not match `omp models --json`")
+
+    requested = [split_level(selector)[1] for selector in selectors if selector and split_level(selector)[1]]
+    if requested:
+        highest = max(requested, key=EFFORT_ORDER.index)
+        if EFFORT_ORDER.index(highest) > EFFORT_ORDER.index(args.max_effort):
+            print(f"warning: {highest} selectors are clamped to --max-effort {args.max_effort}; "
+                  f"pass --max-effort {highest} to keep them", file=sys.stderr)
 
     agent = agent_dir(args.agent_dir)
     allow = sorted({split_level(selector)[0] for selector in selectors if selector})
@@ -239,6 +249,11 @@ def main():
         roles["stack_panel_extra"] = args.panel_extra
     if args.interrogate_extra:
         roles["stack_interrogate_extra"] = args.interrogate_extra
+    known = set(roles.values())
+    for index, selector in enumerate(reviewers, 1):
+        if selector not in known:
+            roles[f"stack_reviewer_{index}"] = selector
+            known.add(selector)
 
     set_nested(agent, "task", ["perCallModel"], "on", args.dry_run)
     set_nested(agent, "task", ["perCallModelAllow"], allow, args.dry_run)
@@ -254,7 +269,7 @@ def main():
                    "@stack_judgment", args.dry_run)
     write_rules(agent, rules_block(args.code, args.judgment, args.panel_primary,
                                    args.panel_extra, args.interrogate_extra,
-                                   args.judgment_fallback), args.dry_run)
+                                   args.judgment_fallback, reviewers or None), args.dry_run)
 
     action = "would write" if args.dry_run else "wrote"
     print(f"{action} model routing in {agent}")
@@ -266,6 +281,8 @@ def main():
         print(f"  stack_panel_extra: {args.panel_extra}")
     if args.interrogate_extra:
         print(f"  stack_interrogate_extra: {args.interrogate_extra}")
+    if reviewers:
+        print(f"  interrogate reviewers: {', '.join(reviewers)}")
     if args.judgment_fallback:
         print(f"  judgment fallback: {args.judgment_fallback} on {args.fallback_on}")
         print(f"  agent override: {args.judgment_agent} -> @stack_judgment")

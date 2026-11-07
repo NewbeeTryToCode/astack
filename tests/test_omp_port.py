@@ -144,6 +144,27 @@ class SetupTests(unittest.TestCase):
             self.assertIn("opencode-go/grok-4.7:xhigh", rules)
             self.assertNotIn("openrouter:", rules)
 
+    def test_setup_models_writes_a_full_interrogate_panel(self):
+        with tempfile.TemporaryDirectory() as agent:
+            env = {**os.environ, "HOME": str(Path.home()), "PI_CODING_AGENT_DIR": agent}
+            result = subprocess.run(
+                [sys.executable, str(SETUP / "setup-models.py"),
+                 "--code", "opencode-go/deepseek-v4.1-flash:high",
+                 "--judgment", "anthropic/claude-opus-5-5:xhigh",
+                 "--panel-primary", "opencode-go/gpt-5.6-luna:xhigh",
+                 "--panel-extra", "opencode-go/glm-5.3-flash:high",
+                 "--interrogate-reviewers",
+                 "opencode-go/gpt-5.6-luna:xhigh,opencode-go/kimi-k3.1-pro:max,opencode-go/grok-4.7:xhigh",
+                 "--max-effort", "xhigh", "--no-validate"],
+                capture_output=True, text=True, env=env)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            text = (Path(agent) / "config.yml").read_text()
+            self.assertIn("stack_reviewer_2: opencode-go/kimi-k3.1-pro:max", text)
+            self.assertIn("- opencode-go/kimi-k3.1-pro", text)
+            rules = (Path(agent) / "RULES.md").read_text()
+            self.assertIn("interrogate reviewers: opencode-go/gpt-5.6-luna:xhigh, opencode-go/kimi-k3.1-pro:max, opencode-go/grok-4.7:xhigh", rules)
+            self.assertNotIn("openrouter:", rules)
+
 
 if __name__ == "__main__":
     unittest.main()

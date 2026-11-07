@@ -26,7 +26,8 @@ Map the answer to the target level: `max`, `xhigh`, `high`, `medium`.
 - the code model, used by feature, refactoring, bug-fix, perf-issue, hillclimb, how explorer, why investigators, reflect tooling and swarm workers;
 - the judgment model, used by judgment and prose, the hardest tasks, how explainer, why synthesizer and reflect judgment;
 - optionally a panel primary, used by arena runners, architect runners and interrogate reviewers. Default it to a non-Claude OpenCode model when the judgment model is Claude, so panels do not spend the Claude quota;
-- optionally a panel extra and an interrogate-only extra. Use OpenCode models for these. Do not add an `openrouter:` entry unless the operator asks for one.
+- optionally a panel extra. Use an OpenCode model. Do not add an `openrouter:` entry unless the operator asks for one;
+- optionally a full interrogate reviewer list as a comma-separated set of exact selectors. One subagent runs per entry. Prefer three or more model families. This list overrides the single interrogate extra.
 
 If only one chat model is available, use it for everything and say routing is mechanical until another model is configured.
 
@@ -41,6 +42,7 @@ python3 <this skill's folder>/scripts/setup-models.py \
   --code <selector> --judgment <selector> \
   [--panel-primary <selector>] [--panel-extra <selector>] \
   [--interrogate-extra <selector>] \
+  [--interrogate-reviewers <selector>,<selector>,...] \
   [--judgment-fallback <selector>] \
   --max-effort <level>
 ```
