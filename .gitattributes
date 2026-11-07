@@ -1,3 +1,4 @@
 * text=auto eol=lf
 plugins/stack/** -text
 plugins/stack-zcode/** -text
+plugins/stack-omp/** -text
