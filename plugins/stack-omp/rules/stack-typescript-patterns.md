@@ -1,5 +1,6 @@
 ---
-paths:
+description: "TypeScript/JavaScript Patterns. ECC typescript rule for files matching **/*.ts, **/*.tsx, **/*.js, **/*.jsx."
+globs:
   - "**/*.ts"
   - "**/*.tsx"
   - "**/*.js"

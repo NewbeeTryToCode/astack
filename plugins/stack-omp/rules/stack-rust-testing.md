@@ -1,5 +1,6 @@
 ---
-paths:
+description: "Rust Testing. ECC rust rule for files matching **/*.rs."
+globs:
   - "**/*.rs"
 ---
 # Rust Testing

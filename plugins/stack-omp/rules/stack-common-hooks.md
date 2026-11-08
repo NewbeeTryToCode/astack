@@ -1,3 +1,7 @@
+---
+description: "Hooks System. ECC rule that applies to every project."
+alwaysApply: true
+---
 # Hooks System
 
 ## Hook Types

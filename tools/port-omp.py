@@ -85,6 +85,33 @@ def fm(text):
     return text[4:end].splitlines(), text[end + 5:]
 
 
+def omp_rule(set_name, text):
+    """Give a rule the frontmatter omp reads.
+
+    ECC rules carry Claude's `paths:` or no frontmatter. omp ignores `paths:`, and a rule with
+    no `alwaysApply`, `description` or condition lands in no bucket, so it never loads.
+    Common rules apply to every project (`alwaysApply`). Language rules keep their file
+    patterns as `globs` and are listed by description, then read on demand.
+    """
+    fields, body = fm(text)
+    globs, in_paths = [], False
+    for line in fields:
+        if line.startswith("paths:"):
+            in_paths = True
+        elif in_paths and line.strip().startswith("- "):
+            globs.append(line.strip()[2:].strip().strip("\"'"))
+        else:
+            in_paths = False
+    title = next((ln[2:].strip() for ln in body.splitlines() if ln.startswith("# ")), set_name)
+    if globs:
+        description = f"{title}. ECC {set_name} rule for files matching {', '.join(globs)}."
+        head = [f"description: {json.dumps(description)}", "globs:"] + [f"  - {json.dumps(g)}" for g in globs]
+    else:
+        description = f"{title}. ECC rule that applies to every project."
+        head = [f"description: {json.dumps(description)}", "alwaysApply: true"]
+    return "---\n" + "\n".join(head) + "\n---\n" + body
+
+
 def write(path, text):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, newline="\n")
@@ -423,7 +450,7 @@ def generate(out=OUT, src=SRC, overrides=OVERRIDES):
     # native and plugin rule loaders discover every file
     for set_dir in sorted(p for p in (src / "rules").iterdir() if p.is_dir()):
         for rule in sorted(set_dir.glob("*.md")):
-            text = rewrite(rule.read_text())
+            text = omp_rule(set_dir.name, rewrite(rule.read_text()))
             dest = out / "rules" / f"stack-{set_dir.name}-{rule.name}"
             write(dest, text)
             fix_links(dest, set_dir)

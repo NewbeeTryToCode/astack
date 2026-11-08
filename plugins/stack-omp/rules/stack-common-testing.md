@@ -1,3 +1,7 @@
+---
+description: "Testing Requirements. ECC rule that applies to every project."
+alwaysApply: true
+---
 # Testing Requirements
 
 In the `stack` plugin, pstack owns verification. These rules defer to its principles.

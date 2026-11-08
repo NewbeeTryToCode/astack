@@ -48,6 +48,18 @@ class PortTests(unittest.TestCase):
         self.assertIn("stack-rust-testing.md", rules)
         self.assertFalse((PLUGIN / "rules" / "common").exists())
 
+    def test_every_rule_lands_in_an_omp_rule_bucket(self):
+        # omp loads a rule only with alwaysApply, or with a description (listed, read on demand).
+        for rule in (PLUGIN / "rules").glob("*.md"):
+            fields, _ = port_omp.fm(rule.read_text())
+            keys = {line.split(":", 1)[0] for line in fields if not line.startswith(" ")}
+            self.assertNotIn("paths", keys, rule.name)
+            self.assertTrue("alwaysApply" in keys or "description" in keys, rule.name)
+            if rule.name.startswith("stack-common-"):
+                self.assertIn("alwaysApply: true", fields, rule.name)
+            else:
+                self.assertIn("globs", keys, rule.name)
+
     def test_claude_code_adapter_is_replaced(self):
         self.assertFalse((PLUGIN / "docs/harness/claude-code.md").exists())
         self.assertTrue((PLUGIN / "docs/harness/omp.md").exists())

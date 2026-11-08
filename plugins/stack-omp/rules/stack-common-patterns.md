@@ -1,3 +1,7 @@
+---
+description: "Common Patterns. ECC rule that applies to every project."
+alwaysApply: true
+---
 # Common Patterns
 
 ## Skeleton Projects

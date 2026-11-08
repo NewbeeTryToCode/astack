@@ -1,3 +1,7 @@
+---
+description: "Coding Style. ECC rule that applies to every project."
+alwaysApply: true
+---
 # Coding Style
 
 ## Immutability (CRITICAL)

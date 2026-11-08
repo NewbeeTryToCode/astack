@@ -1,5 +1,6 @@
 ---
-paths:
+description: "Python Coding Style. ECC python rule for files matching **/*.py, **/*.pyi."
+globs:
   - "**/*.py"
   - "**/*.pyi"
 ---

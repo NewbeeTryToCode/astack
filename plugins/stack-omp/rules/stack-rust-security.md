@@ -1,5 +1,6 @@
 ---
-paths:
+description: "Rust Security. ECC rust rule for files matching **/*.rs."
+globs:
   - "**/*.rs"
 ---
 # Rust Security

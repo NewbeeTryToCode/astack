@@ -1,3 +1,7 @@
+---
+description: "Security Guidelines. ECC rule that applies to every project."
+alwaysApply: true
+---
 # Security Guidelines
 
 ## Mandatory Security Checks

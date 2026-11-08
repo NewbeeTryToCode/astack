@@ -1,5 +1,6 @@
 ---
-paths:
+description: "Rust Coding Style. ECC rust rule for files matching **/*.rs."
+globs:
   - "**/*.rs"
 ---
 # Rust Coding Style

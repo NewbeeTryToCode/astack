@@ -1,5 +1,6 @@
 ---
-paths:
+description: "Rust Hooks. ECC rust rule for files matching **/*.rs, **/Cargo.toml."
+globs:
   - "**/*.rs"
   - "**/Cargo.toml"
 ---

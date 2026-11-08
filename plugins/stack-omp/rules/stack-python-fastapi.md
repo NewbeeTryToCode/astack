@@ -1,5 +1,6 @@
 ---
-paths:
+description: "FastAPI Rules. ECC python rule for files matching **/app/**/*.py, **/fastapi/**/*.py, **/*_api.py."
+globs:
   - "**/app/**/*.py"
   - "**/fastapi/**/*.py"
   - "**/*_api.py"
