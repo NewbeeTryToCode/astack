@@ -92,6 +92,8 @@ omp's native and plugin rule loaders scan `rules/*.md` non-recursively, so the s
 
 The plugin ships `.mcp.json`, which omp discovers for an installed plugin: one `context7` server over Streamable HTTP at `https://mcp.context7.com/mcp`. `/mcp list` names it, `/mcp disable context7` hides it for the profile, and `stack-docs-lookup` needs it. Servers for GitHub, Slack and issue trackers come from the operator's own configuration, not from this plugin.
 
+omp prefixes plugin MCP tools with the plugin name, so the tools are `mcp__stack_context7_resolve_library_id` and `mcp__stack_context7_query_docs`, not the `mcp__context7__resolve-library-id` and `mcp__context7__query-docs` that the bundled `docs-lookup` text names. omp maps the `tools:` list of `stack-docs-lookup` to them. When a skill names `mcp__context7__...`, call the prefixed tool.
+
 ## Memory
 
 When the session has rewire's MCP tools (`recall`, `remember`, `get`), `/skill:stack-recall` treats `recall` as the shared record, and `skill://stack-reflect` proposes lasting lessons with `remember` in addition to skill edits. Without rewire, both skills work from the session transcripts as written.
