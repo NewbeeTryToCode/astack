@@ -163,9 +163,11 @@ def existing_role_values(agent):
         end += 1
     values = set()
     for line in lines[start + 1:end]:
-        match = re.match(r"^\s+[A-Za-z0-9_-]+:\s*(.+?)\s*$", line)
-        if match:
-            value = match.group(1).strip().strip('"').strip("'")
+        match = re.match(r"^\s+([A-Za-z0-9_-]+):\s*(.+?)\s*$", line)
+        # stack_* roles are managed by this script and may be rewritten in the same run,
+        # so a value they hold today is not a grant that survives it.
+        if match and not match.group(1).startswith("stack_"):
+            value = match.group(2).strip().strip('"').strip("'")
             if value:
                 values.add(value)
     return values

@@ -178,6 +178,26 @@ class SetupTests(unittest.TestCase):
             self.assertIn("interrogate reviewers: opencode-go/gpt-5.6-luna:xhigh, opencode-go/kimi-k3.1-pro:max, opencode-go/grok-4.7:xhigh", rules)
             self.assertNotIn("openrouter:", rules)
 
+    def test_reviewer_keeps_a_grant_when_a_rerun_rewrites_the_role_that_held_it(self):
+        # A per-call model must be granted by a modelRoles value. A reviewer that only matched
+        # the value of a role this run overwrites would lose its grant.
+        with tempfile.TemporaryDirectory() as agent:
+            env = {**os.environ, "HOME": str(Path.home()), "PI_CODING_AGENT_DIR": agent}
+            base = [sys.executable, str(SETUP / "setup-models.py"),
+                    "--code", "opencode-go/deepseek-v4.1-flash:high",
+                    "--judgment", "anthropic/claude-opus-5-5:high",
+                    "--max-effort", "high", "--no-validate"]
+            first = subprocess.run([*base, "--panel-primary", "opencode-go/deepseek-v4-pro:high"],
+                                   capture_output=True, text=True, env=env)
+            self.assertEqual(first.returncode, 0, first.stderr)
+            second = subprocess.run(
+                [*base, "--panel-primary", "opencode-go/glm-5.3-flash:high",
+                 "--interrogate-reviewers", "opencode-go/deepseek-v4-pro:high,opencode-go/deepseek-v4.1-flash:high"],
+                capture_output=True, text=True, env=env)
+            self.assertEqual(second.returncode, 0, second.stderr)
+            text = (Path(agent) / "config.yml").read_text()
+            self.assertIn("stack_reviewer_1: opencode-go/deepseek-v4-pro:high", text)
+
 
 if __name__ == "__main__":
     unittest.main()
