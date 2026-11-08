@@ -40,6 +40,9 @@ function hookEnv(cwd) {
     for (const id of DISABLED_BY_STACK) disabled.add(id);
     env.ECC_DISABLED_HOOKS = [...disabled].join(",");
   }
+  // The fallback runtime is the omp binary itself. Without BUN_BE_BUN it starts a new omp
+  // session instead of running the hook script, and every hook call spawns another one.
+  if (NODE === process.execPath) env.BUN_BE_BUN = "1";
   return env;
 }
 

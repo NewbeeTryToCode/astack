@@ -21,6 +21,7 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -30,6 +31,32 @@ SRC = ROOT / "plugins" / "stack"
 OUT = ROOT / "plugins" / "stack-omp"
 OVERRIDES = ROOT / "tools" / "omp"
 MARKET = ROOT / ".omp-plugin" / "marketplace.json"
+
+
+def js_runtime():
+    """Return (argv prefix, env) that runs a JS file: node, bun, or omp itself acting as bun."""
+    for name in ("node", "bun"):
+        path = shutil.which(name)
+        if path:
+            return [path], dict(os.environ)
+    omp = shutil.which("omp")
+    if omp:
+        return [omp], {**os.environ, "BUN_BE_BUN": "1"}
+    raise RuntimeError("no JS runtime: install node or bun, or put omp on PATH")
+
+
+def js_check(path):
+    """Return the syntax error of a JS file, or None when it parses."""
+    argv, env = js_runtime()
+    if Path(argv[0]).name == "node":
+        cmd = [*argv, "--check", str(path)]
+    else:
+        cmd = [*argv, "build", "--no-bundle", str(path)]
+    r = subprocess.run(cmd, capture_output=True, text=True, env=env)
+    if r.returncode == 0:
+        return None
+    return (r.stderr.strip().splitlines() or ["syntax error"])[-1]
+
 
 LINK = re.compile(r"\]\(([^)#\s]+)(?:#[^)]*)?\)")
 FENCE = re.compile(r"^(```|~~~).*?^\1", re.S | re.M)
@@ -425,9 +452,8 @@ def generate(out=OUT, src=SRC, overrides=OVERRIDES):
 
     # scripts and licenses ride along; the guardrail extension drives the hook scripts
     shutil.copytree(src / "scripts", out / "scripts")
-    # omp loads plugin MCP servers from a root .mcp.json, the same file Claude Code reads
-    if (src / ".mcp.json").exists():
-        shutil.copy2(src / ".mcp.json", out / ".mcp.json")
+    # omp loads plugin MCP servers from a root .mcp.json; the port owns it in tools/omp
+    shutil.copy2(overrides / ".mcp.json", out / ".mcp.json")
     shutil.copytree(src / "LICENSES", out / "LICENSES") if (src / "LICENSES").exists() else None
     write(out / "extensions/stack-guardrails.mjs", (overrides / "stack-guardrails.mjs").read_text())
 
@@ -549,13 +575,10 @@ def verify(out=OUT):
     if not extension.exists():
         problems.append("extensions/stack-guardrails.mjs is missing")
     else:
-        import subprocess
-        r = subprocess.run(["node", "--check", str(extension)], capture_output=True, text=True)
-        if r.returncode:
-            problems.append(f"extensions/stack-guardrails.mjs: {r.stderr.strip().splitlines()[-1]}")
-    required = ("docs/harness/omp.md", ".omp-plugin/plugin.json", "package.json")
-    if (SRC / ".mcp.json").exists():
-        required += (".mcp.json",)
+        error = js_check(extension)
+        if error:
+            problems.append(f"extensions/stack-guardrails.mjs: {error}")
+    required = ("docs/harness/omp.md", ".omp-plugin/plugin.json", "package.json", ".mcp.json")
     for name in required:
         if not (out / name).exists():
             problems.append(f"{name} is missing")

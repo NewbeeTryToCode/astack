@@ -66,9 +66,10 @@ const result = await handlers.tool_call(
 );
 process.stdout.write(JSON.stringify(result ?? null));
 """)
+        argv, env = port_omp.js_runtime()
         try:
-            result = subprocess.run(["node", str(script)], capture_output=True, text=True,
-                                    env={**os.environ, "HOME": str(Path.home())})
+            result = subprocess.run([*argv, str(script)], capture_output=True, text=True,
+                                    env={**env, "HOME": str(Path.home())})
         finally:
             shutil.rmtree(script.parent)
         self.assertEqual(result.returncode, 0, result.stderr)
