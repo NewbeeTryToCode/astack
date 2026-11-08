@@ -19,5 +19,7 @@ jobs:
         run: python3 tools/stack.py check
       - name: every reference resolves
         run: python3 tools/stack.py verify
+      - name: omp port matches a fresh generation
+        run: python3 tools/port-omp.py --check
       - name: behavior tests
         run: python3 -m unittest discover -s tests -v

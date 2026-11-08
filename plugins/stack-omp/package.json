@@ -1,0 +1,11 @@
+{
+  "name": "astack-stack-omp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "astack's stack plugin for omp: pstack judgment and verification plus ECC planning, specialists and guardrails.",
+  "omp": {
+    "extensions": [
+      "./extensions/stack-guardrails.mjs"
+    ]
+  }
+}

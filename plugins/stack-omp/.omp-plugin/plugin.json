@@ -1,0 +1,19 @@
+{
+  "name": "stack",
+  "version": "0.1.0",
+  "description": "astack's stack plugin for omp: pstack judgment and verification plus ECC planning, specialists and guardrails.",
+  "author": {
+    "name": "NewbeeTryToCode"
+  },
+  "repository": "https://github.com/NewbeeTryToCode/astack",
+  "license": "MIT",
+  "keywords": [
+    "pstack",
+    "poteto-mode",
+    "ecc",
+    "verification",
+    "planning",
+    "hooks",
+    "omp"
+  ]
+}

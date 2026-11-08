@@ -1,0 +1,19 @@
+---
+description: "TypeScript/JavaScript Testing. ECC typescript rule for files matching **/*.ts, **/*.tsx, **/*.js, **/*.jsx."
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+  - "**/*.jsx"
+---
+# TypeScript/JavaScript Testing
+
+> This file extends [common/testing.md](stack-common-testing.md) with TypeScript/JavaScript specific content.
+
+## E2E Testing
+
+Use **Playwright** as the E2E testing framework for critical user flows.
+
+## Agent Support
+
+- **control-ui** skill - drive the real browser to prove an end-to-end flow (pstack verification)

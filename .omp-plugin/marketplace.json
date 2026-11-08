@@ -1,0 +1,18 @@
+{
+  "name": "astack",
+  "owner": {
+    "name": "NewbeeTryToCode",
+    "email": "36224565+NewbeeTryToCode@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "astack's stack plugin for omp"
+  },
+  "plugins": [
+    {
+      "name": "stack",
+      "source": "./plugins/stack-omp",
+      "version": "0.1.0",
+      "description": "pstack judgment, verification and playbooks with ECC planning, specialists and guardrails, in one omp plugin."
+    }
+  ]
+}
